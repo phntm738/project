@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Section(models.Model):
+    name = models.TextField()
     language = models.CharField(max_length=32)
     description = models.TextField()
     sec_type = models.CharField(max_length=1)
