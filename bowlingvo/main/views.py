@@ -19,9 +19,5 @@ def index(request):
     return render(request, 'main/my_form.html', {'username': request.user.username, 'colors': colors, 'page_name': 'index'})
 
 
-def results(request):
-    html = '<html><body>'
-    html += pprint.pformat(dict(request.POST.lists()))
-    html += '</body></html>'
-    return HttpResponse(html)
-
+def test(request):
+    return render(request, 'main/test.html')

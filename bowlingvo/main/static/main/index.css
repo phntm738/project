@@ -1,7 +1,32 @@
+:root {
+    --header-color: #2470FF;
+    --backgrondcolor: #EDEDED;
+}
+
+
 body {
-    background-color: lightgrey;
+    background-color: var(--backgroundcolor);
+    margin: 0px;
 
 }
+
+
+.header {
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    background-color: var(--header-color);
+}
+
+
+.logo {
+    position: absolute;
+    top: 5%;
+    left: 1%;
+    width: 60px;
+    height: 60px;
+}
+
 
 .back {
     position: absolute;
@@ -36,6 +61,8 @@ form {
     border: 2px solid black;
     border-radius: 10px;
     padding: 5px;
+    height: 30%;
+    width: 90%;
 }
 
 .submit {
@@ -53,4 +80,21 @@ form {
 .login_username, .login_password {
     color: green;
     padding: 5px;
+}
+
+.content {
+    position: absolute;
+    top: 10%;
+    height: 85%;
+    width: 100%;
+}
+
+p {
+    width: 50%;
+    text-align: center;
+    font-family: Arial;
+}
+
+.font-test {
+    font-family: 'Neucha'
 }
