@@ -1,0 +1,56 @@
+body {
+    background-color: lightgrey;
+
+}
+
+.back {
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    width: 50%;
+    height: 70%;
+    border: 2px solid black;
+    border-radius: 60px;
+    background-color: white;
+}
+
+.error_message {
+    color: red;
+    height: 20px;
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    text-align: center;
+    z-index: 1;
+}
+
+form {
+    width: 20%;
+    height: 30%;
+    position: absolute;
+    left: 40%;
+    top: 40%;
+}
+
+.fields {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.submit {
+    background-color: lightgreen;
+    border: 2px solid green;
+    border-radius: 20px;
+    text-size: 30px;
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    left: 30%;
+    top: 40%;
+}
+
+.login_username, .login_password {
+    color: green;
+    padding: 5px;
+}

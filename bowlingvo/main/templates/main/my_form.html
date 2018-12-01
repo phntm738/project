@@ -1,6 +1,7 @@
+{% include "main/head.html" %}
 <h1>Welcome, {{ username }}</h1>
 <p>Please, fill the form:</p>
-<form action='/main/results' method="post">
+<form action='/main/do-logout' method="post">
     {% csrf_token %}
     Name:
     <input type="text" name="name"><br>

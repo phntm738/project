@@ -1,10 +1,13 @@
 from django.db import models
 
-# Create your models here.
+
+class Language(models.Model):
+    name = models.CharField(max_length=50)
+    icon = models.CharField(max_length=50)
 
 class Section(models.Model):
+    language = models.ForeignKey(Language, on_delete=models.PROTECT)
     name = models.TextField()
-    language = models.CharField(max_length=32)
     description = models.TextField()
     sec_type = models.CharField(max_length=1)
     background_url = models.CharField(max_length=250)
@@ -24,6 +27,10 @@ class Translation_Unit(models.Model):
     word_for = models.CharField(max_length=64)
     tag = models.ForeignKey(Tag, on_delete=models.PROTECT, to_field='tag')
 
-class Theory_Unit(models.Model):
+class Theory_Unit(models.Model): #wrong model, fix, add lesson type (G, L) and two different sections for grammar and lexis
     lesson = models.ForeignKey(Lesson, on_delete=models.PROTECT)
     theory = models.TextField()
+
+class Finished_Lesson(models.Model):
+    user_id = models.IntegerField()
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
