@@ -10,5 +10,6 @@ urlpatterns = [
     path('do-logout', views.do_logout),
     path('register', views.send_register_form),
     path('do-register', views.do_register),
+    path('<str:language_name>', views.get_sections),
     path('test', views.test)
 ]

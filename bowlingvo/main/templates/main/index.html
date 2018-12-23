@@ -1,0 +1,21 @@
+{% load static %}
+{% include "main/head.html" %}
+{% include "main/header.html" %}
+<div class="content">
+    <div class="course">
+        Выберите курс:
+    </div>
+    <table class="languages">
+        {% for language in languages %}
+        <tr>
+            <td>
+                {{ language.name }}
+            </td>
+            <td>
+                <a href="/main/{{ language.url_name }}">Выбрать</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% include "main/footer.html" %}

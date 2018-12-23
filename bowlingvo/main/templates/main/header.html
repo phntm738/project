@@ -1,4 +1,13 @@
 {% load static %}
-<div class="header">
-    <a href="/main/"><img class='logo' src="{% static 'main/images/logo.png' %}" alt="bowlingvo logo"></a>
-</div>
+<div class="container">
+    <div class="header">
+        <a href="/main/"><img id='logo' src="{% static 'main/images/logo.png' %}" alt="bowlingvo logo"></a>
+        <div id="brand">BowLingvo</div>
+        {% if authorized %}
+            <a href="/main/do-logout" id="logout-button">Logout</a>
+            <div id="user">{{ username }}</div>
+        {% else %}
+            <a href="/main/register" id="register-button">Register</a>
+            <a href="/main/login" id="login-button">Login</a>
+        {% endif %}
+    </div>

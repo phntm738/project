@@ -1,0 +1,31 @@
+{% load static %}
+{% include "main/head.html" %}
+{% include "main/header.html" %}
+<div class="content">
+    <div class="language">
+        {{ language.name }}
+    </div>
+    <div class="all_sections">
+        <table class="sections">
+            <tr>
+                {% for section in sections %}
+                <td>
+                    <table>
+                        <tr>
+                            <td class="sec_name">
+                                {{ section.name }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sec_url">
+                                <a href="/main/{{ language.url_name }}/{{ section.url_name }}">Выбрать</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+</div>
+{% include "main/footer.html" %}

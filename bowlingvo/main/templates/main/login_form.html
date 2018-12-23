@@ -1,12 +1,24 @@
 {% include "main/head.html" %}
 {% include "main/header.html" %}
-
-<div class="error_message">{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}</div>
-<div class="back"></div><form action='/main/do-login' method="post">
-    {% csrf_token %}
-    <div class="fields">
-    <div class="login_username">username<input type="text" name="username"><br></div>
-    <div class="login_password">password<input type="password" name="password"><br></div></div>
-    <div class="login_submit"><input class="submit" type="submit" value="login">
+<div class="content">
+    <div class="back">
+        <div class="error_message">{% if error_message %}{{ error_message }}{% endif %}</div>
+        <form action='/main/do-login' method="post">
+            {% csrf_token %}
+            <div class="fields">
+                <table>
+                    <tr>
+                        <td>username</td>
+                        <td><input type="text" name="username"></td>
+                    </tr>
+                    <tr>
+                        <td>password</td>
+                        <td><input type="password" name="password"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="login_submit"><input class="submit" type="submit" value="LOGIN"></div>
+        </form>
     </div>
-</form>
+</div>
+{% include "main/footer.html" %}

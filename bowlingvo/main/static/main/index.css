@@ -1,99 +1,329 @@
+/*--color-variables-------------*/
 :root {
     --header-color: #2470FF;
-    --backgrondcolor: #EDEDED;
+    --backgroundcolor: #EDEDED;
 }
+/*--/color-variables------------*/
 
 
 body {
-    background-color: var(--backgroundcolor);
     margin: 0px;
+    background-color: var(--backgroundcolor);
+}
 
+
+/*--main-positioning------------*/
+.container {
+    min-width: 1135px;
+    width: 100%;
+    min-height: 100%;
 }
 
 
 .header {
-    position: absolute;
-    height: 10%;
-    width: 100%;
+    height: 75px;
     background-color: var(--header-color);
 }
 
 
-.logo {
-    position: absolute;
-    top: 5%;
-    left: 1%;
-    width: 60px;
-    height: 60px;
+.content {
 }
 
 
+.footer {
+    height: 50px;
+    background-color: black;
+    color: white;
+    width = 100%;
+    margin-top: -50px;
+}
+/*--/main-positioning-----------*/
+
+
+/*--header-elements-------------*/
+#logo {
+    float: left;
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 65px;
+    height: 65px;
+}
+
+
+#brand {
+    float: left;
+    width: 300px;
+    margin-left: 200px;
+    margin-top: 15px;
+    margin-right: 200px;
+
+    font-size: 45px;
+    letter-spacing: 8px;
+}
+
+
+#login-button, #register-button, #logout-button{
+    float: right;
+    margin-right: 30px;
+    margin-top: 15px;
+
+    width: 150px;
+    height: 45px;
+    border-radius: 22.5px;
+
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    font-size: 25px;
+    font: caption;
+    line-height: 45px;
+}
+
+
+#login-button {
+    background-color: green;
+}
+
+
+#register-button, #logout-button {
+    background-color: red;
+}
+
+
+#login-button:hover {
+    background-color: lightgreen;
+}
+
+
+#register-button:hover, #logout-button:hover {
+    background-color: pink;
+}
+
+
+#user {
+    float: right;
+    margin-top: 15px;
+    height: 30px;
+    width: 100px;
+    font-size: 30px;
+}
+/*-/header-elements-------------*/
+
+
+/*--content-elements------------*/
+
+/*----login-elements------------*/
 .back {
-    position: absolute;
-    top: 15%;
-    left: 25%;
-    width: 50%;
-    height: 70%;
-    border: 2px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
     border-radius: 60px;
     background-color: white;
 }
 
+
 .error_message {
+    width: 500px;
+    height: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+
     color: red;
-    height: 20px;
-    position: absolute;
+    font-size: 25px;
     left: 40%;
     top: 30%;
     text-align: center;
     z-index: 1;
 }
 
-form {
-    width: 20%;
-    height: 30%;
-    position: absolute;
-    left: 40%;
-    top: 40%;
-}
 
 .fields {
-    border: 2px solid black;
+    width: 300px;
+    height: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 0px;
+
+    border: 1px solid blue;
     border-radius: 10px;
     padding: 5px;
-    height: 30%;
-    width: 90%;
 }
 
-.submit {
+
+.fields input {
+    width: 200px;
+    height: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    border: 1px solid black;
+    border-radius: 15px;
+    box-shadow: 0 0 2px black;
+    outline: none;
+}
+
+
+.login_submit {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    text-align: center;
+}
+
+
+.login_submit .submit {
+    width: 100px;
+    height: 40px;
     background-color: lightgreen;
     border: 2px solid green;
     border-radius: 20px;
-    text-size: 30px;
-    width: 100px;
-    height: 40px;
-    position: absolute;
-    left: 30%;
-    top: 40%;
-}
-
-.login_username, .login_password {
+    font-size: 20px;
     color: green;
-    padding: 5px;
+    outline: none;
 }
 
-.content {
-    position: absolute;
-    top: 10%;
-    height: 85%;
-    width: 100%;
-}
 
-p {
-    width: 50%;
+.login_submit .submit:hover {
+    background-color: grey;
+}
+/*---/login-elements------------*/
+
+
+/*----index-elements------------*/
+.course {
+    width: 500px;
+    height: 30px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
     text-align: center;
-    font-family: Arial;
+    font-size: 22px;
+    font-family: 'Roboto Condensed';
 }
+
+
+.languages {
+    border-spacing: 0 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.languages tr {
+    background-color: white;
+    border-radius: 15px;
+}
+
+
+.languages td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 150px;
+    height: 75px;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+.languages td a {
+    display: block;
+
+    width: 70px;
+    height: 30px;
+    margin-right: 10px;
+    margin-left: 70px;
+
+    border-radius: 7px;
+    background-color: lightgreen;
+    line-height: 30px;
+    text-decoration: none;
+    font-size: 16;
+    color: blue;
+}
+/*---/index-elements------------*/
+
+
+/*---language-page-elements-----*/
+.language {
+    background-color: orange;
+    width: 700px;
+    height: 65px;
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+    line-height: 65px;
+    font-size: 40px;
+}
+
+
+.all_sections {
+    overflow: auto;
+}
+
+
+.sections {
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+
+.sections table {
+    border-spacing: 20px 10px;
+}
+
+
+.sections table .sec_name {
+    background-color: lightgrey;
+    width: 150px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+.sections table .sec_url {
+    width: 150px;
+    height: 40px;
+}
+
+
+.sections table a {
+    background-color: lightgreen;
+    display: block;
+    width: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    border: 1px solid green;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    color: blue;
+}
+/*--/language-page-elements-----*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .font-test {
     font-family: 'Neucha'
