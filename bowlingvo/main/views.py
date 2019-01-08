@@ -25,4 +25,6 @@ def get_sections(request, language_name):
 
 
 def test(request):
-    return render(request, 'main/test.html')
+    if not request.user.is_authenticated:
+        return redirect('/main/login')
+    return render(request, 'main/test.html', {'authorized': True, 'username': request.user.username, 'page_name': 'test', 'script': True})

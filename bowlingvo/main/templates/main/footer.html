@@ -1,5 +1,9 @@
 {% load static %}
 </div>
-    <div class="footer">
-        Copyright
-    </div>
+</div>
+<div class="footer">
+    Copyright
+</div>
+{% if script %}
+    <script defer src="{% static 'main/test.js' %}"></script>
+{% endif %}
