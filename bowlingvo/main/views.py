@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib import auth
 from .my_views.session_views import *
 from .models import *
+from .additional.task_gen import lex_task_gen
 
 
 def index(request):
