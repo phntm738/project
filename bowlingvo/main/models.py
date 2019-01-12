@@ -56,7 +56,7 @@ class Finished_Lesson(models.Model):
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
 
 
-class Blanks(models.Model):
+class Blanks(models.Model): # rename to 'Phrase'
     objects = models.Manager()
     tag = models.CharField(max_length=32)
     blank = models.TextField()
