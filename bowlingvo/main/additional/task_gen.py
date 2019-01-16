@@ -23,8 +23,3 @@ def lex_task_gen(lesson_id):
         else:
             tasks.append({'type': 'input', 'word': my_words[i].word_ru, 'answer': my_words[i].word_for})
     return tasks
-
-
-def test():
-    print(lex_task_gen(1))
-

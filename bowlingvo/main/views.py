@@ -1,17 +1,22 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django import forms
+from django.contrib.auth.models import User
 from django.views import View
-from django.contrib import auth
+from django.contrib.auth.forms import UserCreationForm
 from .models import *
 from .additional.task_gen import lex_task_gen
 
 
-class RegistrationForm(forms.Form):
-    username = forms.CharField(label='Username', max_length=150, required=True)
-    email = forms.EmailField(label='Email', required=True)
-    password1 = forms.CharField(label='Pasword', max_length=30, required=True)
-    password2 = forms.CharField(label='Password again', max_length=30, required=True)
+class RegistrationForm(UserCreationForm):
+    email = forms.EmailField(label='Email',
+                             required=True,
+                             help_text="Enter a valid email.",
+                             )
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password1', 'password2')
 
 
 class Registration_view(View):
@@ -25,7 +30,12 @@ class Registration_view(View):
     def post(self, request):
         form = self.form_class(request.POST)
         if form.is_valid():
-            pass
+            user = form.save(commit=False)
+            user.is_active = False
+            user.save()
+            return redirect('/main/login')
+        else:
+            return render(request, self.template_name, {'form': form})
 
 
 def index(request):

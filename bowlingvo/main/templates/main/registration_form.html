@@ -1,0 +1,32 @@
+{% include "main/head.html" %}
+{% include "main/header.html" %}
+<div class="back">
+    <form action="{{ app_path }}" method="post" id="register-form">
+        {% csrf_token %}
+        <div class="fields">
+            <table>
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.email.label_tag }}</td>
+                    <td>{{ form.email }}</td>
+                </tr>
+
+                <tr>
+                    <td>{{ form.password1.label_tag }}</td>
+                    <td>{{ form.password1 }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password2.label_tag }}</td>
+                    <td>{{ form.password2 }}</td>
+                </tr>
+
+            </table>
+            <input type="hidden" name="next" value="{{ next }}" />
+        </div>
+        <div class="login_submit"><input class="submit" type="submit" value="Sign up"></div>
+    </form>
+</div>
+{% include "main/footer.html" %}
