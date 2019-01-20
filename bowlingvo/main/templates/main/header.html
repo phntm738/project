@@ -3,9 +3,9 @@
     <div class="header">
         <a href="/main/"><img id='logo' src="{% static 'main/images/logo.png' %}" alt="bowlingvo logo"></a>
         <div id="brand">BowLingvo</div>
-        {% if authorized %}
+        {% if user.is_authenticated %}
             <a href="/main/do-logout" id="logout-button"><img src="{% static 'main/images/logout.png' %}"></a>
-            <div id="user">{{ username }}</div>
+        <div id="user"><a href="/main/profile">{{ user.username }}</a></div>
         {% else %}
             <a href="/main/register" id="register-button">Регистрация</a>
             <a href="/main/login" id="login-button">Вход</a>

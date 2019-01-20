@@ -52,7 +52,7 @@ class Theory_Unit(models.Model): #wrong model, fix, add lesson type (G, L) and t
 
 class Finished_Lesson(models.Model):
     objects = models.Manager()
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
 
 
@@ -60,3 +60,11 @@ class Blanks(models.Model): # rename to 'Phrase'
     objects = models.Manager()
     tag = models.CharField(max_length=32)
     blank = models.TextField()
+
+
+class User_Profile(models.Model):
+    objects = models.Manager()
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    score = models.IntegerField()
+    avatar = models.ImageField()
+    last_lang = models.IntegerField()
