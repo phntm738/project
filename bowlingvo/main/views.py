@@ -3,9 +3,17 @@ from django.http import HttpResponse
 from django import forms
 from django.contrib.auth.models import User
 from django.views import View
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import *
 from .additional.task_gen import lex_task_gen
+
+
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'autofocus': True, 'placeholder': 'Логин'}))
+    password = forms.CharField(
+        strip=False,
+        widget=forms.PasswordInput(attrs={'placeholder': 'Пароль'}),
+    )
 
 
 class RegistrationForm(UserCreationForm):

@@ -4,11 +4,11 @@
         <a href="/main/"><img id='logo' src="{% static 'main/images/logo.png' %}" alt="bowlingvo logo"></a>
         <div id="brand">BowLingvo</div>
         {% if authorized %}
-            <a href="/main/do-logout" id="logout-button">Logout</a>
+            <a href="/main/do-logout" id="logout-button"><img src="{% static 'main/images/logout.png' %}"></a>
             <div id="user">{{ username }}</div>
         {% else %}
-            <a href="/main/register" id="register-button">Register</a>
-            <a href="/main/login" id="login-button">Login</a>
+            <a href="/main/register" id="register-button">Регистрация</a>
+            <a href="/main/login" id="login-button">Вход</a>
         {% endif %}
     </div>
     <div class="content">

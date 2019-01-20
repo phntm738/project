@@ -3,20 +3,16 @@
 <div class="back">
     <form action="{{ app_path }}" method="post" id="login-form">
         {% csrf_token %}
-        <div class="fields">
-            <table>
-                <tr>
-                    <td>{{ form.username.label_tag }}</td>
-                    <td>{{ form.username }}</td>
-                </tr>
-                <tr>
-                    <td>{{ form.password.label_tag }}</td>
-                    <td>{{ form.password }}</td>
-                </tr>
-            </table>
-            <input type="hidden" name="next" value="{{ next }}" />
-        </div>
-        <div class="login_submit"><input class="submit" type="submit" value="Log in"></div>
+        <table>
+            <tr>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password }}</td>
+            </tr>
+        </table>
+        <input type="hidden" name="next" value="{{ next }}" />
+        <div class="login_submit"><input class="submit" type="submit" value="Вход"></div>
     </form>
 </div>
 {% include "main/footer.html" %}
