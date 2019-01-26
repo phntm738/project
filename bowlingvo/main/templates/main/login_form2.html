@@ -1,16 +1,20 @@
-{% include "main/head.html" %}
 {% include "main/header.html" %}
 <div class="back">
+    <div class="login-description">
+        <h1>Авторизация</h1>
+        <div class="login-instructions">
+            ...
+        </div>
+    </div>
+    <div class="test">
+    {% if form.errors %}
+        Неправильный логин или пароль
+    {% endif %}
+    </div>
     <form action="{{ app_path }}" method="post" id="login-form">
         {% csrf_token %}
-        <table>
-            <tr>
-                <td>{{ form.username }}</td>
-            </tr>
-            <tr>
-                <td>{{ form.password }}</td>
-            </tr>
-        </table>
+        {{ form.username }}
+        {{ form.password }}
         <input type="hidden" name="next" value="{{ next }}" />
         <div class="login_submit"><input class="submit" type="submit" value="Вход"></div>
     </form>
