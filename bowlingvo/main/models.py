@@ -65,6 +65,6 @@ class Blanks(models.Model): # rename to 'Phrase'
 class User_Profile(models.Model):
     objects = models.Manager()
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    score = models.IntegerField()
+    score = models.IntegerField(default=0)
     avatar = models.ImageField()
-    last_lang = models.IntegerField()
+    last_lang = models.IntegerField(default=0)

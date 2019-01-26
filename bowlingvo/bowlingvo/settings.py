@@ -126,3 +126,10 @@ STATIC_URL = '/static/'
 # my
 LOGIN_REDIRECT_URL = '/main'
 LOGOUT_REDIRECT_URL = '/main/login'
+
+from.email_password import email_password
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_HOST_USER = 'bowlingvo@mail.ru'
+EMAIL_HOST_PASSWORD = email_password # исправить
+EMAIL_PORT = 465
