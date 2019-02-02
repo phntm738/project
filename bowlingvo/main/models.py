@@ -66,5 +66,5 @@ class User_Profile(models.Model):
     objects = models.Manager()
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     score = models.IntegerField(default=0)
-    avatar = models.ImageField()
+    avatar = models.TextField(default='main/images/user.png')
     last_lang = models.IntegerField(default=0)

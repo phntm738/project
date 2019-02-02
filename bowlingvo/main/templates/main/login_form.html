@@ -1,21 +1,25 @@
 {% include "main/header.html" %}
 <div class="back">
-    <div class="error_message">{% if error_message %}{{ error_message }}{% endif %}</div>
-    <form action='/main/do-login' method="post">
-        {% csrf_token %}
-        <div class="fields">
-            <table>
-                <tr>
-                    <td>username</td>
-                    <td><input type="text" name="username"></td>
-                </tr>
-                <tr>
-                    <td>password</td>
-                    <td><input type="password" name="password"></td>
-                </tr>
-            </table>
+    <div class="login-description">
+        <h1>Авторизация</h1>
+    {% if form.errors %}
+        <div class="login-error">
+            Неправильный логин или пароль. Обратите внимание, <br> что оба поля могут быть чувтвительны к регистру
         </div>
-        <div class="login_submit"><input class="submit" type="submit" value="LOGIN"></div>
+    {% else %}
+        <div class="login-instructions">
+            Пожалуйста, заполните данные поля. Обратите внимание, <br> что оба поля могут быть чувтвительны к регистру
+        </div>
+    {% endif %}
+    </div>
+    <form action="{{ app_path }}" method="post" id="login-form">
+        {% csrf_token %}
+        <div class="login_label">{{ form.username.label }}</div>
+        {{ form.username }}
+        <div class="login_label">{{ form.password.label }}</div>
+        {{ form.password }}
+        <input type="hidden" name="next" value="{{ next }}" />
+        <input class="login-submit" type="submit" value="Вход">
     </form>
 </div>
 {% include "main/footer.html" %}

@@ -1,4 +1,4 @@
-/*--color-variables-------------*/
+    /*--color-variables-------------*/
 :root {
     --header-color: #00CC00;
     --backgroundcolor: #EDEDED;
@@ -70,7 +70,7 @@ body {
 
     font-size: 45px;
     line-height:45px;
-    letter-spacing: 8px;
+    letter-spacing: 4px;
 }
 
 
@@ -142,20 +142,10 @@ body {
 
     width: 45px;
     height: 45px;
+    background-color: #737373;
     border-radius: 50%;
 
     box_shadow: 0, 0,
-}
-
-
-#logout-button img {
-    margin-left: 9px;
-    margin-top: 7.5px;
-}
-
-
-#logout-button {
-    background-color: #737373;
 }
 
 
@@ -172,6 +162,38 @@ body {
 
     font-size: 30px;
     line-height: 30px;
+}
+
+
+#submenu-position {
+    display: none;
+}
+
+
+.header-submenu {
+	transform: scaleY(0);
+    transform-origin: 0 0;
+	transition: .1s ease-in-out;
+}
+
+
+#submenu-position:checked + #user .header-submenu {
+	opacity: 1;
+	transform: scaleY(1);
+}
+
+
+#header-avatar {
+    display: block;
+    float: right;
+    margin-top: 8.5px;
+    margin-right: 15px;
+
+    width: 55px;
+    height: 55px;
+    background: white;
+    border: 1.5px solid black;
+    border-radius: 20px;
 }
 /*-/header-elements-------------*/
 
@@ -209,33 +231,73 @@ body {
 	text-align: center;
 	font-size: 35px;
 	line-height: 35px;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: normal;
+}
+
+
+.login-description .login-instructions, .login-description .login-error {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+
+    width: 400px;
+    height: 30px;
+
+    text-align: center;
+    font-size: 15px;
+    line-height: 15px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+/*.login-error {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    margin-bottom: 20px;
+
+    width: 400px;
+    height: 25px;
+
+    color: red;
+    font-size: 25px;
+    text-align: center;
+    line-height: 25px;
+}
+*/
+
+.login-error {
+    color: red;
+}
+
+
+.login_label {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 400px;
+    height: 18px;
+
+    line-height: 18px;
+    font-size: 18px;
 	font-family: 'Roboto Slab', serif;
 	font-weight: normal;
 }
 
 
-.test {
-    width: 400px;
-    height: 25px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 35px;
-
-    color: red;
-    font-size: 25px;
-    text-align: center;
-}
-
-
 #login-form input, #register-form input{
     display: block;
-    width: 400px;
-    height: 45px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 5px;
     padding-left: 15px;
     padding-right: 15px;
 
+    width: 400px;
+    height: 45px;
     border: 1px solid black;
     border-radius: 10px;
     box-shadow: 0 0 2px black;
@@ -243,31 +305,51 @@ body {
 }
 
 
-.login_submit {
+#login-form .login-submit{
+    display: block;
+    margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 25px;
-    text-align: center;
-}
+    padding: 0;
 
-
-#login-form .login_submit .submit, #register-form .login_submit .submit {
     width: 100px;
     height: 40px;
-    background-color: lightgreen;
-    border: 2px solid green;
-    border-radius: 20px;
-    font-size: 20px;
-    color: green;
-    outline: none;
+    border-radius: 2px;
+    background: white;
+    transition: all 0.3s linear;
+
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid white;
+    color: #008800;
+    font-family: 'caption', Sans-serif;
+    font-size: 25px;
+    line-height: 40px;
+    box-shadow: none;
 }
 
 
-.login_submit .submit:hover {
-    background-color: grey;
+
+#login-form .login-submit:hover {
+    border: 1px solid rgba(0, 0, 0, .15);
+    background: var(--backgroundcolor);
+    color: black;
+    box-shadow:
+        inset 0px 1px 1px rgba(255, 255, 255, .5),
+        inset 0px -1px 1px rgba(255, 255, 255, .5),
+        inset 1px 0px 1px rgba(255, 255, 255, .5),
+        inset -1px 0px 1px rgba(255, 255, 255, .5);
 }
 /*---/login-elements------------*/
 
+/*---profile-elements-----------*/
+.profile-table, .profile-table tr, .profile-table td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+
+/*--/profile-elements-----------*/
 
 /*----index-elements------------*/
 .course {

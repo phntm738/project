@@ -5,8 +5,18 @@
         <a href="/main/"><img id='logo' src="{% static 'main/images/logo.png' %}" alt="bowlingvo logo"></a>
         <div id="brand">BowLingvo</div>
         {% if user.is_authenticated %}
-            <a href="/main/do-logout" id="logout-button"><img src="{% static 'main/images/logout.png' %}"></a>
-        <div id="user"><a href="/main/profile">{{ user.username }}</a></div>
+            {% if not is_profile %}
+                <input type='checkbox' id='submenu-position'>
+                <div id="user"><label for='submenu-position'>{{ user.username }}</label>
+                    <ul class='header-submenu'>
+			            <li><a href='/main/profile'>Профиль</a></li>
+			            <li><a href='/main/do-logout'>Выход</a></li>
+		            </ul>
+                </div>
+                <img id="header-avatar" src="{% static profile.avatar %}" alt="user-logo">
+            {% else %}
+                <a class='profile-logout' href='/main/do-logout'>Выход</a>
+            {% endif %}
         {% else %}
             <a href="/main/register" id="register-button">Регистрация</a>
             <a href="/main/login" id="login-button">Вход</a>

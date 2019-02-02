@@ -1,6 +1,55 @@
+{% load static %}
 {% include "main/header.html" %}
-{{ profile.score }}
-{% for lesson in finished_lessons %}
-{{ lesson.lesson_id }}
-{% endfor %}
+<table class="profile-table">
+    <tr>
+        <td>
+            <div class="profile-avatar">
+                <img src="{% static profile.avatar %}">
+                <a href="/main/change-avatar">Сменить аватар</a>
+            </div>
+        </td>
+        <td>
+            <div class="user-info">
+                <div class="nick">{{ user.username }}</div>
+                <div class="information">
+                    <a href="/main/edit-profile">Редактировать</a>
+                    <table>
+                        <tr>
+                            <td>Email:</td>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                        <tr>
+                            <td>Последний раздел:</td>
+                            <td>...</td>
+                        </tr>
+                        <tr>
+                            <td>Последний язык:</td>
+                            <td>{{ profile.last_lang }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="profile-score">
+                <div class="score-label">Очки</div>
+                <div class="score-value">{{ profile.score }}</div>
+            </div>
+        </td>
+        <td>
+            <div class="last-lessons">
+                <div class="lessons-label">Последние уроки</div>
+                <div class="lessons-units">
+                    {% for lesson in last_lessons %}
+                    <div>
+                        {{ lesson }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
 {% include "main/footer.html" %}

@@ -1,16 +1,31 @@
 {% include "main/header.html" %}
 <div class="back">
+    <div class="login-description">
+        <h1>Регистрация</h1>
+    {% if form.errors %}
+        <div class="login-error">
+           {{ form.password2.errors }}
+        </div>
+    {% else %}
+        <div class="login-instructions">
+            Пожалуйста, заполните данные поля. Обратите внимание, <br> что оба поля могут быть чувтвительны к регистру
+        </div>
+    {% endif %}
+    </div>
     <form action="{{ app_path }}" method="post" id="register-form">
         {% csrf_token %}
         <div class="fields">
-            {{ form.errors }}
+            {{ form.username.label }}
             {{ form.username }}
+            {{ form.email.label }}
             {{ form.email }}
+            {{ form.password1.label }}
             {{ form.password1 }}
+            {{ form.password2.label }}
             {{ form.password2 }}
             <input type="hidden" name="next" value="{{ next }}" />
         </div>
-        <div class="login_submit"><input class="submit" type="submit" value="Sign up"></div>
+        <input class="submit" type="submit" value="Зарегистрироваться">
     </form>
 </div>
 {% include "main/footer.html" %}
