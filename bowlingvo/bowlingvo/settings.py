@@ -25,7 +25,7 @@ SECRET_KEY = '4d96#ag%rsd&=sdroh8iclk@)vu+yvh45y4@%!#4h=p$u_w4#p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['172.16.1.3', '127.0.0.1']
+ALLOWED_HOSTS = ['172.16.1.4', '127.0.0.1']
 
 
 # Application definition
@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -128,8 +128,10 @@ LOGIN_REDIRECT_URL = '/main'
 LOGOUT_REDIRECT_URL = '/main/login'
 
 from.email_password import email_password
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_HOST_USER = 'bowlingvo@mail.ru'
 EMAIL_HOST_PASSWORD = email_password # исправить
 EMAIL_PORT = 465
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

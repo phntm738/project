@@ -4,7 +4,7 @@ from django.views import View
 from .models import *
 from .additional.task_gen import lex_task_gen
 
-from .my_views.section_views import *
+from .my_views.authorization_views import *
 
 
 class Profile_view(View):
@@ -19,9 +19,9 @@ class Profile_view(View):
 
 def index(request):
     user = request.user
-    profile = User_Profile.objects.get(user=user)
     if not user.is_authenticated:
         return redirect('/main/login')
+    profile = User_Profile.objects.get(user=user)
     languages = Language.objects.all()
     return render(request, 'main/index.html',
                   {'profile': profile, 'page_name': 'index', 'languages': languages})

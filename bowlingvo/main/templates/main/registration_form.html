@@ -1,31 +1,35 @@
 {% include "main/header.html" %}
-<div class="back">
-    <div class="login-description">
+<div class="register-back">
+    <div class="authorization-description">
         <h1>Регистрация</h1>
     {% if form.errors %}
-        <div class="login-error">
-           {{ form.password2.errors }}
+        <div class="register-error">
+            {% for field in form %}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        {{ error|escape }}<br>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
         </div>
     {% else %}
-        <div class="login-instructions">
-            Пожалуйста, заполните данные поля. Обратите внимание, <br> что оба поля могут быть чувтвительны к регистру
+        <div class="authorization-instructions">
+            Пожалуйста, заполните данные поля. Обратите внимание, <br> что оба поля могут быть чувствительны к регистру
         </div>
     {% endif %}
     </div>
     <form action="{{ app_path }}" method="post" id="register-form">
         {% csrf_token %}
-        <div class="fields">
-            {{ form.username.label }}
-            {{ form.username }}
-            {{ form.email.label }}
-            {{ form.email }}
-            {{ form.password1.label }}
-            {{ form.password1 }}
-            {{ form.password2.label }}
-            {{ form.password2 }}
-            <input type="hidden" name="next" value="{{ next }}" />
-        </div>
-        <input class="submit" type="submit" value="Зарегистрироваться">
+        <div class="authorization-label">{{ form.username.label }}</div>
+        {{ form.username }}
+        <div class="authorization-label">{{ form.email.label }}</div>
+        {{ form.email }}
+        <div class="authorization-label">{{ form.password1.label }}</div>
+        {{ form.password1 }}
+        <div class="authorization-label">{{ form.password2.label }}</div>
+        {{ form.password2 }}
+        <input type="hidden" name="next" value="{{ next }}" />
+        <input class="authorization-submit" type="submit" value="Зарегистрироваться">
     </form>
 </div>
 {% include "main/footer.html" %}

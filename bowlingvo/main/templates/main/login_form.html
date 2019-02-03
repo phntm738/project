@@ -1,25 +1,25 @@
 {% include "main/header.html" %}
-<div class="back">
-    <div class="login-description">
+<div class="login-back">
+    <div class="authorization-description">
         <h1>Авторизация</h1>
     {% if form.errors %}
         <div class="login-error">
-            Неправильный логин или пароль. Обратите внимание, <br> что оба поля могут быть чувтвительны к регистру
+            Неправильный логин или пароль. Обратите внимание, <br> что оба поля могут быть чувствительны к регистру
         </div>
     {% else %}
-        <div class="login-instructions">
-            Пожалуйста, заполните данные поля. Обратите внимание, <br> что оба поля могут быть чувтвительны к регистру
+        <div class="authorization-instructions">
+            Пожалуйста, заполните данные поля. Обратите внимание, <br> что оба поля могут быть чувствительны к регистру
         </div>
     {% endif %}
     </div>
     <form action="{{ app_path }}" method="post" id="login-form">
         {% csrf_token %}
-        <div class="login_label">{{ form.username.label }}</div>
+        <div class="authorization-label">{{ form.username.label }}</div>
         {{ form.username }}
-        <div class="login_label">{{ form.password.label }}</div>
+        <div class="authorization-label">{{ form.password.label }}</div>
         {{ form.password }}
         <input type="hidden" name="next" value="{{ next }}" />
-        <input class="login-submit" type="submit" value="Вход">
+        <input class="authorization-submit" type="submit" value="Войти">
     </form>
 </div>
 {% include "main/footer.html" %}

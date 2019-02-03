@@ -11,7 +11,7 @@ urlpatterns = [
     path('register', views.Registration_view.as_view(), name='register'),
     path('profile', views.Profile_view.as_view(), name='profile'),
     path('test', views.test),
-    re_path(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<stoken>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+    re_path(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         views.activate, name='activate'),
     path('<str:language_name>', views.get_sections, name='language'),
 ]
