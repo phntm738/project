@@ -6,7 +6,7 @@
         <div id="brand">BowLingvo</div>
         {% if user.is_authenticated %}
             {% if not is_profile %}
-                <input type='checkbox' id='submenu-position'>
+                <input type='text' id='submenu-position'>
                 <div id="user"><label for='submenu-position'>{{ user.username }}</label>
                     <ul class='header-submenu'>
 			            <li><a href='/main/profile'>Профиль</a></li>

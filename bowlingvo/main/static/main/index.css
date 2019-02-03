@@ -166,7 +166,9 @@ body {
 
 
 #submenu-position {
-    display: none;
+    position: absolute;
+    top: -999px;
+    left: -999px;
 }
 
 
@@ -177,7 +179,13 @@ body {
 }
 
 
-#submenu-position:checked + #user .header-submenu {
+#submenu-position:focus + #user .header-submenu {
+	opacity: 1;
+	transform: scaleY(1);
+}
+
+
+#user .header-submenu:hover {
 	opacity: 1;
 	transform: scaleY(1);
 }
