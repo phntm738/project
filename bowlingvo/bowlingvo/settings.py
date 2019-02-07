@@ -136,3 +136,8 @@ EMAIL_HOST_USER = 'bowlingvo@mail.ru'
 EMAIL_HOST_PASSWORD = email_password # исправить
 EMAIL_PORT = 465
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+import os
+MEDIA_ROOT = os.path.join(os.getcwd(), 'media')
+MEDIA_URL = '/media/'

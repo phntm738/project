@@ -39,7 +39,10 @@ def get_sections(request, language_name):
                   {'profile': profile, 'page_name': language.name, 'language': language, 'sections': sections})
 
 
+import os
 def test(request):
     if not request.user.is_authenticated:
         return redirect('/main/login')
+    pos = os.getcwd()
+    return HttpResponse(pos)
     return render(request, 'main/test.html', {'page_name': 'test', 'script': True})
