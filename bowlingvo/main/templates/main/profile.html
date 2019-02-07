@@ -1,55 +1,45 @@
 {% load static %}
 {% include "main/header.html" %}
-<table class="profile-table">
-    <tr>
-        <td>
-            <div class="profile-avatar">
-                <img src="{% static profile.avatar %}">
-                <a href="/main/change-avatar">Сменить аватар</a>
+<div class="profile-back">
+    <div class="profile-first">
+        <div class="profile-avatar">
+            <img src="{% static profile.avatar %}">
+        </div>
+        <div class="user-info">
+            <div class="nick">{{ user.username }}<a href="/main/edit-profile"><img src="{% static 'main/images/edit.png' %}"></a></div>
+            <div class="information">
+                <table>
+                    <tr>
+                        <td>Email:</td>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Последний раздел:</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <td>Последний язык:</td>
+                        <td>{{ profile.last_lang }}</td>
+                    </tr>
+                </table>
             </div>
-        </td>
-        <td>
-            <div class="user-info">
-                <div class="nick">{{ user.username }}</div>
-                <div class="information">
-                    <a href="/main/edit-profile">Редактировать</a>
-                    <table>
-                        <tr>
-                            <td>Email:</td>
-                            <td>{{ user.email }}</td>
-                        </tr>
-                        <tr>
-                            <td>Последний раздел:</td>
-                            <td>...</td>
-                        </tr>
-                        <tr>
-                            <td>Последний язык:</td>
-                            <td>{{ profile.last_lang }}</td>
-                        </tr>
-                    </table>
+        </div>
+    </div>
+    <div class="profile-second">
+        <div class="profile-score">
+            <div class="score-label">Очки</div>
+            <div class="score-value">{{ profile.score }}</div>
+        </div>
+        <div class="last-lessons">
+            <div class="lessons-label">Последние уроки</div>
+            <div class="lessons-units">
+                {% for lesson in last_lessons %}
+                <div>
+                    {{ lesson }}
                 </div>
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <div class="profile-score">
-                <div class="score-label">Очки</div>
-                <div class="score-value">{{ profile.score }}</div>
-            </div>
-        </td>
-        <td>
-            <div class="last-lessons">
-                <div class="lessons-label">Последние уроки</div>
-                <div class="lessons-units">
-                    {% for lesson in last_lessons %}
-                    <div>
-                        {{ lesson }}
-                    </div>
                     {% endfor %}
-                </div>
-            </div>
-        </td>
-    </tr>
-</table>
+           </div>
+        </div>
+    </div>
+</div>
 {% include "main/footer.html" %}

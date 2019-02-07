@@ -8,10 +8,10 @@
             {% if not is_profile %}
                 <input type='text' id='submenu-position'>
                 <div id="user"><label for='submenu-position'>{{ user.username }}</label>
-                    <ul class='header-submenu'>
-			            <li><a href='/main/profile'>Профиль</a></li>
-			            <li><a href='/main/do-logout'>Выход</a></li>
-		            </ul>
+                    <div class='header-submenu'>
+                        <a href='/main/profile'>Профиль</a>
+                        <a href='/main/do-logout'>Выход</a>
+		            </div>
                 </div>
                 <img id="header-avatar" src="{% static profile.avatar %}" alt="user-logo">
             {% else %}
