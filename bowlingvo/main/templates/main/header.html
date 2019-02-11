@@ -14,7 +14,7 @@
                         <a href='/main/do-logout'>Выход</a>
 		            </div>
                 </div>
-                <img id="header-avatar" src="{% static profile.avatar %}" alt="user-logo">
+                {% avatar user id='header-avatar' %}
             {% else %}
                 <a class='profile-logout' href='/main/do-logout'>Выход</a>
             {% endif %}

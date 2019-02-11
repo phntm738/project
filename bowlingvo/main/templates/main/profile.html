@@ -1,9 +1,10 @@
 {% load static %}
+{% load avatar_tags %}
 {% include "main/header.html" %}
 <div class="profile-back">
     <div class="profile-first">
         <div class="profile-avatar">
-            <img src="{% static profile.avatar %}">
+            {% avatar user 256 %}
         </div>
         <div class="user-info">
             <div class="nick">{{ user.username }}<a href="/main/edit-profile"><img src="{% static 'main/images/edit.png' %}"></a></div>

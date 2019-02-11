@@ -1,13 +1,18 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
 from .models import *
 from .additional.task_gen import lex_task_gen
+from django.http import Http404
 
 from .my_views.authorization_views import *
+from .my_views.education_views import *
 
 
-class Profile_view(View):
+#@method_decorator(login_required, name='get')
+class ProfileView(View):
     template_name = 'main/profile.html'
 
     def get(self, request):
@@ -17,20 +22,8 @@ class Profile_view(View):
         return render(request, self.template_name, {'profile': profile, 'is_profile': True, 'last_lessons': finished_lessons})
 
 
-def index(request):
-    user = request.user
-    if not user.is_authenticated:
-        return redirect('/main/login')
-    profile = User_Profile.objects.get(user=user)
-    languages = Language.objects.all()
-    return render(request, 'main/index.html',
-                  {'profile': profile, 'page_name': 'index', 'languages': languages})
-
-
+@login_required(login_url='/main/login')
 def get_sections(request, language_name):
-    if not request.user.is_authenticated:
-        request.session['error_message'] = 'Please, login'
-        return redirect('/main/login')
     user = request.user
     profile = User_Profile.objects.get(user=user)
     language = Language.objects.get(url_name=language_name)
@@ -39,10 +32,12 @@ def get_sections(request, language_name):
                   {'profile': profile, 'page_name': language.name, 'language': language, 'sections': sections})
 
 
+def stop(request):
+    raise Http404
+
+
 import os
 def test(request):
     if not request.user.is_authenticated:
         return redirect('/main/login')
-    pos = os.getcwd()
-    return HttpResponse(pos)
     return render(request, 'main/test.html', {'page_name': 'test', 'script': True})

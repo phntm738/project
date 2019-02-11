@@ -1,0 +1,60 @@
+.language {
+    background-color: orange;
+    width: 700px;
+    height: 65px;
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+    line-height: 65px;
+    font-size: 40px;
+}
+
+
+.all_sections {
+    overflow: auto;
+}
+
+
+.sections {
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+
+.sections table {
+    border-spacing: 20px 10px;
+}
+
+
+.sections table .sec_name {
+    background-color: lightgrey;
+    width: 150px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+.sections table .sec_url {
+    width: 150px;
+    height: 40px;
+}
+
+
+.sections table a {
+    background-color: lightgreen;
+    display: block;
+    width: 75px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    border: 1px solid green;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    color: blue;
+}

@@ -133,7 +133,7 @@ EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_HOST_USER = 'bowlingvo@mail.ru'
-EMAIL_HOST_PASSWORD = email_password # исправить
+EMAIL_HOST_PASSWORD = email_password         # исправить
 EMAIL_PORT = 465
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
@@ -141,3 +141,8 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 import os
 MEDIA_ROOT = os.path.join(os.getcwd(), 'media')
 MEDIA_URL = '/media/'
+
+AVATAR_CACHE_ENABLED = False
+#AVATAR_CHANGE_TEMPLATE = 'main/change_avatar.html'
+#AVATAR_DELETE_TEMPLATE = 'main/delete_avatar.html'
+AVATAR_CLEANUP_DELETED = True

@@ -1,11 +1,11 @@
-/*-----variables-----*/
+/*--color-variables-------------*/
 :root {
     --header-color: #00CC00;
     --backgroundcolor: #EDEDED;
 }
-/*----/variables-----*/
+/*--/color-variables------------*/
 
-/*-----main-----*/
+
 body {
     margin: 0px;
     background-color: var(--backgroundcolor);
@@ -14,6 +14,7 @@ body {
 }
 
 
+/*--main-positioning------------*/
 .container {
     min-width: 1135px;
     width: 100%;
@@ -28,7 +29,7 @@ body {
 
 }
 
-
+	
 .content {
 }
 
@@ -36,7 +37,7 @@ body {
 .main_separator {
 	height: 50px;
 	background-color: rgba(0,0,0,0);
-
+	
 }
 
 
@@ -48,9 +49,10 @@ body {
     min-width: 1135px;
     margin-top: -50px;
 }
-/*----/main-----*/
+/*--/main-positioning-----------*/
 
-/*-----header-----*/
+
+/*--header-elements-------------*/
 #logo {
     float: left;
     margin-top: 5px;
@@ -239,9 +241,12 @@ body {
     border: 1.5px solid black;
     border-radius: 20px;
 }
-/*----/header-----*/
+/*-/header-elements-------------*/
 
-/*-----content/authorization-----*/
+
+/*--content-elements------------*/
+
+/*----login-elements------------*/
 .login-back, .register-back {
     margin-left: auto;
     margin-right: auto;
@@ -258,7 +263,7 @@ body {
 .authorization-description {
 	margin-left: auto;
 	margin-right: auto;
-
+	
 	width: 400px;
 }
 
@@ -266,9 +271,9 @@ body {
 .authorization-description h1 {
 	margin-top: 0;
 	margin-bottom: 0;
-
+	
 	height: 35px;
-
+	
 	text-align: center;
 	font-size: 35px;
 	line-height: 35px;
@@ -293,7 +298,23 @@ body {
 }
 
 
-.login-error, .register-error {
+/*.authorization-error {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    margin-bottom: 20px;
+
+    width: 400px;
+    height: 25px;
+
+    color: red;
+    font-size: 25px;
+    text-align: center;
+    line-height: 25px;
+}
+*/
+
+.login-error {
     color: red;
 }
 
@@ -373,9 +394,9 @@ body {
         inset 1px 0px 1px rgba(255, 255, 255, .5),
         inset -1px 0px 1px rgba(255, 255, 255, .5);
 }
-/*----/content/authorization-----*/
+/*---/login-elements------------*/
 
-/*-----content/profile-----*/
+/*---profile-elements-----------*/
 .profile-back {
     margin-left: auto;
     margin-right: auto;
@@ -447,9 +468,9 @@ body {
 .profile-second {
     display: none;
 }
-/*----/content/profile-----*/
+/*--/profile-elements-----------*/
 
-/*-----content/index-----*/
+/*----index-elements------------*/
 .course {
     width: 500px;
     height: 30px;
@@ -501,9 +522,10 @@ body {
     font-size: 16;
     color: blue;
 }
-/*----/content/index-----*/
+/*---/index-elements------------*/
 
-/*-----content/language_page-----*/
+
+/*---language-page-elements-----*/
 .language {
     background-color: orange;
     width: 700px;
@@ -564,5 +586,21 @@ body {
     text-decoration: none;
     color: blue;
 }
-/*----/content/language_page-----*/
+/*--/language-page-elements-----*/
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+.font-test {
+    font-family: 'Neucha'
+}

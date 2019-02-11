@@ -21,7 +21,7 @@ class TokenGenerator(PasswordResetTokenGenerator):
 account_activation_token = TokenGenerator()
 
 
-class Registration_view(View):
+class RegistrationView(View):
     form_class = RegistrationForm
     template_name = 'main/registration_form.html'
 
