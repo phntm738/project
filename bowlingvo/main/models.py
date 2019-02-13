@@ -4,8 +4,10 @@ from django.contrib.auth.models import User
 
 class Language(models.Model):
     objects = models.Manager()
+
+    name = models.CharField(max_length=64)
     url_name = models.CharField(max_length=50)
-    name = models.CharField(max_length=50)
+
     icon = models.CharField(max_length=50)
 
     def __str__(self):
@@ -14,11 +16,13 @@ class Language(models.Model):
 
 class Section(models.Model):
     objects = models.Manager()
+
+    name = models.CharField(max_length=64)
     url_name = models.CharField(max_length=50)
-    language = models.ForeignKey(Language, on_delete=models.PROTECT)
-    name = models.TextField()
-    description = models.TextField()
-    sec_type = models.CharField(max_length=1)
+    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+    sec_type = models.CharField(max_length=1, default='L')
+
+    description = models.TextField(null=True)
     background_url = models.CharField(max_length=250)
 
     def __str__(self):
@@ -27,44 +31,55 @@ class Section(models.Model):
 
 class Lesson(models.Model):
     objects = models.Manager()
-    id = models.IntegerField(primary_key=True)
-    section = models.ForeignKey(Section, on_delete=models.PROTECT)
-    order = models.IntegerField()
-    header = models.TextField()
-    footer = models.TextField()
-    tag = models.CharField(max_length=32)
+
+    section = models.ForeignKey(Section, on_delete=models.CASCADE)
+
+    order = models.IntegerField(default=1)
+    tag = models.CharField(max_length=32, null=True)
 
     def __str__(self):
-        return str(self.id)
+        return self.section.name + str(self.order)
 
 
-class Translation_Unit(models.Model):
+class WordRus(models.Model):
     objects = models.Manager()
-    lesson = models.ForeignKey(Lesson, on_delete=models.PROTECT)
-    word_ru = models.CharField(max_length=64)
-    word_for = models.CharField(max_length=64)
 
-class Theory_Unit(models.Model): #wrong model, fix, add lesson type (G, L) and two different sections for grammar and lexis
+    type = models.CharField(max_length=5, default='noun')
+    lessons = models.ManyToManyField(Lesson)
+    text = models.TextField()
+
+
+class WordFor(models.Model):
     objects = models.Manager()
-    lesson = models.ForeignKey(Lesson, on_delete=models.PROTECT)
+
+    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+    word_rus = models.ForeignKey(WordRus, on_delete=models.CASCADE)
+    text = models.TextField()
+
+    def __str__(self):
+        return self.language.url_name
+
+
+class Theory_Unit(models.Model):
+    objects = models.Manager()
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     theory = models.TextField()
 
 
-class Finished_Lesson(models.Model):
+class FinishedLesson(models.Model):
     objects = models.Manager()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
 
 
-class Blanks(models.Model): # rename to 'Phrase'
+class Phrase(models.Model):
     objects = models.Manager()
     tag = models.CharField(max_length=32)
-    blank = models.TextField()
+    phrase = models.TextField()
 
 
-class User_Profile(models.Model):
+class UserProfile(models.Model):
     objects = models.Manager()
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     score = models.IntegerField(default=0)
-    avatar = models.TextField(default='main/images/user.png')
     last_lang = models.IntegerField(default=0)
