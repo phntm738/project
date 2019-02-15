@@ -1,10 +1,10 @@
-from ..models import Lesson, Translation_Unit, Blanks
+from ..models import *
 import random
 
 
 def lex_task_gen(lesson_id):
     my_lesson = Lesson.objects.get(pk=lesson_id)
-    my_words = Translation_Unit.objects.all().filter(lesson_id=lesson_id)
+    my_words = WordRus.objects.all().filter(lesson_id=lesson_id)
     #my_tag = my_lesson.tag
     #available_blanks = Blanks.objects.all().filter(tag=my_tag)
     tasks = []

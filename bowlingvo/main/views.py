@@ -17,15 +17,15 @@ class ProfileView(View):
 
     def get(self, request):
         user = request.user
-        profile = User_Profile.objects.get(user=user)
-        finished_lessons = Finished_Lesson.objects.all().filter(user_id=user.id)
+        profile = UserProfile.objects.get(user=user)
+        finished_lessons = FinishedLesson.objects.all().filter(user_id=user.id)
         return render(request, self.template_name, {'profile': profile, 'is_profile': True, 'last_lessons': finished_lessons})
 
 
 @login_required(login_url='/main/login')
 def get_sections(request, language_name):
     user = request.user
-    profile = User_Profile.objects.get(user=user)
+    profile = UserProfile.objects.get(user=user)
     language = Language.objects.get(url_name=language_name)
     sections = Section.objects.all().filter(language_id=language.id)
     return render(request, 'main/language_page.html',

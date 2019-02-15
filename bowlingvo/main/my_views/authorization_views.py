@@ -37,7 +37,7 @@ class RegistrationView(View):
             user = form.save(commit=False)
             user.is_active = False
             user.save()
-            profile = User_Profile()
+            profile = UserProfile()
             profile.user = user
             profile.save()
 

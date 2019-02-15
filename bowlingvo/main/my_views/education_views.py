@@ -9,7 +9,7 @@ from ..models import *
 @login_required(login_url='/main/login')
 def index(request):
     user = request.user
-    profile = User_Profile.objects.get(user=user)
+    profile = UserProfile.objects.get(user=user)
     languages = Language.objects.all()
     return render(request, 'main/index.html',
                   {'profile': profile, 'languages': languages})
@@ -19,10 +19,9 @@ def index(request):
 @login_required(login_url='/main/login')
 def language_page(request, language_name):
     user = request.user
-    profile = User_Profile.objects.get(user=user)
+    profile = UserProfile.objects.get(user=user)
     language = Language.objects.get(url_name=language_name)
     sections = Section.objects.all().filter(language_id=language.id)
     return render(request, 'main/language_page.html',
                  {'profile': profile, 'language': language, 'sections': sections})
-
 
