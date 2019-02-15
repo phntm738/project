@@ -21,6 +21,12 @@
 }
 
 
+#brand span {
+	font-family: 'Raleway', sans-serif;
+	color: blue;
+}
+
+
 #register-button {
     float: right;
     margin-top: 25px;
