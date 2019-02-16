@@ -60,7 +60,7 @@ class WordFor(models.Model):
         return self.language.url_name
 
 
-class Theory_Unit(models.Model):
+class TheoryUnit(models.Model):
     objects = models.Manager()
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     theory = models.TextField()

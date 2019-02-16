@@ -11,7 +11,7 @@ from .my_views.authorization_views import *
 from .my_views.education_views import *
 
 
-#@method_decorator(login_required, name='get')
+@method_decorator(login_required, name='get')
 class ProfileView(View):
     template_name = 'main/profile.html'
 
@@ -22,22 +22,11 @@ class ProfileView(View):
         return render(request, self.template_name, {'profile': profile, 'is_profile': True, 'last_lessons': finished_lessons})
 
 
-@login_required(login_url='/main/login')
-def get_sections(request, language_name):
-    user = request.user
-    profile = UserProfile.objects.get(user=user)
-    language = Language.objects.get(url_name=language_name)
-    sections = Section.objects.all().filter(language_id=language.id)
-    return render(request, 'main/language_page.html',
-                  {'profile': profile, 'page_name': language.name, 'language': language, 'sections': sections})
-
-
 def stop(request):
     raise Http404
 
 
 import os
+@login_required(login_url='/main/login')
 def test(request):
-    if not request.user.is_authenticated:
-        return redirect('/main/login')
     return render(request, 'main/test.html', {'page_name': 'test', 'script': True})
