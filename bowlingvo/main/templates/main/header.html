@@ -4,7 +4,7 @@
 <div class="container">
     <div class="header">
         <a href="/main/"><img id='logo' src="{% static 'main/images/logo.png' %}" alt="bowlingvo logo"></a>
-        <div id="brand">BowLingvo</div>
+        <a href="/main/"><div id="brand">BowLingvo</div></a>
         {% if user.is_authenticated %}
             {% if not is_profile %}
                 <input type='text' id='submenu-position'>
@@ -14,7 +14,7 @@
                         <a href='/main/do-logout'>Выход</a>
 		            </div>
                 </div>
-                {% avatar user id='header-avatar' %}
+                <label for='submenu-position'>{% avatar user id='header-avatar' %}</label>
             {% else %}
                 <a class='profile-logout' href='/main/do-logout'>Выход</a>
             {% endif %}
