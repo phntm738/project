@@ -1,0 +1,29 @@
+{% load avatar_tags %}
+{% include 'main/header.html' %}
+
+<div class="avatar-back">
+    <div class="current-avatar">
+        Ваш аватар:
+        {% avatar user 256 %}
+    </div>
+    {% if not avatars %}
+        <div class="avatar-error">Нет аватаров</div>
+    {% else %}
+        <form method="POST" action="{% url 'avatar_change' %}" id="avatar-change-form">
+            {% for field in primary_avatar_form %}
+                {% for choice in field %}
+                    {{ choice }}
+                {% endfor %}
+            {% endfor %}
+            {% csrf_token %}
+            <input type="submit" value="Выберите используемый по умолчанию">
+        </form>
+    {% endif %}
+    <form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}">
+        {{ upload_avatar_form }}
+        {% csrf_token %}
+        <input type="submit" value="Загрузить новое изображение">
+    </form>
+</div>
+
+{% include 'main/footer.html' %}

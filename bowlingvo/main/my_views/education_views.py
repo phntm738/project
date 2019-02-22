@@ -21,7 +21,9 @@ def language_page(request, language_name):
     user = request.user
     profile = UserProfile.objects.get(user=user)
     language = Language.objects.get(url_name=language_name)
-    sections = Section.objects.all().filter(language_id=language.id)
+    sections = Section.objects.filter(language_id=language.id)
+    lex_sections = sections.filter(sec_type='L')
+    gram_sections = sections.filter(sec_type='G')
     return render(request, 'main/language_page.html',
-                 {'profile': profile, 'language': language, 'sections': sections})
+                 {'profile': profile, 'language': language, 'lex_sections': lex_sections, 'gram_sections': gram_sections})
 

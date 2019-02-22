@@ -1,0 +1,23 @@
+.avatar-back {
+    margin-top: 50px;
+    margin-left: 50px;
+    background: white;
+}
+
+
+#avatar-change-form input[type='radio'] {
+    display: none;
+}
+
+
+#avatar-change-form input:checked + img {
+    border: 2px solid pink;
+}
+
+
+.current-avatar {
+    margin-top: 50px;
+    margin-left: 50px;
+
+    width: 256px;
+}

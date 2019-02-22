@@ -517,8 +517,29 @@ body {
 }
 
 
-.all_sections {
+.all-sections {
     overflow: auto;
+}
+
+
+.type-choices {
+    height: 50px;
+}
+
+
+#lex-button {
+    width: 50%;
+    height: 40px;
+    float: left;
+    background: green;
+}
+
+
+#gram-button {
+    width: 50%;
+    height: 40px;
+    float: right;
+    background: red;
 }
 
 
@@ -533,7 +554,7 @@ body {
 }
 
 
-.sections table .sec_name {
+.sections table .sec-name {
     background-color: lightgrey;
     width: 150px;
     height: 100px;
@@ -544,7 +565,7 @@ body {
 }
 
 
-.sections table .sec_url {
+.sections table .sec-url {
     width: 150px;
     height: 40px;
 }
@@ -565,4 +586,29 @@ body {
     color: blue;
 }
 /*----/content/language_page-----*/
+
+/*-----content/avatar_change-----*/
+.avatar-back {
+    margin-top: 50px;
+    margin-left: 50px;
+    background: white;
+}
+
+
+#avatar-change-form input[type='radio'] {
+    display: none;
+}
+
+
+#avatar-change-form input:checked + img {
+    border: 2px solid pink;
+}
+
+
+.current-avatar {
+    margin-top: 50px;
+    margin-left: 50px;
+
+    width: 256px;
+}/*----/content/avatar_change-----*/
 

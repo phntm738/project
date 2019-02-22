@@ -1,6 +1,6 @@
 
 
-fnames = ['variables', 'main', 'header', 'content/authorization', 'content/profile', 'content/index', 'content/language_page']
+fnames = ['variables', 'main', 'header', 'content/authorization', 'content/profile', 'content/index', 'content/language_page', 'content/avatar_change']
 
 
 def merge():

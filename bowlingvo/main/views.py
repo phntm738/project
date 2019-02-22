@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
 from .models import *
-from .additional.task_gen import lex_task_gen
+from .additional.task_gen import task_gen
 from django.http import Http404
 
 from .my_views.authorization_views import *
@@ -29,4 +29,5 @@ def stop(request):
 import os
 @login_required(login_url='/main/login')
 def test(request):
+    return HttpResponse(task_gen(4))
     return render(request, 'main/test.html', {'page_name': 'test', 'script': True})

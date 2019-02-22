@@ -28,3 +28,19 @@ function switch_color() {
     inverse_color('task1');
     inverse_color('task2');
 }
+
+
+function show_lex() {
+	lex = document.getElementById('lex-sections');
+	gram = document.getElementById('gram-sections');
+	gram.style.display = 'none';
+	lex.style.display = 'block';
+}
+
+
+function show_gram() {
+	lex = document.getElementById('lex-sections');
+	gram = document.getElementById('gram-sections');
+	lex.style.display = 'none';
+	gram.style.display = 'block';
+}

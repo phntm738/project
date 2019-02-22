@@ -11,8 +11,29 @@
 }
 
 
-.all_sections {
+.all-sections {
     overflow: auto;
+}
+
+
+.type-choices {
+    height: 50px;
+}
+
+
+#lex-button {
+    width: 50%;
+    height: 40px;
+    float: left;
+    background: green;
+}
+
+
+#gram-button {
+    width: 50%;
+    height: 40px;
+    float: right;
+    background: red;
 }
 
 
@@ -27,7 +48,7 @@
 }
 
 
-.sections table .sec_name {
+.sections table .sec-name {
     background-color: lightgrey;
     width: 150px;
     height: 100px;
@@ -38,7 +59,7 @@
 }
 
 
-.sections table .sec_url {
+.sections table .sec-url {
     width: 150px;
     height: 40px;
 }
