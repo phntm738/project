@@ -1,0 +1,4 @@
+Django >= 2.0.9
+django-appconf >= 1.0.2
+django-avatar >= 4.1.0
+Pillow >= 5.4.1
