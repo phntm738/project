@@ -11,7 +11,7 @@
                 {{ language.name }}
             </td>
             <td>
-                <a href="/main/{{ language.url_name }}">Выбрать</a>
+                <a href="{% url 'language' language_name=language.url_name %}">Выбрать</a>
             </td>
         </tr>
         {% endfor %}
