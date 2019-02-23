@@ -2,13 +2,15 @@
 {% include 'main/header.html' %}
 
 <div class="avatar-back">
+	<h1>Изменение аватара профиля</h1>
     <div class="current-avatar">
-        Ваш аватар:
-        {% avatar user 256 %}
+        {% avatar user 175 %}
+		<p>Текущий аватар</p>
     </div>
     {% if not avatars %}
         <div class="avatar-error">Нет аватаров</div>
     {% else %}
+		<p>Выбрать из загруженных</p>
         <form method="POST" action="{% url 'avatar_change' %}" id="avatar-change-form">
             {% for field in primary_avatar_form %}
                 {% for choice in field %}
@@ -16,14 +18,18 @@
                 {% endfor %}
             {% endfor %}
             {% csrf_token %}
-            <input type="submit" value="Выберите используемый по умолчанию">
+			<a class='remove-avatar' href="/main/avatar/delete">Удалить аватары</a>
+            <a class='avatar-change-button'>Установить</a>
         </form>
     {% endif %}
-    <form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}">
+	<p>Добавить аватар</p>
+    <form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}" id="avatar-addition-form">
         {{ upload_avatar_form }}
         {% csrf_token %}
-        <input type="submit" value="Загрузить новое изображение">
+		<label for="id_avatar" class="upload-avatar">Выбрать изображение</label>
+        <input type="submit" value="Добавить">
     </form>
+	<a href="/main/profile" class="avatar-to-profile">Вернуться в профиль</a>
 </div>
 
 {% include 'main/footer.html' %}

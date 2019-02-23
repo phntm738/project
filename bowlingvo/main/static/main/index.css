@@ -198,7 +198,9 @@ div label[for='submenu-position']{
     position: absolute;
     top: 75px;
     right: 10px;
-
+	
+	padding-top: 4px;
+	padding-bottom: 4px;
 	width: 135px;
     border: 1px solid rgba(0, 0, 0, .25);
     border-top: none;
@@ -218,7 +220,6 @@ div label[for='submenu-position']{
     text-decoration: none;
     font-size: 20px;
     color: black;
-    border-bottom: 1px solid rgba(0, 0, 0, .25);
 }
 
 
@@ -227,8 +228,13 @@ div label[for='submenu-position']{
 }
 
 
-.header-submenu a:last-child{
-    border: none;
+.header-submenu div {
+	margin-top: 3px;
+	margin-bottom: 4px;
+	margin-right: 15px;
+	margin-left: 15px;
+	border-top: 1px solid rgba(0, 0, 0, 0.25);
+	height: 0px;
 }
 
 
@@ -353,7 +359,7 @@ div label[for='submenu-position']{
 }
 
 
-#login-form .authorization-submit, #register-form .authorization-submit {
+#login-form .authorization-submit, #register-form .authorization-submit, .avatar-to-profile {
     display: block;
     margin-top: 25px;
     margin-left: auto;
@@ -387,7 +393,7 @@ div label[for='submenu-position']{
 }
 
 
-#login-form .authorization-submit:hover, #register-form .authorization-submit:hover {
+#login-form .authorization-submit:hover, #register-form .authorization-submit:hover, .avatar-to-profile:hover {
     border: 1px solid rgba(0, 0, 0, .15);
     background: var(--backgroundcolor);
     color: black;
@@ -396,6 +402,27 @@ div label[for='submenu-position']{
         inset 0px -1px 1px rgba(255, 255, 255, .5),
         inset 1px 0px 1px rgba(255, 255, 255, .5),
         inset -1px 0px 1px rgba(255, 255, 255, .5);
+}
+
+
+.the_letter_was_sent {
+	margin: auto;
+	margin-top: 40px;
+	border: 0 solid black;
+	border-radius: 5px;
+	padding: 10px;
+	width: 800px;
+	
+	text-align: center;
+	font-family: 'Caption', sans-serif;
+	font-size: 20px;
+	background-color: white;
+	color: green;
+}
+
+
+.the_letter_was_sent span {
+	font-style: italic;
 }
 /*----/content/authorization-----*/
 
@@ -408,7 +435,7 @@ div label[for='submenu-position']{
 
     width: 1001px;
     height: 501px;
-    background: mintcream;
+    background: white;
     border-radius: 10px;
     border: 1px solid black;
 }
@@ -425,9 +452,17 @@ div label[for='submenu-position']{
 
 
 .profile-avatar img {
-    margin: 20px;
+    margin-top: 20px;
+	margin-left: 20px;
     border: 2px solid black;
     border-radius: 10px;
+	
+	transition: all 0.3s linear;
+}
+
+
+.profile-avatar img:hover {
+	filter: saturate(0.5);
 }
 
 
@@ -627,9 +662,75 @@ div label[for='submenu-position']{
 
 /*-----content/avatar_change-----*/
 .avatar-back {
-    margin-top: 50px;
-    margin-left: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+	margin-bottom: 40px;
+
+    width: 450px;
     background: white;
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.avatar-back h1 {
+	margin-top: 0;
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 35px;
+	line-height: 35px;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: normal;
+}
+
+
+.avatar-back p {
+	margin-top: 0px;
+	margin-bottom: 5px;
+	margin-left: 15px;
+	
+    font-size: 17.5px;
+    line-height: 17.5px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+.current-avatar {
+	margin-left: 15px;
+    margin-top: 0px;
+	margin-bottom: 20px;
+    width: 435px;
+	height: 181px;
+}
+
+
+.current-avatar p {
+	margin-left: 186px;
+	margin-bottom: 0px;
+	border-left: 3px solid green;
+	padding-top: 131px;
+	padding-left: 3px;
+	width: 100px;
+	
+	font-family: 'Roboto Condensed', sans-serif;
+	line-height: 25px;
+	font-size: 25px;
+}
+
+
+.current-avatar img {
+	border: 3px solid green;
+	border-radius: 15px;
+	float: left;
+}
+
+
+#avatar-change-form {
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-bottom: 20px;
 }
 
 
@@ -638,15 +739,109 @@ div label[for='submenu-position']{
 }
 
 
-#avatar-change-form input:checked + img {
-    border: 2px solid pink;
+#avatar-change-form img {
+	margin-bottom: 7px;
+	border-radius: 7px;
+	width: 64px;
+	height: 64px;
+	cursor: pointer;
 }
 
 
-.current-avatar {
-    margin-top: 50px;
-    margin-left: 50px;
+#avatar-change-form input:checked + img {
+    border: 2px solid green;
+}
 
-    width: 256px;
-}/*----/content/avatar_change-----*/
+
+.remove-avatar {
+	display: block;
+	margin-bottom: 7.5px;
+	border-left: 0.5px dashed gray;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+	padding: 5px;
+	width: 105px;
+	
+	font-family: 'Caption', sans-serif;
+	font-size: 12.5px;
+	line-height: 12.5px;
+	text-decoration: none;
+	color: black;
+	transition: all 0.35s linear;
+}
+
+
+.remove-avatar:hover {
+	background-color: rgba(128, 128, 128, 0.5);
+}
+
+
+.avatar-change-button, .avatar-back input[type='submit'] {
+	height: 30px;
+	width: 120px;
+	border: none;
+	border-left: 2px solid green;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: 3px;
+	padding-right: 5px;
+	cursor: pointer;
+	transition: all 0.35s linear;
+	
+	background-color: white;
+	font-family: 'Caption', sans-serif;
+	font-size: 13px;
+	line-height: 13px;
+}
+
+
+.avatar-back input[type='submit'] {
+	margin-top: 5px;
+	height: 23px;
+	width: 93px;
+	
+	text-align: left;
+}
+
+
+.avatar-change-button:hover, .avatar-back input[type='submit']:hover {
+	background-color: green;
+}
+
+
+#avatar-addition-form {
+	margin-left: 15px;
+	margin-bottom: 20px;
+}
+
+
+#avatar-addition-form label:not(.upload-avatar), #id_avatar{
+	display: none;
+}
+
+
+.upload-avatar {
+	display: block;
+	border: 3px dashed rgba(0, 0, 0, 0.5);
+	padding: 10px;
+	width: 170px;
+	
+	transition: all 0.45s linear;
+	cursor: pointer;
+	text-align: center;
+	font-family: 'Caption', sans-serif;
+	color: rgba(0, 0, 0, 0.5);
+}
+
+
+.upload-avatar:hover {
+	border: 3px solid green;
+	color: green;
+}
+
+
+.avatar-to-profile {
+	width: 300px;
+}
+/*----/content/avatar_change-----*/
 
