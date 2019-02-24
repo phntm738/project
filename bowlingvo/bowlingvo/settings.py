@@ -11,11 +11,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
-import os
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -23,9 +18,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4d96#ag%rsd&=sdroh8iclk@)vu+yvh45y4@%!#4h=p$u_w4#p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+from . import configs
 
-ALLOWED_HOSTS = ['172.16.1.4', '127.0.0.1']
+DEBUG = configs.DEBUG
+
+ALLOWED_HOSTS = configs.ALLOWED_HOSTS
 
 
 # Application definition
@@ -77,12 +74,7 @@ WSGI_APPLICATION = 'bowlingvo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+DATABASES = configs.DATABASES
 
 
 # Password validation
@@ -128,15 +120,13 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/main'
 LOGOUT_REDIRECT_URL = '/main/login'
 
-from.email_password import email_password
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_HOST_USER = 'bowlingvo@mail.ru'
-EMAIL_HOST_PASSWORD = email_password         # исправить
+EMAIL_HOST_PASSWORD = configs.EMAIL_HOST_PASSWORD
 EMAIL_PORT = 465
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
 
 import os
 MEDIA_ROOT = os.path.join(os.getcwd(), 'media')
