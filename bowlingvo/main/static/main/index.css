@@ -755,7 +755,7 @@ div label[for='submenu-position']{
 
 .remove-avatar {
 	display: block;
-	margin-bottom: 7.5px;
+	margin-bottom: 5px;
 	border-left: 0.5px dashed gray;
 	border-bottom-right-radius: 5px;
 	border-top-right-radius: 5px;
@@ -776,9 +776,10 @@ div label[for='submenu-position']{
 }
 
 
-.avatar-change-button, .avatar-back input[type='submit'] {
-	height: 30px;
-	width: 120px;
+.avatar-back input[type='submit'] {
+	margin: 0px;
+	height: 23px;
+	width: 93px;
 	border: none;
 	border-left: 2px solid green;
 	border-top-right-radius: 5px;
@@ -788,19 +789,11 @@ div label[for='submenu-position']{
 	cursor: pointer;
 	transition: all 0.35s linear;
 	
+	text-align: left;
 	background-color: white;
 	font-family: 'Caption', sans-serif;
 	font-size: 13px;
 	line-height: 13px;
-}
-
-
-.avatar-back input[type='submit'] {
-	margin-top: 5px;
-	height: 23px;
-	width: 93px;
-	
-	text-align: left;
 }
 
 
@@ -822,6 +815,7 @@ div label[for='submenu-position']{
 
 .upload-avatar {
 	display: block;
+	margin-bottom: 5px;
 	border: 3px dashed rgba(0, 0, 0, 0.5);
 	padding: 10px;
 	width: 170px;
@@ -837,6 +831,17 @@ div label[for='submenu-position']{
 .upload-avatar:hover {
 	border: 3px solid green;
 	color: green;
+}
+
+
+p.avatar-addition-attention {
+	margin-left: 0px;
+	width: 196px;
+	
+	font-size: 12.5px;
+	line-height: 12.5px;
+	color: gray;
+	
 }
 
 

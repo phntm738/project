@@ -19,17 +19,18 @@
             {% endfor %}
             {% csrf_token %}
 			<a class='remove-avatar' href="/main/avatar/delete">Удалить аватары</a>
-            <a class='avatar-change-button'>Установить</a>
+            <input type='submit' class='avatar-change-button' value='Установить'>
         </form>
     {% endif %}
 	<p>Добавить аватар</p>
     <form enctype="multipart/form-data" method="POST" action="{% url 'avatar_add' %}" id="avatar-addition-form">
         {{ upload_avatar_form }}
         {% csrf_token %}
-		<label for="id_avatar" class="upload-avatar">Выбрать изображение</label>
-        <input type="submit" value="Добавить">
+		<label for='id_avatar' class='upload-avatar'>Выбрать изображение</label>
+		<p class='avatar-addition-attention'>Сайт автоматически обрезает загружаемые изображения. Рекомендуем загружать квадратные фотографии</p>
+        <input type='submit' value='Добавить'>
     </form>
-	<a href="/main/profile" class="avatar-to-profile">Вернуться в профиль</a>
+	<a href="/main/profile" class='avatar-to-profile'>Вернуться в профиль</a>
 </div>
 
 {% include 'main/footer.html' %}
