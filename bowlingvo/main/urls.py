@@ -11,10 +11,11 @@ urlpatterns = [
     path('do-logout', auth_views.LogoutView.as_view(), name='logout'),
     path('register', views.RegistrationView.as_view(), name='register'),
     path('profile', views.ProfileView.as_view(), name='profile'),
-#    path('avatar/add/', views.stop),
     path('avatar/', include('avatar.urls'), name='avatar'),
     path('test', views.test),
     re_path(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         views.activate, name='activate'),
-    path('<str:language_name>', views.language_page, name='language'),
+    path('lang/<str:language_name>', views.language_page, name='language'),
+    path('lang/<str:language_name>/sec/<str:section_name>', views.section_page, name='section'),
+
 ]

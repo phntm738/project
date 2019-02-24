@@ -1,58 +1,56 @@
 {% load static %}
 {% include "main/header.html" %}
-<div class="content">
-    <div class="language">
-        {{ language.name }}
+<div class="language">
+    {{ language.name }}
+</div>
+<div class="all-sections">
+    <div class="type-choices">
+        <div id="lex-button" onclick="show_lex()">Лексика</div>
+        <div id="gram-button" onclick="show_gram()">Грамматика</div>
     </div>
-    <div class="all-sections">
-        <div class="type-choices">
-            <div id="lex-button" onclick="show_lex()">Лексика</div>
-            <div id="gram-button" onclick="show_gram()">Грамматика</div>
-        </div>
-        <div id="lex-sections">
-            <table class="sections">
-                <tr>
-                    {% for section in lex_sections %}
-                    <td>
-                        <table>
-                            <tr>
-                                <td class="sec-name">
-                                    {{ section.name }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="sec-url">
-                                    <a href="/main/{{ language.url_name }}/{{ section.url_name }}">Выбрать</a>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                    {% endfor %}
-                </tr>
-            </table>
-        </div>
-        <div hidden id="gram-sections">
-            <table class="sections">
-                <tr>
-                    {% for section in gram_sections %}
-                    <td>
-                        <table>
-                            <tr>
-                                <td class="sec-name">
-                                    {{ section.name }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="sec-url">
-                                    <a href="/main/{{ language.url_name }}/{{ section.url_name }}">Выбрать</a>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                    {% endfor %}
-                </tr>
-            </table>
-        </div>
+    <div id="lex-sections">
+        <table class="sections">
+            <tr>
+                {% for section in lex_sections %}
+                <td>
+                    <table>
+                        <tr>
+                            <td class="sec-name">
+                                {{ section.name }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sec-url">
+                                <a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}">Выбрать</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+    <div hidden id="gram-sections">
+        <table class="sections">
+            <tr>
+                {% for section in gram_sections %}
+                <td>
+                    <table>
+                        <tr>
+                            <td class="sec-name">
+                                {{ section.name }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="sec-url">
+                                <a href="/main/{{ language.url_name }}/{{ section.url_name }}">Выбрать</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                {% endfor %}
+            </tr>
+        </table>
     </div>
 </div>
 {% include "main/footer.html" %}

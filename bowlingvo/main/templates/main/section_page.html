@@ -1,0 +1,15 @@
+{% include "main/header.html" %}
+
+<table>
+    <tr>
+        {% for lesson, ability in lessons %}
+            {% if ability %}
+                <td><a href="#"><div class="active">{{ lesson }}</div></a></td>
+            {% else %}
+                <td><a href="#"><div class="inactive">{{ lesson }}</div></a></td>
+            {% endif %}
+        {% endfor %}
+    </tr>
+</table>
+
+{% include "main/footer.html" %}
