@@ -2,6 +2,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 40px;
+	margin-bottom: 40px;
 
     width: 1001px;
     height: 501px;
@@ -22,9 +23,17 @@
 
 
 .profile-avatar img {
-    margin: 20px;
+    margin-top: 20px;
+	margin-left: 20px;
     border: 2px solid black;
     border-radius: 10px;
+	
+	transition: all 0.3s linear;
+}
+
+
+.profile-avatar img:hover {
+	filter: saturate(0.5);
 }
 
 
@@ -43,8 +52,9 @@
     border-radius: 6px;
 
     padding-left: 20px;
-    line-height: 50px;
-    font-size: 50px;
+    line-height: 46px;
+	font-family: 'Raleway', sans-serif;
+    font-size: 45px;
 }
 
 
@@ -62,10 +72,22 @@
 
 
 .user-info .nick a:hover {
-    background: #CCFF66;
+    background: lawngreen; /* lawngreen */
+}
+
+
+.logoutimg {
+	margin: 2.5px;
+}
+
+
+.information  table tr td {
+	font-family: 'Caption', sans-serif;
 }
 
 
 .profile-second {
     display: none;
 }
+
+
