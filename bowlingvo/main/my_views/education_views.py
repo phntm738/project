@@ -41,11 +41,13 @@ def section_page(request, language_name, section_name):
     finished_lessons = [f.lesson for f in flessons]
     all_lessons = []
     for lesson in lessons:
-        all_lessons.append([str(lesson), lesson in finished_lessons])
+        all_lessons.append([str(lesson), 'active' if lesson in finished_lessons else 'locked'])
     for lesson in all_lessons:
-        if lesson[1] == False:
-            lesson[1] = True
+        if lesson[1] == 'locked':
+            lesson[1] = 'active'
             break
+        elif lesson[1] == 'active':
+            lesson[1] = 'finished'
     return render(request, 'main/section_page.html',
                   {'profile': profile, 'section': section, 'lessons':all_lessons})
 
