@@ -731,6 +731,8 @@ div label[for='submenu-position']{
 	margin-left: 15px;
 	margin-right: 15px;
 	margin-bottom: 20px;
+	
+	width: 400px;
 }
 
 
@@ -739,8 +741,14 @@ div label[for='submenu-position']{
 }
 
 
+#avatar-change-form label{
+	height: 0px;
+}
+
+
 #avatar-change-form img {
-	margin-bottom: 7px;
+	margin-bottom: 5px;
+	border: 2px solid white;
 	border-radius: 7px;
 	width: 64px;
 	height: 64px;
@@ -749,6 +757,7 @@ div label[for='submenu-position']{
 
 
 #avatar-change-form input:checked + img {
+	margin-bottom: 3px;
     border: 2px solid green;
 }
 
