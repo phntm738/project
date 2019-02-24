@@ -3,11 +3,17 @@
 <table>
     <tr>
         {% for lesson, ability in lessons %}
-            {% if ability %}
-                <td><a href="#"><div class="active">{{ lesson }}</div></a></td>
-            {% else %}
-                <td><a href="#"><div class="inactive">{{ lesson }}</div></a></td>
-            {% endif %}
+            <td><div class="{{ ability }}">{{ lesson }}
+                <div class="lesson-start-button">
+                {% if ability == 'finished' %}
+                    <a href="#">Повторить</a>
+                {% elif ability == 'active' %}
+                    <a href="#">Начать</a>
+                {% else %}
+                    Недоступен
+                {% endif %}
+                </div>
+            </div></td>
         {% endfor %}
     </tr>
 </table>
