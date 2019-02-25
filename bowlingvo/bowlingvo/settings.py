@@ -134,5 +134,5 @@ MEDIA_URL = '/media/'
 
 AVATAR_CACHE_ENABLED = False
 AVATAR_CHANGE_TEMPLATE = 'main/change_avatar.html'
-#AVATAR_DELETE_TEMPLATE = 'main/delete_avatar.html'
+AVATAR_DELETE_TEMPLATE = 'main/delete_avatar.html'
 AVATAR_CLEANUP_DELETED = True

@@ -2,6 +2,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 80px;
+	margin-bottom: 80px;
 
     width: 450px;
     background: white;
@@ -69,7 +70,7 @@
 }
 
 
-#login-form input, #register-form input{
+#login-form input, #register-form input {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -86,7 +87,13 @@
 }
 
 
-#login-form .authorization-submit, #register-form .authorization-submit {
+#login-form input:focus:not(.authorization-submit), #register-form input:focus:not(.authorization-submit) {
+	border: 1px solid green;
+	box-shadow: 0 0 2px green;
+}
+
+
+#login-form .authorization-submit, #register-form .authorization-submit, .avatar-to-profile {
     display: block;
     margin-top: 25px;
     margin-left: auto;
@@ -97,12 +104,13 @@
     border-radius: 2px;
     background: white;
     transition: all 0.3s linear;
+	cursor: pointer;
 
     text-decoration: none;
     text-align: center;
     border: 1px solid white;
     color: #008800;
-    font-family: 'caption', Sans-serif;
+    font-family: 'Caption', Sans-serif;
     font-size: 25px;
     line-height: 40px;
     box-shadow: none;
@@ -119,7 +127,7 @@
 }
 
 
-#login-form .authorization-submit:hover, #register-form .authorization-submit:hover {
+#login-form .authorization-submit:hover, #register-form .authorization-submit:hover, .avatar-to-profile:hover {
     border: 1px solid rgba(0, 0, 0, .15);
     background: var(--backgroundcolor);
     color: black;
@@ -128,4 +136,25 @@
         inset 0px -1px 1px rgba(255, 255, 255, .5),
         inset 1px 0px 1px rgba(255, 255, 255, .5),
         inset -1px 0px 1px rgba(255, 255, 255, .5);
+}
+
+
+.the_letter_was_sent {
+	margin: auto;
+	margin-top: 40px;
+	border: 0 solid black;
+	border-radius: 5px;
+	padding: 10px;
+	width: 800px;
+	
+	text-align: center;
+	font-family: 'Caption', sans-serif;
+	font-size: 20px;
+	background-color: white;
+	color: green;
+}
+
+
+.the_letter_was_sent span {
+	font-style: italic;
 }
