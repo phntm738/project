@@ -72,6 +72,19 @@ class FinishedLesson(models.Model):
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
 
 
+class FinishedSection(models.Model):
+    objects = models.Manager()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    section = models.ForeignKey(Section, on_delete=models.CASCADE)
+
+
+class FinishedLanguage(models.Model):
+    objects = models.Manager()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+
+
+
 class Phrase(models.Model):
     objects = models.Manager()
     tag = models.CharField(max_length=32)

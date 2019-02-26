@@ -13,6 +13,9 @@ from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 
 
+NEED_EMAIL = True
+
+
 class TokenGenerator(PasswordResetTokenGenerator):
     def _make_hash_value(self, user, timestamp):
         return str(user.pk) + str(timestamp) + str(user.is_active)
@@ -26,7 +29,6 @@ class RegistrationView(View):
     template_name = 'main/registration_form.html'
 
     def get(self, request):
-        user = request.user
         form = self.form_class()
         return render(request, self.template_name, {'form': form})
 
@@ -41,21 +43,31 @@ class RegistrationView(View):
             profile.user = user
             profile.save()
 
-            current_site = get_current_site(request)
-            mail_subject = 'Активация аккаунта на bowlingvo.ru'
-            uid = urlsafe_base64_encode(force_bytes(user.pk)).decode("utf-8")
-            token = account_activation_token.make_token(user)
-            message = render_to_string('main/acc_activation.html', {
-                'user': user,
-                'domain': current_site.domain,
-                'uid': uid,
-                'token': token,
-            })
-            email = EmailMessage(mail_subject, message, to=[user.email])
-            email.send()
-            return render(request, 'main/email_conf.html', {'email': user.email})
+            if NEED_EMAIL:
+                send_mail(request, user)
+                return render(request, 'main/email_conf.html', {'email': user.email})
+            else:
+                user.is_active = True
+                user.save()
+                login(request, user)
+                return redirect('/main')
         else:
             return render(request, self.template_name, {'form': form})
+
+
+def send_mail(request, user):
+    current_site = get_current_site(request)
+    mail_subject = 'Активация аккаунта на bowlingvo.ru'
+    uid = urlsafe_base64_encode(force_bytes(user.pk)).decode("utf-8")
+    token = account_activation_token.make_token(user)
+    message = render_to_string('main/acc_activation.html', {
+        'user': user,
+        'domain': current_site.domain,
+        'uid': uid,
+        'token': token,
+    })
+    email = EmailMessage(mail_subject, message, to=[user.email])
+    email.send()
 
 
 def activate(request, uidb64, token):

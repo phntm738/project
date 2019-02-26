@@ -1,0 +1,26 @@
+{% include "main/header.html" %}
+
+<div class="lesson-back">
+    <div class="name">{{ lesson }}</div>
+    <div id="all-tasks">
+    {% for task in tasks %}
+        {% with cur_val=forloop.counter %}
+        <div {% if not forloop.first %} hidden {% endif %} class="task" id="task{{ cur_val }}" answer="{{ task.answer }}">
+            <div>{{ task.word }}</div>
+            <div>
+                {% if task.type == 'input' %}
+                    <input type="text" name="user-answer-{{ cur_val }}">
+                {% else %}
+                    {% for var in task.choices %}
+                        <p><input type="radio" name="user-answer-{{ cur_val }}" value="{{ var }}">{{ var }}</p>
+                    {% endfor %}
+                {% endif %}
+                <button onclick="test()">Проверить</button>
+            </div>
+        </div>
+        {% endwith %}
+    {% endfor %}
+    </div>
+</div>
+
+{% include "main/footer.html" %}

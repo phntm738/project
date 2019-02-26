@@ -29,5 +29,6 @@ def stop(request):
 import os
 @login_required(login_url='/main/login')
 def test(request):
-    return HttpResponse(task_gen(4))
+    profile = UserProfile.objects.get(pk=1)
+    return render(request, 'main/lesson_page.html', {'profile': profile, 'tasks': task_gen(4), 'lesson': 'test'})
     return render(request, 'main/test.html', {'page_name': 'test', 'script': True})
