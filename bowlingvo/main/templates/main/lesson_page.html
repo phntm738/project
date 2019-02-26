@@ -7,7 +7,7 @@
         {% with cur_val=forloop.counter %}
         <div {% if not forloop.first %} hidden {% endif %} class="task" id="task{{ cur_val }}" answer="{{ task.answer }}">
             <div>{{ task.word }}</div>
-            <div>
+            <div class=".answer">
                 {% if task.type == 'input' %}
                     <input type="text" name="user-answer-{{ cur_val }}">
                 {% else %}
@@ -15,12 +15,20 @@
                         <p><input type="radio" name="user-answer-{{ cur_val }}" value="{{ var }}">{{ var }}</p>
                     {% endfor %}
                 {% endif %}
-                <button onclick="test()">Проверить</button>
             </div>
         </div>
         {% endwith %}
     {% endfor %}
+        <button onclick="lesson.checkTask()">Проверить</button>
     </div>
 </div>
+<style>
+    .task {
+        width: 200px;
+        margin: auto;
+        background: white;
+        border: 1px solid black;
+    }
+</style>
 
 {% include "main/footer.html" %}
