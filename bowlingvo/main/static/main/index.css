@@ -6,6 +6,11 @@
 /*----/variables-----*/
 
 /*-----main-----*/
+a {
+	text-decoration: none;
+}
+
+
 body {
     margin: 0px;
     background-color: var(--backgroundcolor);
@@ -359,7 +364,7 @@ div label[for='submenu-position']{
 }
 
 
-#login-form .authorization-submit, #register-form .authorization-submit, .avatar-to-profile {
+#login-form .authorization-submit, #register-form .authorization-submit, .avatar-to-profile, .to-avatar {
     display: block;
     margin-top: 25px;
     margin-left: auto;
@@ -393,7 +398,7 @@ div label[for='submenu-position']{
 }
 
 
-#login-form .authorization-submit:hover, #register-form .authorization-submit:hover, .avatar-to-profile:hover {
+#login-form .authorization-submit:hover, #register-form .authorization-submit:hover, .avatar-to-profile:hover, .to-avatar:hover {
     border: 1px solid rgba(0, 0, 0, .15);
     background: var(--backgroundcolor);
     color: black;
@@ -523,10 +528,21 @@ div label[for='submenu-position']{
 /*----/content/profile-----*/
 
 /*-----content/index-----*/
+.greetings {
+	margin-top: 40px;
+	margin-bottom: 10px;
+	
+	text-align: center;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 30px;
+	font-weight: 400;
+}
+
+
 .course {
     width: 500px;
     height: 30px;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
 
@@ -535,45 +551,69 @@ div label[for='submenu-position']{
     font-family: 'Roboto Condensed';
 }
 
-
 .languages {
-    border-spacing: 0 15px;
+	width: 400px;
     margin-left: auto;
     margin-right: auto;
+	margin-bottom: 25px;
+	margin-top: 15px;
 }
 
 
-.languages tr {
-    background-color: white;
-    border-radius: 15px;
+.lang {
+	margin-bottom: 15px;
 }
 
 
-.languages td {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    width: 150px;
-    height: 75px;
-    text-align: center;
+.flag {
+	display: inline-block;
+	width: 75px;
+	height: 75px;
+	border-radius: 7px;
+	padding-right: 5px;
+	/*width: 0px;
+	padding-right: 0px;
+	transition: all 0.15s linear;*/
+}
+
+
+/*.lang:hover .flag {
+	width: 75px;
+	padding-right: 5px;
+}*/
+
+
+.lang-separator {
+	display: inline-block;
+	margin-right: 5px;
+	border-left: 3px solid green;
+	height: 75px;
+}
+
+
+.language-name {
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 15px;
+	height: 75px;
+	width: 297px;
+	line-height: 75px;
+	border-radius: 7px;
+	/*width: 377px;
+	transition: all 0.15s linear;*/
+	
+	background-color: white;
+    text-align: left;
+	text-decoration: none;
+	font-family: 'Roboto Condenced', sans-serif;
     font-size: 20px;
+	color: black;
 }
 
 
-.languages td a {
-    display: block;
-
-    width: 70px;
-    height: 30px;
-    margin-right: 10px;
-    margin-left: 70px;
-
-    border-radius: 7px;
-    background-color: lightgreen;
-    line-height: 30px;
-    text-decoration: none;
-    font-size: 16;
-    color: blue;
-}
+/*.lang:hover .language-name {
+	width: 297px;
+}*/
 /*----/content/index-----*/
 
 /*-----content/language_page-----*/
@@ -583,10 +623,16 @@ div label[for='submenu-position']{
     height: 65px;
     margin-left: auto;
     margin-right: auto;
+	margin-bottom: 20px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
 
+	cursor: default;
     text-align: center;
     line-height: 65px;
+	font-family: 'Caption', sans-serif;
     font-size: 40px;
+	color: orangered;
 }
 
 
@@ -596,67 +642,154 @@ div label[for='submenu-position']{
 
 
 .type-choices {
-    height: 50px;
+	width: 700px;
+	height: 43px;
+	margin: auto;
+	margin-bottom: 15px;
 }
 
 
-#lex-button {
-    width: 50%;
-    height: 40px;
+#lex-button, #gram-button {
+    width: 300px;
+	height: 35px;
     float: left;
-    background: green;
+	border-top: 5px solid green;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding-left: 10px;
+	padding-top: 3px;
+	
+	transition: all 0.25s linear;
+	font-family: 'Caption', sans-serif;
+	font-size: 25px;
+	cursor: pointer;
 }
 
 
 #gram-button {
-    width: 50%;
-    height: 40px;
     float: right;
-    background: red;
 }
 
 
-.sections {
-    margin-left: 50px;
-    margin-top: 50px;
+#lex-button:hover, #gram-button:hover {
+	background: rgba(0, 128, 0, 0.5)
 }
 
 
-.sections table {
-    border-spacing: 20px 10px;
+#lex-sections, #gram-sections {
+	margin: auto;
+	width: 700px;
+	margin-bottom: 40px;
 }
 
 
-.sections table .sec-name {
-    background-color: lightgrey;
-    width: 150px;
-    height: 100px;
-    border: 1px solid black;
-    border-radius: 15px;
+.lex-sec {
+	display: inline-block;
+	width: 121px;
+	border-top-right-radius: 60.5px;
+	border-top-left-radius: 60.5px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	transition: all 0.5s linear;
+	
+	background-color: white;
+}
+
+
+.lex-sec:hover {
+	background-color: lightgrey;
+}
+
+
+#lex-sections .sec-logo {
+    width: 115px;
+    height: 115px;
+	line-height: 115px;
+    border: 3px solid green;
+    border-radius: 50%;
+	
+	background-color: rgba(0, 0, 0, 0.2);
     text-align: center;
     font-size: 30px;
+	color: black;
 }
 
 
-.sections table .sec-url {
-    width: 150px;
-    height: 40px;
-}
-
-
-.sections table a {
-    background-color: lightgreen;
+#lex-sections .sec-name {
     display: block;
-    width: 75px;
-    margin-left: auto;
-    margin-right: auto;
     height: 40px;
-    border: 1px solid green;
+	line-height: 40px;
     border-radius: 10px;
+	
     text-align: center;
-    line-height: 40px;
+	font-family: 'Roboto Condenced', sans-serif;
     text-decoration: none;
-    color: blue;
+	color: black;
+}
+
+
+#gram-sections .gram-sec {
+	height: 50px;
+	/*margin-bottom: 10px;*/
+	border-radius: 10px;
+	
+	background-color: white;
+	font-family: 'Caption', sans-serif;
+	color: black;
+	line-height: 50px;
+}
+
+
+#gram-sections .sec-name {
+	display: inline-block;
+	width: 584px;
+	margin-left: 12.5px;
+	border-left: 3px solid green;
+	padding-left: 7.5px;
+	transition: all 0.5s linear;
+	
+	font-size: 25px;
+}
+
+
+.gram-sec:hover .sec-name {
+	background-color: lightgrey;
+}
+
+
+#gram-sections .sec-url {
+	display: inline-block;
+	width: 70px;
+	float: right;
+	margin-right: 12.5px;
+	padding-left: 7.5px;
+	border-left: 3px solid green;
+	
+	font-size: 17.25px;
+}
+
+
+#gram-sections .gram-path-left, #gram-sections .gram-path-right {
+	display: inline-block;
+	padding-left: 9.4px;
+	
+	font-family: 'Caption', sans-serif;
+	font-weight: bold;
+	color: green;
+}
+
+
+#gram-sections .gram-path-right {
+	float: right;
+	padding-left: 0px;
+	padding-right: 86.55px;
+}
+
+
+#gram-sections .gram-path:last-child {
+	display: none;
 }
 /*----/content/language_page-----*/
 
@@ -732,7 +865,7 @@ div label[for='submenu-position']{
 }
 
 
-#avatar-change-form {
+#avatar-change-form, #avatar-delete-form{
 	margin-left: 15px;
 	margin-right: 15px;
 	margin-bottom: 20px;
@@ -741,7 +874,7 @@ div label[for='submenu-position']{
 }
 
 
-#avatar-change-form input[type='radio'] {
+#avatar-change-form input[type='radio'], #avatar-delete-form input[type='checkbox'] {
     display: none;
 }
 
@@ -751,7 +884,7 @@ div label[for='submenu-position']{
 }
 
 
-#avatar-change-form img {
+#avatar-change-form img, #avatar-delete-form img {
 	border: 2px solid white;
 	border-radius: 7px;
 	width: 64px;
@@ -760,7 +893,7 @@ div label[for='submenu-position']{
 }
 
 
-#avatar-change-form input:checked + img {
+#avatar-change-form input:checked + img, #avatar-delete-form input:checked + img {
     border: 2px solid green;
 }
 
@@ -859,6 +992,13 @@ p.avatar-addition-attention {
 
 .avatar-to-profile {
 	width: 300px;
+}
+
+
+.to-avatar {
+	width: 200px;
+	
+	font-size: 20px;
 }
 /*----/content/avatar_change-----*/
 
