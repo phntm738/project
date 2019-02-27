@@ -1,20 +1,23 @@
 {% load static %}
 {% include "main/header.html" %}
-<div class="content">
-    <div class="course">
-        Выберите курс:
+
+<div class='content'>
+	<h1 class='greetings'>Добро пожаловать</h1>
+    <div class='course'>
+        Выберите курс
     </div>
-    <table class="languages">
+    <div class='languages'>
         {% for language in languages %}
-        <tr>
-            <td>
-                {{ language.name }}
-            </td>
-            <td>
-                <a href="{% url 'language' language_name=language.url_name %}">Выбрать</a>
-            </td>
-        </tr>
+		<a href="{% url 'language' language_name=language.url_name %}"><div class='lang'>
+			<div class='flag'>
+				<img src="{% static 'main/images/flag.jpg' %}" alt='language flag' class='flag-icon'>
+			</div
+			><div class='language-name'>
+				{{ language.name }}
+            </div>
+        </div></a>
         {% endfor %}
-    </table>
+    </div>
 </div>
+
 {% include "main/footer.html" %}
