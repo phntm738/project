@@ -561,33 +561,34 @@ div label[for='submenu-position']{
 
 
 .lang {
+	width: 325px;
+	margin: auto;
 	margin-bottom: 15px;
+	transition: all 0.15s linear;
+}
+
+
+.lang:hover {
+	width: 400px;
 }
 
 
 .flag {
 	display: inline-block;
-	width: 75px;
-	height: 75px;
-	border-radius: 7px;
-	padding-right: 5px;
-	/*width: 0px;
-	padding-right: 0px;
-	transition: all 0.15s linear;*/
 }
 
 
-/*.lang:hover .flag {
-	width: 75px;
-	padding-right: 5px;
-}*/
-
-
-.lang-separator {
-	display: inline-block;
-	margin-right: 5px;
-	border-left: 3px solid green;
+.flag-icon {
+	width: 0px;
 	height: 75px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	transition: all 0.15s linear;
+}
+
+
+.lang:hover .flag-icon {
+	width: 75px;
 }
 
 
@@ -596,11 +597,12 @@ div label[for='submenu-position']{
 	vertical-align: top;
 	padding-left: 15px;
 	height: 75px;
-	width: 297px;
+	width: 307px;
 	line-height: 75px;
-	border-radius: 7px;
-	/*width: 377px;
-	transition: all 0.15s linear;*/
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-left: 3px solid green;
+	transition: all 0.15s linear;
 	
 	background-color: white;
     text-align: left;
@@ -609,11 +611,6 @@ div label[for='submenu-position']{
     font-size: 20px;
 	color: black;
 }
-
-
-/*.lang:hover .language-name {
-	width: 297px;
-}*/
 /*----/content/index-----*/
 
 /*-----content/language_page-----*/
@@ -732,7 +729,6 @@ div label[for='submenu-position']{
 
 #gram-sections .gram-sec {
 	height: 50px;
-	/*margin-bottom: 10px;*/
 	border-radius: 10px;
 	
 	background-color: white;
@@ -748,14 +744,30 @@ div label[for='submenu-position']{
 	margin-left: 12.5px;
 	border-left: 3px solid green;
 	padding-left: 7.5px;
-	transition: all 0.5s linear;
+	transition: all 0.3s linear;
 	
 	font-size: 25px;
 }
 
 
-.gram-sec:hover .sec-name {
+#gram-sections .active .sec-name {
+	border-left: 3px solid orange;
+}
+
+
+#gram-sections .locked .sec-name {
+	border-left: 3px solid lightgrey;
+	color: lightgrey;
+}
+
+
+#gram-sections .gram-sec:hover:not(.locked) .sec-name {
 	background-color: lightgrey;
+}
+
+
+#gram-sections .active:hover .sec-name {
+	background-color: rgba(255, 165, 0, 0.5);
 }
 
 
@@ -771,6 +783,17 @@ div label[for='submenu-position']{
 }
 
 
+#gram-sections .active .sec-url {
+	border-left: 3px solid orange;
+}
+
+
+#gram-sections .locked .sec-url {
+	border-left: 3px solid lightgrey;
+	color: lightgrey;
+}
+
+
 #gram-sections .gram-path-left, #gram-sections .gram-path-right {
 	display: inline-block;
 	padding-left: 9.4px;
@@ -778,6 +801,7 @@ div label[for='submenu-position']{
 	font-family: 'Caption', sans-serif;
 	font-weight: bold;
 	color: green;
+	cursor: default;
 }
 
 
@@ -785,6 +809,7 @@ div label[for='submenu-position']{
 	float: right;
 	padding-left: 0px;
 	padding-right: 86.55px;
+	cursor: default;
 }
 
 

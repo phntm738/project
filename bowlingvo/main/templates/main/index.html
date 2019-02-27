@@ -10,9 +10,8 @@
         {% for language in languages %}
 		<a href="{% url 'language' language_name=language.url_name %}"><div class='lang'>
 			<div class='flag'>
-				<img src="{% static 'main/images/flag.jpg' %}" alt='language flag' class='flag'>
+				<img src="{% static 'main/images/flag.jpg' %}" alt='language flag' class='flag-icon'>
 			</div
-			><div class='lang-separator'></div
 			><div class='language-name'>
 				{{ language.name }}
             </div>
