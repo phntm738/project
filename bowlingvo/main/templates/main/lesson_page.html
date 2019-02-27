@@ -3,32 +3,35 @@
 <div class="lesson-back">
     <div class="name">{{ lesson }}</div>
     <div id="all-tasks">
-    {% for task in tasks %}
-        {% with cur_val=forloop.counter %}
-        <div {% if not forloop.first %} hidden {% endif %} class="task" id="task{{ cur_val }}" answer="{{ task.answer }}">
-            <div>{{ task.word }}</div>
-            <div class=".answer">
-                {% if task.type == 'input' %}
-                    <input type="text" name="user-answer-{{ cur_val }}">
-                {% else %}
-                    {% for var in task.choices %}
-                        <p><input type="radio" name="user-answer-{{ cur_val }}" value="{{ var }}">{{ var }}</p>
-                    {% endfor %}
-                {% endif %}
-            </div>
+        <div class="start" id="task0">
+            {% for task in tasks %}
+                <p>{{ task.word }}: {{ task.answer }}</p>
+            {% endfor %}
         </div>
-        {% endwith %}
-    {% endfor %}
-        <button onclick="lesson.checkTask()">Проверить</button>
+        {% for task in tasks %}
+            {% with cur_val=forloop.counter %}
+            <div hidden class="task" id="task{{ cur_val }}" answer="{{ task.answer }}">
+                <div>{{ task.word }}</div>
+                <div class="answer">
+                    {% if task.type == 'input' %}
+                        <input type="text" name="user-answer-{{ cur_val }}">
+                    {% else %}
+                        {% for var in task.choices %}
+                            <p><input type="radio" name="user-answer-{{ cur_val }}" value="{{ var }}">{{ var }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            {% endwith %}
+        {% endfor %}
+        <button id="task-button" onclick="lesson.getNext()">Начать</button>
+    </div>
+    <div hidden class="finish" id="finish">
+        <p>Вы закончили урок</p>
+        <p>Ваши очки:</p>
+        <div id="lesson-score"></div>
+        <button>Завершить</button>
     </div>
 </div>
-<style>
-    .task {
-        width: 200px;
-        margin: auto;
-        background: white;
-        border: 1px solid black;
-    }
-</style>
 
 {% include "main/footer.html" %}

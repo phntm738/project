@@ -11,15 +11,17 @@ function LessonLogic() {
 	
 	var self = this;
 	
-	var task_node = document.getElementById('all-tasks');
+	var my_button = document.getElementById('task-button');
 	
 	var my_tasks = [].slice.call(document.getElementsByClassName('task'));
 	
 	var show_queue = [];
 	
-	for (var i = 1; i <= my_tasks.length; i++) {
+	for (var i = 0; i <= my_tasks.length; i++) {
 		show_queue.push(i);
 	}
+	
+	var score = 0;
 	
 	self.makeTasksList = function() {
 		console.log(my_tasks);
@@ -36,23 +38,50 @@ function LessonLogic() {
 		if (user_input.length == 1) {
 			var user_answer = user_input[0].value;
 		} else {
-			for (var inp in user_input) {
-				if (inp.checked) {
-					var user_answer = inp.value;
-					break;
+			var user_answer = '';
+			for (i = 0; i < 4; i++) {
+				if (user_input[i].checked) {
+					user_answer = user_input[i].value;
 				}
-			}
-			if (typeof(user_answer) == "undefined") {
-				var user_answer = false;
 			}
 		}
 		
-		if (user_input == answer) {
+		if (user_answer == answer) {
 			alert('Верно');
+			score += 10;
 		} else {
 			alert('Неверно');
+			show_queue.push(show_queue[0]);
+			score -= 5;
+			if (score < 0) {
+				score = 0;
+			}
 		}
+		my_button.firstChild.data = 'Следующий';
+		my_button.removeAttribute('onclick');
+		my_button.setAttribute('onclick', 'lesson.getNext()');
 	}
+	
+	self.getNext = function() {
+		if (show_queue.length > 1) {
+			var cur_id = show_queue.shift();
+			var next_id = show_queue[0];
+			var task_old = document.getElementById('task' + cur_id);
+			task_old.hidden	 = true;
+			var task_new = document.getElementById('task' + next_id);
+			task_new.hidden = false;
+			my_button.firstChild.data = 'Проверить';
+			my_button.removeAttribute('onclick');
+			my_button.setAttribute('onclick', 'lesson.checkTask()');
+		} else {
+			var task = document.getElementById('task' + show_queue.shift());
+			var end = document.getElementById('finish');
+			task.parentNode.hidden = true;
+			end.hidden = false;
+			var lesson_score = document.getElementById('lesson-score');
+			lesson_score.textContent = score;
+		}
+	}		
 }
 
 
