@@ -1,5 +1,6 @@
 {% load static %}
 {% include "main/header.html" %}
+
 <div class="language">
     {{ language.name }}
 </div>
@@ -21,6 +22,10 @@
     </div>
     <div hidden id='gram-sections'>
         {% for section in gram_sections %}
+		<div class='gram-path'>
+			<div class='gram-path-left'>˅</div>
+			<div class='gram-path-right'>˅</div>
+		</div>
 		<a href="/main/{{ language.url_name }}/{{ section.url_name }}"><div class='gram-sec'>
 			<div class='sec-name'>
                 {{ section.name }}
@@ -29,11 +34,8 @@
 				Выбрать
 			</div>
 		</div></a>
-		<div class='gram-path'>
-			<div class='gram-path-left'>˅</div>
-			<div class='gram-path-right'>˅</div>
-		</div>
         {% endfor %}
     </div>
 </div>
+
 {% include "main/footer.html" %}
