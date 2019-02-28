@@ -1,23 +1,26 @@
 {% include "main/header.html" %}
 
+<div class="lesson-name">{{ lesson }}</div>
 <div class="lesson-back">
-    <div class="name">{{ lesson }}</div>
     <div id="all-tasks">
         <div class="start" id="task0">
             {% for task in tasks %}
-                <p>{{ task.word }}: {{ task.answer }}</p>
+			<div class='words'>
+                <div>{{ task.word }}</div
+				><div>{{ task.answer }}</div>
+			</div>
             {% endfor %}
         </div>
         {% for task in tasks %}
             {% with cur_val=forloop.counter %}
             <div hidden class="task" id="task{{ cur_val }}" answer="{{ task.answer }}">
-                <div>{{ task.word }}</div>
+                <div class='question'>{{ task.word }}</div>
                 <div class="answer">
                     {% if task.type == 'input' %}
-                        <input type="text" name="user-answer-{{ cur_val }}">
+                        <div class='answer-text'><input type="text" name="user-answer-{{ cur_val }}"></div>
                     {% else %}
                         {% for var in task.choices %}
-                            <p><input type="radio" name="user-answer-{{ cur_val }}" value="{{ var }}">{{ var }}</p>
+                            <div><input type="radio" name="user-answer-{{ cur_val }}" value="{{ var }}">{{ var }}</div>
                         {% endfor %}
                     {% endif %}
                 </div>
@@ -30,7 +33,7 @@
         <p>Вы закончили урок</p>
         <p>Ваши очки:</p>
         <div id="lesson-score"></div>
-        <button>Завершить</button>
+        <button id='finish-button' onclick='lesson.finishLesson()'>Завершить</button>
     </div>
 </div>
 

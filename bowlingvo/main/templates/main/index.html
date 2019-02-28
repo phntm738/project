@@ -8,7 +8,7 @@
     </div>
     <div class='languages'>
         {% for language in languages %}
-		<a href="{% url 'language' language_name=language.url_name %}"><div class='lang'>
+		<div class='lang'><a href="{% url 'language' language_name=language.url_name %}">
 			<div class='flag'>
                 {% with 'main/images/'|add:language.url_name|add:'-flag.png' as flag_image %}
                 <img src="{% static flag_image %}" alt='language flag' class='flag-icon'>
@@ -17,7 +17,7 @@
 			><div class='language-name'>
 				{{ language.name }}
             </div>
-        </div></a>
+        </a></div>
         {% endfor %}
     </div>
 </div>
