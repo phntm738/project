@@ -8,6 +8,7 @@
 /*-----main-----*/
 a {
 	text-decoration: none;
+	color: black;
 }
 
 
@@ -669,7 +670,7 @@ div label[for='submenu-position']{
 
 
 #lex-button:hover, #gram-button:hover {
-	background: rgba(0, 128, 0, 0.5)
+	background: rgba(0, 128, 0, 0.5);
 }
 
 
@@ -733,25 +734,39 @@ div label[for='submenu-position']{
 	
 	background-color: white;
 	font-family: 'Caption', sans-serif;
-	color: black;
 	line-height: 50px;
+}
+
+
+#gram-sections .gram-sec a {
+	height: 50px;
+}
+
+
+#gram-sections .gram-sec .padding-right {
+	display: inline-block;
+	width: 12.5px;
+	height: 50px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
 }
 
 
 #gram-sections .sec-name {
 	display: inline-block;
 	width: 584px;
-	margin-left: 12.5px;
-	border-left: 3px solid green;
+	vertical-align: top;
+	border-left: 3px solid orange;
 	padding-left: 7.5px;
 	transition: all 0.3s linear;
 	
 	font-size: 25px;
+	color: black;
 }
 
 
 #gram-sections .active .sec-name {
-	border-left: 3px solid orange;
+	border-left: 3px solid green;
 }
 
 
@@ -761,13 +776,23 @@ div label[for='submenu-position']{
 }
 
 
-#gram-sections .gram-sec:hover:not(.locked) .sec-name {
+#gram-sections .gram-sec:hover .sec-name {
 	background-color: lightgrey;
 }
 
 
 #gram-sections .active:hover .sec-name {
-	background-color: rgba(255, 165, 0, 0.5);
+	background-color: rgba(0, 128, 0, 0.5);
+}
+
+
+#gram-sections .locked:hover .sec-name {
+	background-color: white;
+}
+
+
+#gram-sections .locked a {
+	cursor: default;
 }
 
 
@@ -775,16 +800,19 @@ div label[for='submenu-position']{
 	display: inline-block;
 	width: 70px;
 	float: right;
-	margin-right: 12.5px;
+	padding-right: 12.5px;
 	padding-left: 7.5px;
-	border-left: 3px solid green;
+	border-left: 3px solid orange;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
 	
 	font-size: 17.25px;
+	color: black;
 }
 
 
 #gram-sections .active .sec-url {
-	border-left: 3px solid orange;
+	border-left: 3px solid green;
 }
 
 
@@ -800,7 +828,7 @@ div label[for='submenu-position']{
 	
 	font-family: 'Caption', sans-serif;
 	font-weight: bold;
-	color: green;
+	color: orange;
 	cursor: default;
 }
 
@@ -814,11 +842,11 @@ div label[for='submenu-position']{
 
 
 #gram-sections .active .gram-path {
-	color: orange;
+	color: green;
 }
 
 
-#gram-sections .locked .gram-path {
+#gram-sections .active ~ .gram-path {
 	color: lightgrey;
 }
 
@@ -1041,6 +1069,7 @@ p.avatar-addition-attention {
 /*-----content/lesson_page-----*/
 .lesson-back {
 	width: 700px;
+	height: 250px;
 	margin: auto;
 	margin-bottom: 40px;
 	border-radius: 15px;
@@ -1061,6 +1090,12 @@ p.avatar-addition-attention {
 }
 
 
+.lesson-back .start {
+	padding-top: 37.5px;
+	height: 162.5px;
+}
+
+
 .lesson-back .words {
 	margin-bottom: 10px;
 }
@@ -1070,6 +1105,7 @@ p.avatar-addition-attention {
 	display: inline-block;
 	width: 345px;
 	padding-right: 5px;
+	line-height: 15px;
 	
 	font-family: 'Roboto Condenced', sans-serif;
 	font-size: 15px;
@@ -1087,6 +1123,7 @@ p.avatar-addition-attention {
 
 #task-button, #finish-button {
 	width: 120px;
+	height: 35px;
 	margin-left: 565px;
 	margin-bottom: 15px;
 	border: 3px solid green;
@@ -1102,6 +1139,7 @@ p.avatar-addition-attention {
 	font-size: 15px;
 	font-weight: bold;
 	color: green;
+	cursor: pointer;
 }
 
 
@@ -1118,6 +1156,7 @@ p.avatar-addition-attention {
 
 .task {
 	margin-bottom: 15px;
+	height: 185px;
 }
 
 
@@ -1141,6 +1180,72 @@ p.avatar-addition-attention {
 }
 
 
+.lesson-back .answer label {
+	vertical-align: top;
+	cursor: pointer;
+}
+
+
+.lesson-back input[type='radio'] {
+	display: none;
+}
+
+
+.lesson-back input[type="radio"] + .radio {
+	-webkit-appearance: none;
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin: 5px;
+	box-sizing: border-box;
+	border: 2px solid green;
+	border-radius: 100%;
+	outline: none;
+}
+
+
+.lesson-back input[type="radio"]:checked + .radio:before {
+	content: "";
+	display: block;
+	background: green;
+	border-radius: 100%;
+	width: 7px;
+	height: 7px;
+	margin: 2px;
+	pointer-events: none;
+}
+
+
+.lesson-back .label-radio {
+	display: inline-block;
+	vertical-align: top;
+	line-height: 25px;
+}
+
+
+.lesson-back input[type='text'] {
+	width: 150px;
+	height: 28px;
+	line-height: 20px;
+	padding: 2px;
+	border: 1px solid transparent;
+	border-bottom: 2px solid green;
+	outline: none;
+	transition: all 0.15s linear;
+	
+	font-family: 'Caption', sans-serif;
+	font-size: 20px;
+	font-variant: italic;
+	color: black;
+}
+
+
+.lesson-back input[type='text']:focus {
+	border: 1px solid green;
+	border-bottom: 2px solid green;
+}
+
+
 .lesson-back .answer-text {
 	width: 150px;
 	margin: auto;
@@ -1153,6 +1258,7 @@ p.avatar-addition-attention {
 
 
 .lesson-back .finish p {
+	height: 30px;
 	margin-top: 0px;
 	margin-bottom: 15px;
 	
@@ -1163,7 +1269,9 @@ p.avatar-addition-attention {
 
 
 #lesson-score {
-	margin-bottom: 15px;
+	height: 35px;
+	padding-top: 37.5px;
+	margin-bottom: 37.5px;
 	
 	text-align: center;
 	font-family: 'Caption', sans-serif;
