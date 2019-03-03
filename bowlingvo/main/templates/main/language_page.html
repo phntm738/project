@@ -26,7 +26,7 @@
 			<div class='gram-path-left'>˅</div>
 			<div class='gram-path-right'>˅</div>
 		</div>
-		<div class='gram-sec'><a href="/main/{{ language.url_name }}/{{ section.url_name }}">
+		<div class='gram-sec'><a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}">
 			<div class='padding-right'></div
 			><div class='sec-name'>
                 {{ section.name }}

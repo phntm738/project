@@ -1,8 +1,14 @@
 {% include "main/header.html" %}
 
-<div class="lesson-name">{{ lesson }}</div>
+<div class="lesson-name">{{ lesson_name }}</div>
 <div class="lesson-back">
     <div id="all-tasks">
+        <div hidden id="correct-answer">Верно</div>
+        <div hidden id="wrong-answer">
+            Неверно
+            <div id="your-answer"></div>
+            <div id="expected-answer"></div>
+        </div>
         <div class="start" id="task0">
             {% for task in tasks %}
 			<div class='words'>
@@ -33,7 +39,11 @@
         <p>Вы закончили урок</p>
         <p>Ваши очки:</p>
         <div id="lesson-score"></div>
-        <button id='finish-button' onclick='lesson.finishLesson()'>Завершить</button>
+        <form action="{% url 'lesson' language_name=language.url_name section_name=section.url_name lesson_order=lesson.order %}" method="post">
+            {% csrf_token %}
+            <input hidden name="score" type="text" id="score-input">
+            <input type="submit" id='finish-button' value="Завершить">
+        </form>
     </div>
 </div>
 
