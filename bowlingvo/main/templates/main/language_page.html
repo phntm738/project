@@ -26,14 +26,15 @@
 			<div class='gram-path-left'>˅</div>
 			<div class='gram-path-right'>˅</div>
 		</div>
-		<a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}"><div class='gram-sec'>
-			<div class='sec-name'>
+		<div class='gram-sec'><a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}">
+			<div class='padding-right'></div
+			><div class='sec-name'>
                 {{ section.name }}
 			</div>
 			<div class='sec-url'>
 				Выбрать
 			</div>
-		</div></a>
+		</a></div>
         {% endfor %}
     </div>
 </div>

@@ -26,7 +26,7 @@
                         <div class='answer-text'><input type="text" name="user-answer-{{ cur_val }}"></div>
                     {% else %}
                         {% for var in task.choices %}
-                            <div><input type="radio" name="user-answer-{{ cur_val }}" value="{{ var }}">{{ var }}</div>
+                            <div><label><input type="radio" name="user-answer-{{ cur_val }}" value="{{ var }}"><span class='radio'></span><span class='label-radio'>{{ var }}</span></label></div>
                         {% endfor %}
                     {% endif %}
                 </div>
