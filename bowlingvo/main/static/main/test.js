@@ -47,12 +47,16 @@ function LessonLogic() {
 		}
 		
 		if (user_answer == answer) {
-			alert('Верно');
+			var correct = document.getElementById('correct-answer');
+			correct.hidden = false;
 			score += 10;
 		} else {
-			alert('Неверно');
+			var wrong = document.getElementById('wrong-answer');
+			wrong.children[0].textContent = 'Ваш ответ: ' + user_answer;
+			wrong.children[1].textContent = 'Ожидаемый ответ: ' + answer;
+			wrong.hidden = false;
 			show_queue.push(show_queue[0]);
-			score -= 5;
+			score -= 10;
 			if (score < 0) {
 				score = 0;
 			}
@@ -63,11 +67,29 @@ function LessonLogic() {
 	}
 	
 	self.getNext = function() {
+		var reaction = document.getElementById('correct-answer');
+		reaction.hidden = true;
+		reaction = document.getElementById('wrong-answer');
+		reaction.hidden = true;
 		if (show_queue.length > 1) {
 			var cur_id = show_queue.shift();
 			var next_id = show_queue[0];
 			var task_old = document.getElementById('task' + cur_id);
 			task_old.hidden	 = true;
+			
+			if (cur_id > 0){
+			var user_input = task_old.getElementsByTagName('input');
+			if (user_input.length == 1) {
+				user_input[0].value = '';
+			} else {
+				for (i = 0; i < 4; i++) {
+					if (user_input[i].checked) {
+						user_input[i].checked = false;
+					}
+				}
+			}
+			}
+			
 			var task_new = document.getElementById('task' + next_id);
 			task_new.hidden = false;
 			my_button.firstChild.data = 'Проверить';
@@ -80,6 +102,8 @@ function LessonLogic() {
 			end.hidden = false;
 			var lesson_score = document.getElementById('lesson-score');
 			lesson_score.textContent = score;
+			lesson_score = document.getElementById('score-input');
+			lesson_score.value = score;
 		}
 	}		
 }

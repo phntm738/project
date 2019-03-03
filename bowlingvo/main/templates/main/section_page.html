@@ -6,9 +6,9 @@
             <td><div class="{{ ability }}">{{ lesson }}
                 <div class="lesson-start-button">
                 {% if ability == 'finished' %}
-                    <a href="#">Повторить</a>
+                    <a href="{% url 'lesson' language_name=language.url_name section_name=section.url_name lesson_order=lesson.order %}">Повторить</a>
                 {% elif ability == 'active' %}
-                    <a href="#">Начать</a>
+                    <a href="{% url 'lesson' language_name=language.url_name section_name=section.url_name lesson_order=lesson.order %}">Начать</a>
                 {% else %}
                     Недоступен
                 {% endif %}

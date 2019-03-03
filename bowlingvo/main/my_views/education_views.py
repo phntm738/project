@@ -1,9 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.utils.decorators import method_decorator
-from django.views.decorators.http import require_GET, require_POST
-from django.shortcuts import render
+from django.views.decorators.http import require_GET
+from django.shortcuts import render, redirect
 from ..models import *
+from ..additional.task_gen import task_gen
 
 
 @require_GET
@@ -34,14 +34,15 @@ def language_page(request, language_name):
 def section_page(request, language_name, section_name):
     user = request.user
     profile = UserProfile.objects.get(user=user)
-    section = Section.objects.get(url_name=section_name)
+    language = Language.objects.get(url_name=language_name)
+    section = Section.objects.filter(language_id=language.id).get(url_name=section_name)
     lessons = Lesson.objects.filter(section_id=section.id)
     lessons = lessons.order_by('order')
     flessons = FinishedLesson.objects.filter(user_id=user.id)
     finished_lessons = [f.lesson for f in flessons]
     all_lessons = []
     for lesson in lessons:
-        all_lessons.append([str(lesson), 'active' if lesson in finished_lessons else 'locked'])
+        all_lessons.append([lesson, 'active' if lesson in finished_lessons else 'locked'])
     for lesson in all_lessons:
         if lesson[1] == 'locked':
             lesson[1] = 'active'
@@ -49,5 +50,27 @@ def section_page(request, language_name, section_name):
         elif lesson[1] == 'active':
             lesson[1] = 'finished'
     return render(request, 'main/section_page.html',
-                  {'profile': profile, 'section': section, 'lessons':all_lessons})
+                  {'profile': profile, 'language': language, 'section': section, 'lessons':all_lessons})
 
+
+@login_required(login_url='/main/login')
+def lesson_page(request, language_name, section_name, lesson_order):
+    user = request.user
+    profile = UserProfile.objects.get(user=user)
+
+    language = Language.objects.get(url_name=language_name)
+    section = Section.objects.filter(language_id=language.id).get(url_name=section_name)
+    lesson = Lesson.objects.filter(section_id=section.id).get(order=lesson_order)
+
+    if request.method == 'GET':
+        tasks = task_gen(lesson.id)
+        return render(request, 'main/lesson_page.html',
+                      {'profile': profile, 'language': language, 'section': section, 'lesson_name': str(lesson), 'lesson': lesson, 'tasks': tasks})
+
+    if request.method == 'POST':
+        score = int(request.POST.get('score')   )
+        fl = FinishedLesson(user=user, lesson=lesson)
+        fl.save()
+        profile.score += score
+        profile.save()
+        return redirect('section', language_name=language.url_name, section_name=section.url_name)
