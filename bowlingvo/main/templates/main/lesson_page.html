@@ -3,12 +3,6 @@
 <div class="lesson-name">{{ lesson_name }}</div>
 <div class="lesson-back">
     <div id="all-tasks">
-        <div hidden id="correct-answer">Верно</div>
-        <div hidden id="wrong-answer">
-            Неверно
-            <div id="your-answer"></div>
-            <div id="expected-answer"></div>
-        </div>
         <div class="start" id="task0">
             {% for task in tasks %}
 			<div class='words'>
@@ -33,6 +27,12 @@
             </div>
             {% endwith %}
         {% endfor %}
+		<div hidden id="correct-answer">Верно</div>
+        <div hidden id="wrong-answer">
+            Неверно
+            <div id="your-answer"></div>
+            <div id="expected-answer"></div>
+        </div>
         <button id="task-button" onclick="lesson.getNext()">Начать</button>
     </div>
     <div hidden class="finish" id="finish">

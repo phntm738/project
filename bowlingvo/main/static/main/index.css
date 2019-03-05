@@ -7,13 +7,20 @@
 
 /*-----main-----*/
 a {
+	outline: none;
 	text-decoration: none;
 	color: black;
 }
 
 
+input {
+	outline: none;
+}
+
+
 body {
     margin: 0px;
+	
     background-color: var(--backgroundcolor);
     background-image: url(images/background10.png);
     background-repeat: repeat;
@@ -21,62 +28,59 @@ body {
 
 
 .container {
-    min-width: 1135px;
     width: 100%;
+	min-width: 1135px;
     min-height: 100%;
 }
 
 
 .header {
     height: 75px;
+	
     background: var(--header-color);
     box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.5);
-
-}
-
-
-.content {
 }
 
 
 .main_separator {
 	height: 50px;
+	
 	background-color: rgba(0,0,0,0);
-
 }
 
 
 .footer {
+	margin-top: -50px;
+	width: 100%;
+	min-width: 1135px;
     height: 50px;
+	
     background-color: black;
     color: white;
-    width: 100%;
-    min-width: 1135px;
-    margin-top: -50px;
 }
 /*----/main-----*/
 
 /*-----header-----*/
 #logo {
     float: left;
-    margin-top: 5px;
+	margin-top: 5px;
     margin-left: 5px;
-    width: 65px;
+	width: 65px;
     height: 65px;
 }
 
 
 #brand {
     float: left;
+	margin-top: 15px;
     width: auto;
     height: 45px;
-    margin-top: 15px;
 	padding-left: 15px;
 
 	font-family: 'Raleway', sans-serif;
-	font-weight: 500;
     font-size: 45px;
     line-height:45px;
+	font-weight: 500;
     letter-spacing: 3px;
 	color: black;
 }
@@ -84,18 +88,17 @@ body {
 
 #register-button {
     float: right;
-    margin-top: 25px;
+	margin-top: 25px;
     margin-right: 30px;
-
-    width: 145px;
+	width: 145px;
     height: 25px;
     transition: all 0.15s linear;
 
-    text-decoration: none;
     text-align: center;
-    font-size: 25px;
-    font-family: 'Caption', Sans-serif;
+    font-family: 'Caption', sans-serif;
+	font-size: 25px;
     line-height: 25px;
+	text-decoration: none;
     color: #336600;
 }
 
@@ -107,23 +110,20 @@ body {
 
 #login-button {
     float: right;
+	margin-top: 16.5px;
     margin-right: 30px;
-    margin-top: 16.5px;
-
-    width: 100px;
+	width: 100px;
     height: 40px;
-    background: #009900;
+	border: 1px solid rgba(0, 0, 0, .15);
     border-radius: 8px;
     transition: all 0.3s linear;
 
-
-    text-decoration: none;
+	background: #009900;
     text-align: center;
-    border: 1px solid rgba(0, 0, 0, .15);
-    color: black;
-    font-family: 'Caption', Sans-serif;
+	font-family: 'Caption', sans-serif;
     font-size: 25px;
-    line-height: 40px;
+	line-height: 40px;
+    color: black;
 
     box-shadow:
         inset 0px 1px 1px rgba(255, 255, 255, .25),
@@ -147,29 +147,28 @@ body {
 	display: none;
 	
     float: right;
-	width: 110px;
-	height: 35px;
     margin-right: 30px;
     margin-top: 17.5px;
+	width: 110px;
+	height: 35px;
 	padding-top: 7.5px;
 	padding-bottom: 2.5px;
-
-    background-color: #737373;
     border-radius: 8px;
 	
+	background-color: #737373;
 	text-align: center;
 	font-family: 'Caption', sans-serif;
 	font-size: 25px;
-	color: black;
 	text-decoration: none;
+	color: black;
 }
 
 
 #user {
     float: right;
-    margin-top: 22.5px;
+	margin-top: 22.5px;
     margin-right: 30px;
-    height: 30px;
+	height: 30px;
 
     font-size: 30px;
     line-height: 30px;
@@ -177,12 +176,8 @@ body {
 
 
 label[for='submenu-position']{
-	cursor: pointer;
-}
-
-
-div label[for='submenu-position']{
 	padding-left: 15px;
+	cursor: pointer;
 	
 	font-family: 'Raleway', sans-serif;
 	font-weight: 300;
@@ -205,26 +200,25 @@ div label[for='submenu-position']{
     top: 75px;
     right: 10px;
 	
+	width: 135px;
 	padding-top: 4px;
 	padding-bottom: 4px;
-	width: 135px;
     border: 1px solid rgba(0, 0, 0, .25);
     border-top: none;
-	border-bottom-right-radius: 4px;
 	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	
 	background: white;
-
 }
 
 
 .header-submenu a {
     display: block;
-	padding: 0px 15px 0px 15px;
-    width: 105px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    text-decoration: none;
+	width: 105px;
+	padding: 5px 15px 5px 15px;
+	
     font-size: 20px;
+	text-decoration: none;
     color: black;
 }
 
@@ -237,10 +231,10 @@ div label[for='submenu-position']{
 .header-submenu div {
 	margin-top: 3px;
 	margin-bottom: 4px;
-	margin-right: 15px;
 	margin-left: 15px;
-	border-top: 1px solid rgba(0, 0, 0, 0.25);
+	margin-right: 15px;
 	height: 0px;
+	border-top: 1px solid rgba(0, 0, 0, 0.25);
 }
 
 
@@ -259,35 +253,32 @@ div label[for='submenu-position']{
 #header-avatar {
     display: block;
     float: right;
-    margin-top: 8.5px;
-
-    width: 55px;
+	margin-top: 8.5px;
+	width: 55px;
     height: 55px;
-    background: white;
-    border: 1px solid black;
+	border: 1px solid black;
     border-radius: 10px;
+
+    background: white;
 }
 /*----/header-----*/
 
 /*-----content/authorization-----*/
 .login-back, .register-back {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 80px;
+	margin-top: 80px;
 	margin-bottom: 80px;
-
-    width: 450px;
-    background: white;
-    border-radius: 10px;
-    padding-top: 20px;
+	width: 450px;
+	margin: auto;
+	padding-top: 20px;
     padding-bottom: 5px;
+	border-radius: 10px;
+
+    background: white;
 }
 
 
 .authorization-description {
-	margin-left: auto;
-	margin-right: auto;
-
+	margin: auto;
 	width: 400px;
 }
 
@@ -295,30 +286,27 @@ div label[for='submenu-position']{
 .authorization-description h1 {
 	margin-top: 0;
 	margin-bottom: 0;
-
 	height: 35px;
 
 	text-align: center;
+	font-family: 'Roboto Condensed', sans-serif;
 	font-size: 35px;
 	line-height: 35px;
-	font-family: 'Roboto Condensed', sans-serif;
 	font-weight: normal;
 }
 
 
 .authorization-description .authorization-instructions, .authorization-description .login-error {
+	margin: auto;
     margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-
+	margin-bottom: 30px;
     width: 400px;
     height: 30px;
 
     text-align: center;
+	font-family: 'Roboto Condensed', sans-serif;
     font-size: 15px;
     line-height: 15px;
-    font-family: 'Roboto Condensed', sans-serif;
 }
 
 
@@ -331,27 +319,24 @@ div label[for='submenu-position']{
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-
     width: 400px;
     height: 18px;
 
-    line-height: 18px;
-    font-size: 18px;
 	font-family: 'Roboto Slab', serif;
+    font-size: 18px;
+	line-height: 18px;
 	font-weight: normal;
 }
 
 
 #login-form input, #register-form input {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-
+	margin: auto;
+	margin-top: 5px;
     width: 400px;
     height: 45px;
+	padding-left: 15px;
+    padding-right: 15px;
     border: 1px solid black;
     border-radius: 10px;
     box-shadow: 0 0 2px black;
@@ -367,25 +352,24 @@ div label[for='submenu-position']{
 
 #login-form .authorization-submit, #register-form .authorization-submit, .avatar-to-profile, .to-avatar {
     display: block;
+	margin: auto;
     margin-top: 25px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0;
 
     height: 40px;
+	padding: 0px;
+	border: 1px solid white;
     border-radius: 2px;
-    background: white;
-    transition: all 0.3s linear;
+	box-shadow: none;
 	cursor: pointer;
+    transition: all 0.3s linear;
 
-    text-decoration: none;
+	background: white;
     text-align: center;
-    border: 1px solid white;
-    color: #008800;
     font-family: 'Caption', Sans-serif;
     font-size: 25px;
     line-height: 40px;
-    box-shadow: none;
+	text-decoration: none;
+	color: #008800;
 }
 
 
@@ -401,6 +385,7 @@ div label[for='submenu-position']{
 
 #login-form .authorization-submit:hover, #register-form .authorization-submit:hover, .avatar-to-profile:hover, .to-avatar:hover {
     border: 1px solid rgba(0, 0, 0, .15);
+	
     background: var(--backgroundcolor);
     color: black;
     box-shadow:
@@ -414,15 +399,15 @@ div label[for='submenu-position']{
 .the_letter_was_sent {
 	margin: auto;
 	margin-top: 40px;
+	width: 800px;
+	padding: 10px;
 	border: 0 solid black;
 	border-radius: 5px;
-	padding: 10px;
-	width: 800px;
 	
+	background-color: white;
 	text-align: center;
 	font-family: 'Caption', sans-serif;
 	font-size: 20px;
-	background-color: white;
 	color: green;
 }
 
@@ -434,16 +419,15 @@ div label[for='submenu-position']{
 
 /*-----content/profile-----*/
 .profile-back {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
+	margin: auto;
+	margin-top: 40px;
 	margin-bottom: 40px;
-
     width: 1001px;
     height: 501px;
+	border: 1px solid black;
+	border-radius: 10px;
+	
     background: white;
-    border-radius: 10px;
-    border: 1px solid black;
 }
 
 
@@ -674,7 +658,7 @@ div label[for='submenu-position']{
 }
 
 
-#lex-sections, #gram-sections {
+#lex-sections, #gram-sections, #lex-lessons {
 	margin: auto;
 	width: 700px;
 	margin-bottom: 40px;
@@ -756,7 +740,7 @@ div label[for='submenu-position']{
 	display: inline-block;
 	width: 584px;
 	vertical-align: top;
-	border-left: 3px solid orange;
+	border-left: 3px solid green;
 	padding-left: 7.5px;
 	transition: all 0.3s linear;
 	
@@ -766,7 +750,7 @@ div label[for='submenu-position']{
 
 
 #gram-sections .active .sec-name {
-	border-left: 3px solid green;
+	border-left: 3px solid orange;
 }
 
 
@@ -782,7 +766,7 @@ div label[for='submenu-position']{
 
 
 #gram-sections .active:hover .sec-name {
-	background-color: rgba(0, 128, 0, 0.5);
+	background-color: rgba(255, 165, 0, 0.5);
 }
 
 
@@ -802,7 +786,7 @@ div label[for='submenu-position']{
 	float: right;
 	padding-right: 12.5px;
 	padding-left: 7.5px;
-	border-left: 3px solid orange;
+	border-left: 3px solid green;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 	
@@ -812,7 +796,7 @@ div label[for='submenu-position']{
 
 
 #gram-sections .active .sec-url {
-	border-left: 3px solid green;
+	border-left: 3px solid orange;
 }
 
 
@@ -825,11 +809,11 @@ div label[for='submenu-position']{
 #gram-sections .gram-path-left, #gram-sections .gram-path-right {
 	display: inline-block;
 	padding-left: 9.4px;
+	cursor: default;
 	
 	font-family: 'Caption', sans-serif;
 	font-weight: bold;
-	color: orange;
-	cursor: default;
+	color: green;
 }
 
 
@@ -842,12 +826,7 @@ div label[for='submenu-position']{
 
 
 #gram-sections .active .gram-path {
-	color: green;
-}
-
-
-#gram-sections .active ~ .gram-path {
-	color: lightgrey;
+	color: orange;
 }
 
 
@@ -1065,6 +1044,104 @@ p.avatar-addition-attention {
 }
 /*----/content/avatar_change-----*/
 
+/*-----content/sections_page-----*/
+#lex-lessons {
+	font-size: 0px;
+}
+
+
+.lex-lesson {
+	display: inline-block;
+	margin-bottom: 15px;
+	width: 120px;
+	border-radius: 7px;
+	
+	background-color: white;
+	text-align: center;
+	font-family: 'Caption', sans-serif;
+	font-size: 20px;
+}
+
+
+.locked {
+	cursor: default;
+	color: lightgrey;
+}
+
+
+.lex-lesson .lex-lesson-name {
+	width: 114px;
+	height: 83.25px;
+	border: 3px solid lightgrey;
+	border-bottom: 0px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	
+	line-height: 83.25px;
+}
+
+
+.lex-lesson .lesson-start-button {
+	width: 114px;
+	height: 27.75px;
+	border: 3px solid lightgrey;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	transition: all 0.2s linear;
+	
+	line-height: 27.75px;
+}
+
+
+.finished .lex-lesson-name, .finished .lesson-start-button {
+	border-color: green;
+}
+
+
+.active .lex-lesson-name, .active .lesson-start-button {
+	border-color: orange;
+}
+
+
+.finished:hover .lesson-start-button {
+	background-color: rgba(0, 128, 0, 0.5);
+}
+
+
+.active:hover .lesson-start-button {
+	background-color: rgba(256, 165, 0, 0.5);
+}
+
+
+.lex-lesson-path {
+	display: inline-block;
+	vertical-align: top;
+	height: 120px;
+	margin-left: 3px;
+	margin-right: 3px;
+	cursor: default;
+	
+	font-family: 'Caption', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 120px;
+}
+
+
+div[class='finished lex-lesson-path'] {
+	color: green;
+}
+
+
+div[class='active lex-lesson-path'] {
+	color: orange;
+}
+
+
+.lex-lesson-path:first-child {
+	display: none;
+}
+/*----/content/sections_page-----*/
 
 /*-----content/lesson_page-----*/
 .lesson-back {
@@ -1082,6 +1159,7 @@ p.avatar-addition-attention {
 .lesson-name {
 	margin-top: 40px;
 	margin-bottom: 15px;
+	height: 45px;
 	
 	text-align: center;
 	font-family: 'Roboto Condenced', sans-serif;
@@ -1122,10 +1200,11 @@ p.avatar-addition-attention {
 
 
 #task-button, #finish-button {
+	float: right;
 	width: 120px;
 	height: 35px;
-	margin-left: 565px;
 	margin-bottom: 15px;
+	margin-right: 15px;
 	border: 3px solid green;
 	border-radius: 5px;
 	padding-top: 5px;
@@ -1144,6 +1223,7 @@ p.avatar-addition-attention {
 
 
 #finish-button {
+	float: left;
 	margin-left: 290px;
 	margin-right: 290px;
 }
@@ -1155,8 +1235,8 @@ p.avatar-addition-attention {
 
 
 .task {
-	margin-bottom: 15px;
-	height: 185px;
+	margin-bottom: 58.5px;
+	height: 141.5px;
 }
 
 
@@ -1180,7 +1260,18 @@ p.avatar-addition-attention {
 }
 
 
+.lesson-back .answer div {
+	border-bottom: 1px solid gray;
+}
+
+
+.lesson-back .answer div:last-child {
+	border: 0px;
+}
+
+
 .lesson-back .answer label {
+	display: block;
 	vertical-align: top;
 	cursor: pointer;
 }
@@ -1254,6 +1345,44 @@ p.avatar-addition-attention {
 
 .lesson-back .answer-text .input {
 	width: 150px;
+}
+
+
+#correct-answer, #wrong-answer {
+	position: absolute;
+	
+	margin-left: 15px;
+	width: 535px;
+	
+	font-family: 'Caption', sans-serif;
+	font-size: 20px;
+	line-height: 22.5px;
+	font-weight: bold;
+}
+
+
+#correct-answer {
+	top: 402.5px;
+	
+	height: 22.5px;
+	
+	color: green;
+}
+
+
+#wrong-answer {
+	top: 367.5px;
+	
+	height: 57.5px;
+	
+	color: orange;
+}
+
+
+#wrong-answer div {
+	font-size: 15px;
+	line-height: 17.5px;
+	color: black;
 }
 
 

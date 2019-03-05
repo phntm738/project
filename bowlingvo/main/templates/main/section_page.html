@@ -1,21 +1,34 @@
 {% include "main/header.html" %}
 
-<table>
-    <tr>
-        {% for lesson, ability in lessons %}
-            <td><div class="{{ ability }}">{{ lesson }}
-                <div class="lesson-start-button">
-                {% if ability == 'finished' %}
-                    <a href="{% url 'lesson' language_name=language.url_name section_name=section.url_name lesson_order=lesson.order %}">Повторить</a>
-                {% elif ability == 'active' %}
-                    <a href="{% url 'lesson' language_name=language.url_name section_name=section.url_name lesson_order=lesson.order %}">Начать</a>
-                {% else %}
-                    Недоступен
-                {% endif %}
-                </div>
-            </div></td>
-        {% endfor %}
-    </tr>
-</table>
+<div class='language'>
+    {{ language.name }}
+</div>
+
+<div id='lex-lessons'>
+    {% for lesson, ability in lessons %}
+	<div class='{{ ability }} lex-lesson-path'>
+		>
+	</div>
+	<div class='{{ ability }} lex-lesson'>
+		{% if ability == 'finished' %}
+            <a href="{% url 'lesson' language_name=language.url_name section_name=section.url_name lesson_order=lesson.order %}">
+        {% elif ability == 'active' %}
+            <a href="{% url 'lesson' language_name=language.url_name section_name=section.url_name lesson_order=lesson.order %}">
+        {% endif %}
+			<div class='lex-lesson-name'>
+				{{ lesson }}
+			</div>
+			<div class='lesson-start-button'>
+			{% if ability == 'finished' %}
+				Повторить
+			{% elif ability == 'active' %}
+				Начать
+			{% else %}
+				Недоступен
+			{% endif %}
+			</div>
+        </a></div>
+    {% endfor %}
+</div>
 
 {% include "main/footer.html" %}
