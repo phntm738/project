@@ -73,6 +73,7 @@ class FinishedLesson(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now=True)
 
 
 class FinishedSection(models.Model):
