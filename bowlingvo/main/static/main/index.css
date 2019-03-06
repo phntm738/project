@@ -22,7 +22,7 @@ body {
     margin: 0px;
 	
     background-color: var(--backgroundcolor);
-    background-image: url(images/background10.png);
+    background-image: url(images/background10-1.png);
     background-repeat: repeat;
 }
 
@@ -599,7 +599,7 @@ label[for='submenu-position']{
 /*----/content/index-----*/
 
 /*-----content/language_page-----*/
-.language {
+.path {
     background-color: orange;
     width: 700px;
     height: 65px;
@@ -615,6 +615,12 @@ label[for='submenu-position']{
 	font-family: 'Caption', sans-serif;
     font-size: 40px;
 	color: orangered;
+}
+
+
+.path a {
+    cursor: pointer;
+    color: orangered;
 }
 
 

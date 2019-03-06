@@ -53,6 +53,10 @@ def section_page(request, language_name, section_name):
                   {'profile': profile, 'language': language, 'section': section, 'lessons':all_lessons})
 
 
+def finished_section_check(user, section):
+    all_lessons = Lesson.objects.filter(section=section)
+
+
 @login_required(login_url='/main/login')
 def lesson_page(request, language_name, section_name, lesson_order):
     user = request.user
@@ -71,6 +75,7 @@ def lesson_page(request, language_name, section_name, lesson_order):
         score = int(request.POST.get('score')   )
         fl = FinishedLesson(user=user, lesson=lesson)
         fl.save()
+#        finished_section_check(user, section)
         profile.score += score
         profile.save()
         return redirect('section', language_name=language.url_name, section_name=section.url_name)

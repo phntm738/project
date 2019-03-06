@@ -22,7 +22,7 @@ class Section(models.Model):
     language = models.ForeignKey(Language, on_delete=models.CASCADE)
     sec_type = models.CharField(max_length=1, default='L')
 
-    description = models.TextField(null=True)
+    description = models.TextField(null=True, blank=True)
     background_url = models.CharField(max_length=250)
 
     def __str__(self):
@@ -35,7 +35,7 @@ class Lesson(models.Model):
     section = models.ForeignKey(Section, on_delete=models.CASCADE)
 
     order = models.IntegerField(default=1)
-    tag = models.CharField(max_length=32, null=True)
+    tag = models.CharField(max_length=32, null=True, blank=True)
 
     def __str__(self):
         return self.section.name + str(self.order)
@@ -44,7 +44,8 @@ class Lesson(models.Model):
 class WordRus(models.Model):
     objects = models.Manager()
 
-    type = models.CharField(max_length=5, default='noun')
+    name = models.CharField(max_length=50) #rename fields
+    type = models.CharField(max_length=20, default='noun')
     lessons = models.ManyToManyField(Lesson)
     text = models.TextField()
 
@@ -57,17 +58,19 @@ class WordFor(models.Model):
     text = models.TextField()
 
     def __str__(self):
-        return self.language.url_name
+        return self.language.name[:4] + '_' + self.word_rus.name
 
 
 class TheoryUnit(models.Model):
     objects = models.Manager()
+
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     theory = models.TextField()
 
 
 class FinishedLesson(models.Model):
     objects = models.Manager()
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
 
@@ -80,6 +83,7 @@ class FinishedSection(models.Model):
 
 class FinishedLanguage(models.Model):
     objects = models.Manager()
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     language = models.ForeignKey(Language, on_delete=models.CASCADE)
 
@@ -87,12 +91,14 @@ class FinishedLanguage(models.Model):
 
 class Phrase(models.Model):
     objects = models.Manager()
+
     tag = models.CharField(max_length=32)
     phrase = models.TextField()
 
 
 class UserProfile(models.Model):
     objects = models.Manager()
+
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     score = models.IntegerField(default=0)
     last_lang = models.IntegerField(default=0)
