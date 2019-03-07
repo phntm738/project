@@ -9,4 +9,7 @@ admin.site.register(Lesson)
 admin.site.register(WordRus)
 admin.site.register(WordFor)
 admin.site.register(TheoryUnit)
+admin.site.register(FinishedLesson)
+admin.site.register(FinishedSection)
+
 

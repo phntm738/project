@@ -10,10 +10,10 @@
         <div id='gram-button' onclick="show_gram()">Грамматика</div>
     </div>
     <div id='lex-sections'>
-        {% for section in lex_sections %}
-        <a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}"><div class='lex-sec'>
+        {% for section, ability in lex_sections %}
+        <a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}"><div class='lex-sec {{ ability }}'>
             <div class='sec-logo'>
-			</div>
+            </div>
             <div class='sec-name'>
                 {{ section.name }}
             </div>
@@ -21,20 +21,30 @@
         {% endfor %}
     </div>
     <div hidden id='gram-sections'>
-        {% for section in gram_sections %}
-		<div class='gram-path'>
+        {% for section, ability in gram_sections %}
+		<div class='gram-path {{ ability }}'>
 			<div class='gram-path-left'>˅</div>
 			<div class='gram-path-right'>˅</div>
 		</div>
-		<div class='gram-sec'><a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}">
-			<div class='padding-right'></div
-			><div class='sec-name'>
-                {{ section.name }}
-			</div>
-			<div class='sec-url'>
-				Выбрать
-			</div>
-		</a></div>
+		<div class='gram-sec {{ ability }}'>
+            {% if ability != 'locked' %}
+                <a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}">
+            {% endif %}
+			    <div class='padding-right'></div
+			    ><div class='sec-name'>
+                    {{ section.name }}
+			    </div>
+			    <div class='sec-url'>
+            {% if ability != 'locked' %}
+                выбрать
+            {% else %}
+                недоступен
+            {% endif %}
+			    </div>
+            {% if ability != 'locked' %}
+                </a>
+            {% endif %}
+        </div>
         {% endfor %}
     </div>
 </div>
