@@ -1,10 +1,9 @@
 {% include "main/header.html" %}
 
 <div class='path'>
-    <a href="/main/" class='main'><span>⌂</span></a><a href="{% url 'language' language_name=language.url_name %}">{{ language.name }}</a><span>▸</span><a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}">{{ section.name }}</a>
+	<a href="/main/" class='previous'>&#8962</a><span class='previous'> </span><a href="{% url 'language' language_name=language.url_name %}" class='previous'>{{ language.name }}</a><span class='previous'> </span><a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}" class='previous'>{{ section.name }}</a><span class='previous'> </span>{{ lesson_name }}
 </div>
 
-<div class="lesson-name">{{ lesson_name }}</div>
 <div class="lesson-back">
     <div id="all-tasks">
         <div class="start" id="task0">

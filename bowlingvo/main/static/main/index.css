@@ -424,6 +424,7 @@ label[for='submenu-position']{
 	margin-bottom: 40px;
     width: 1001px;
     height: 501px;
+	border: 1px solid #bbc3bf;
 	border-radius: 10px;
 	cursor: default;
 	
@@ -441,8 +442,8 @@ label[for='submenu-position']{
 
     width: 300px;
     height: 300px;
-    border-right: 1px solid rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    border-right: 1px solid #bbc3bf;
+    border-bottom: 1px solid #bbc3bf;
 }
 
 
@@ -465,7 +466,7 @@ label[for='submenu-position']{
     float: right;
     width: 660px;
     height: 260px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid #bbc3bf;
     padding: 20px;
 }
 
@@ -475,7 +476,7 @@ label[for='submenu-position']{
 	padding-left: 20px;
     border-radius: 6px;
 	
-	background: orange;
+	background: #bbc3bf; /*-------------------------------------------------------------------------------------------------*/
 	font-family: 'Raleway', sans-serif;
     font-size: 45px;
 	line-height: 46px;
@@ -486,17 +487,17 @@ label[for='submenu-position']{
     float: right;
     margin-top: 5px;
     margin-right: 5px;
-    transition: all 0.1s linear;
+    transition: all 0.2s linear;
 
     width: 40px;
     height: 40px;
-    background: darkorange;
+    background: lawngreen;
     border-radius: 4px;
 }
 
 
 .user-info .nick a:hover {
-    background: orangered;
+    background: limegreen;
 }
 
 
@@ -519,7 +520,7 @@ label[for='submenu-position']{
 	float: left;
 	width: 300px;
 	height: 200px;
-	border-right: 1px solid grey;
+	border-right: 1px solid #bbc3bf;
 	
 	text-align: center;
 	font-family: 'Caption', sans-serif;
@@ -533,9 +534,10 @@ label[for='submenu-position']{
 	width: 260px;
 	border-radius: 5px;
 	
-	background-color: var(--header-color);
+	background-color: #bbc3bf; /*-#20B311-----------------------------------------------------------------------*/
 	font-size: 25px;
 	line-height: 35px;
+	letter-spacing: 1px;
 }
 
 
@@ -551,8 +553,7 @@ label[for='submenu-position']{
 	line-height: 106px;
 	font-weight: bold;
 	letter-spacing: 2px;
-	text-decoration: underline;
-	color: darkgreen;
+	color: green;
 }
 
 
@@ -574,7 +575,7 @@ label[for='submenu-position']{
 	border-radius: 5px;
 	
 	text-align: center;
-	background-color: var(--header-color);
+	background-color: #bbc3bf; /*----------------------------------------------------------------------------------------*/
 	font-size: 25px;
 	line-height: 35px;
 }
@@ -906,19 +907,18 @@ p.avatar-addition-attention {
 /*-----content/language_page-----*/
 .path {
     background-color: orange;
-    width: 700px;
-    height: 65px;
-    margin-left: auto;
-    margin-right: auto;
+	margin: auto;
 	margin-bottom: 20px;
+	width: 700px;
+    height: 65px;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 
 	cursor: default;
     text-align: center;
-    line-height: 65px;
 	font-family: 'Caption', sans-serif;
     font-size: 40px;
+	line-height: 65px;
 	color: orangered;
 }
 
@@ -928,14 +928,8 @@ p.avatar-addition-attention {
 }
 
 
-.path a:not(.main) {
-	text-decoration: underline;
-}
-
-
-.path span {
-	margin-left: 2.5px;
-	margin-right: 2.5px;
+.path .previous {
+	font-size: 25px;
 }
 
 
@@ -1039,6 +1033,7 @@ p.avatar-addition-attention {
 	
 	background-color: white;
 	font-family: 'Caption', sans-serif;
+	font-size: 0px;
 	line-height: 50px;
 }
 
@@ -1059,7 +1054,7 @@ p.avatar-addition-attention {
 
 #gram-sections .sec-name {
 	display: inline-block;
-	width: 584px;
+	width: 564px;
 	vertical-align: top;
 	border-left: 3px solid green;
 	padding-left: 7.5px;
@@ -1081,18 +1076,13 @@ p.avatar-addition-attention {
 }
 
 
-#gram-sections .gram-sec:hover .sec-name {
+#gram-sections .finished:hover .sec-name {
 	background-color: lightgrey;
 }
 
 
 #gram-sections .active:hover .sec-name {
 	background-color: rgba(255, 165, 0, 0.5);
-}
-
-
-#gram-sections .locked:hover .sec-name {
-	background-color: white;
 }
 
 
@@ -1103,7 +1093,7 @@ p.avatar-addition-attention {
 
 #gram-sections .sec-url {
 	display: inline-block;
-	width: 70px;
+	width: 90px;
 	float: right;
 	padding-right: 12.5px;
 	padding-left: 7.5px;
@@ -1141,13 +1131,18 @@ p.avatar-addition-attention {
 #gram-sections .gram-path-right {
 	float: right;
 	padding-left: 0px;
-	padding-right: 86.55px;
+	padding-right: 106.55px;
 	cursor: default;
 }
 
 
-#gram-sections .active .gram-path {
+#gram-sections .active .gram-path-left, #gram-sections .active .gram-path-right {
 	color: orange;
+}
+
+
+#gram-sections .locked .gram-path-left, #gram-sections .locked .gram-path-right {
+	color: lightgrey;
 }
 
 
@@ -1157,6 +1152,19 @@ p.avatar-addition-attention {
 /*----/content/language_page-----*/
 
 /*-----content/sections_page-----*/
+.section-name {
+	margin-bottom: 20px;
+	height: 30px;
+	cursor: default;
+	
+	text-align: center;
+	font-family: 'Roboto Condenced', sans-serif;
+	font-size: 30px;
+	line-height: 30px;
+	color: green;
+}
+
+
 #lex-lessons {
 	font-size: 0px;
 }
@@ -1265,17 +1273,6 @@ div[class='active lex-lesson-path'] {
 	padding-top: 15px;
 	
 	background-color: white;
-}
-
-
-.lesson-name {
-	margin-bottom: 15px;
-	height: 45px;
-	
-	text-align: center;
-	font-family: 'Roboto Condenced', sans-serif;
-	font-size: 30px;
-	color: green;
 }
 
 
@@ -1473,7 +1470,7 @@ div[class='active lex-lesson-path'] {
 
 
 #correct-answer {
-	top: 447.5px;
+	top: 387.5px;
 	
 	height: 22.5px;
 	
@@ -1482,7 +1479,7 @@ div[class='active lex-lesson-path'] {
 
 
 #wrong-answer {
-	top: 412.5px;
+	top: 352.5px;
 	
 	height: 57.5px;
 	

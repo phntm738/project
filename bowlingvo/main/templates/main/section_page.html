@@ -1,7 +1,7 @@
 {% include "main/header.html" %}
 
 <div class='path'>
-    <a href="/main/" class='main'><span>⌂</span></a><a href="{% url 'language' language_name=language.url_name %}">{{ language.name }}</a><span>▸</span>{{ section.name }}
+    <a href="/main/" class='previous'>&#8962</a><span class='previous'> </span><a href="{% url 'language' language_name=language.url_name %}" class='previous'>{{ language.name }}</a><span class='previous'> </span>{{ section.name }}
 </div>
 
 <div id='lex-lessons'>
