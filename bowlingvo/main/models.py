@@ -41,24 +41,29 @@ class Lesson(models.Model):
         return self.section.name + str(self.order)
 
 
-class WordRus(models.Model):
+class key2lesson(models.Model):
     objects = models.Manager()
 
-    name = models.CharField(max_length=50) #rename fields
-    type = models.CharField(max_length=20, default='noun')
-    lessons = models.ManyToManyField(Lesson)
-    text = models.TextField()
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+    key = models.CharField(max_length=64, db_index=True)
 
 
-class WordFor(models.Model):
+class Word(models.Model):
     objects = models.Manager()
 
+    key = models.CharField(max_length=64, db_index=True)
     language = models.ForeignKey(Language, on_delete=models.CASCADE)
-    word_rus = models.ForeignKey(WordRus, on_delete=models.CASCADE)
-    text = models.TextField()
+    sing_form = models.TextField()
+    plur_form = models.TextField()
 
-    def __str__(self):
-        return self.language.name[:4] + '_' + self.word_rus.name
+
+class Phrase(models.Model):
+    objects = models.Manager()
+
+    key = models.CharField(max_length=64, db_index=True)
+    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+    text = models.TextField()
+    answer = models.TextField()
 
 
 class TheoryUnit(models.Model):
@@ -87,14 +92,6 @@ class FinishedLanguage(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     language = models.ForeignKey(Language, on_delete=models.CASCADE)
-
-
-
-class Phrase(models.Model):
-    objects = models.Manager()
-
-    tag = models.CharField(max_length=32)
-    phrase = models.TextField()
 
 
 class UserProfile(models.Model):
