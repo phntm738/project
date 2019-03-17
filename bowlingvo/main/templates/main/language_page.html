@@ -1,8 +1,8 @@
 {% load static %}
 {% include "main/header.html" %}
 
-<div class="path">
-    {{ language.name }}
+<div class='path'>
+    <a href="/main/" class='previous'>&#8962</a><span class='previous'> </span>{{ language.name }}
 </div>
 <div class='all-sections'>
     <div class='type-choices'>
@@ -30,8 +30,8 @@
             {% if ability != 'locked' %}
                 <a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}">
             {% endif %}
-			    <div class='padding-right'></div
-			    ><div class='sec-name'>
+			    <div class='padding-right'></div>
+				<div class='sec-name'>
                     {{ section.name }}
 			    </div>
 			    <div class='sec-url'>

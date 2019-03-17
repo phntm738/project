@@ -1,6 +1,8 @@
 {% load static %}
 {% load avatar_tags %}
+
 {% include "main/header.html" %}
+
 <div class="profile-back">
     <div class="profile-first">
         <div class="profile-avatar">
@@ -27,9 +29,9 @@
         </div>
     </div>
     <div class="profile-second">
-        <div class="profile-score">
-            <div class="score-label">Очки</div>
-            <div class="score-value">{{ profile.score }}</div>
+		<div class='profile-score'>
+			<div class="score-label">Очки</div>
+			<div class="score-value">{{ profile.score }}</div>
         </div>
         <div class="last-lessons">
             <div class="lessons-label">Последние уроки</div>
@@ -43,4 +45,5 @@
         </div>
     </div>
 </div>
+
 {% include "main/footer.html" %}
