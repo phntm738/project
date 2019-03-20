@@ -1,9 +1,14 @@
 {% load static %}
 {% include "main/header.html" %}
 
-<div class='path'>
-    <a href="/main/" class='previous'>&#8962</a><span class='previous'> </span>{{ language.name }}
+<div class="subheader">
+	<div class="go-back"><a href="{% url 'index' %}">aaa</a></div>
+    <div class='path'>
+        <div class='previous'>&#8962</div><span class='previous'> </span>{{ language.name }}
+    </div>
+    <div class="pagename">{{ language.name }}</div>
 </div>
+
 <div class='all-sections'>
     <div class='type-choices'>
         <div id='lex-button' onclick="show_lex()">Лексика</div>
