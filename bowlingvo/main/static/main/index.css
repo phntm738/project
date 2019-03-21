@@ -77,9 +77,9 @@ body {
     height: 45px;
 	padding-left: 15px;
 
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Montserrat', sans-serif;
     font-size: 45px;
-    line-height:45px;
+    line-height: 45px;
 	font-weight: 500;
     letter-spacing: 3px;
 	color: black;
@@ -143,32 +143,11 @@ body {
 }
 
 
-.profile-logout {
-	display: none;
-	
-    float: right;
-    margin-right: 30px;
-    margin-top: 17.5px;
-	width: 110px;
-	height: 35px;
-	padding-top: 7.5px;
-	padding-bottom: 2.5px;
-    border-radius: 8px;
-	
-	background-color: #737373;
-	text-align: center;
-	font-family: 'Caption', sans-serif;
-	font-size: 25px;
-	text-decoration: none;
-	color: black;
-}
-
-
 #user {
     float: right;
-	margin-top: 22.5px;
-    margin-right: 30px;
-	height: 30px;
+	margin-top: 17.5px;
+    margin-right: 15px;
+	height: 40px;
 
     font-size: 30px;
     line-height: 30px;
@@ -176,11 +155,17 @@ body {
 
 
 label[for='submenu-position']{
+	float: right;
+	display: block;
+	max-width: 250px;
 	padding-left: 15px;
 	cursor: pointer;
+	overflow: hidden;
 	
-	font-family: 'Raleway', sans-serif;
+	text-overflow: ellipsis;
+	font-family: 'Montserrat', sans-serif;
 	font-weight: 300;
+	line-height: 40px;
 }
 
 
@@ -217,7 +202,8 @@ label[for='submenu-position']{
 	width: 105px;
 	padding: 5px 15px 5px 15px;
 	
-    font-size: 20px;
+	font-family: 'Caption', sans-serif;
+    font-size: 18px;
 	text-decoration: none;
     color: black;
 }
@@ -253,13 +239,19 @@ label[for='submenu-position']{
 #header-avatar {
     display: block;
     float: right;
-	margin-top: 8.5px;
 	width: 55px;
     height: 55px;
 	border: 1px solid black;
     border-radius: 10px;
 
     background: white;
+}
+
+
+.header .label-submenu-avatar {
+	margin-top: 8.5px;
+	padding: 0;
+	border-radius: 10px;
 }
 /*----/header-----*/
 
@@ -422,9 +414,8 @@ label[for='submenu-position']{
 	margin: auto;
 	margin-top: 40px;
 	margin-bottom: 40px;
-    width: 1001px;
-    height: 501px;
-	border: 1px solid #bbc3bf;
+    width: 800px;
+    height: 400px;
 	border-radius: 10px;
 	cursor: default;
 	
@@ -433,24 +424,22 @@ label[for='submenu-position']{
 
 
 .profile-first {
-	height: 301px;
+	height: 240px;
 }
 
 
 .profile-avatar {
     float: left;
-
-    width: 300px;
-    height: 300px;
-    border-right: 1px solid #bbc3bf;
-    border-bottom: 1px solid #bbc3bf;
+	margin-top: 20px;
+	margin-left: 20px;
+    width: 194px;
+    height: 194px;
+	border-radius: 10px;
 }
 
 
 .profile-avatar img {
-    margin-top: 20px;
-	margin-left: 20px;
-    border: 2px solid black;
+	border: 3px solid green;
     border-radius: 10px;
 	
 	transition: all 0.3s linear;
@@ -464,40 +453,50 @@ label[for='submenu-position']{
 
 .user-info {
     float: right;
-    width: 660px;
-    height: 260px;
-    border-bottom: 1px solid #bbc3bf;
-    padding: 20px;
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+    width: 540px;
+    height: 220px;
 }
 
 
 .user-info .nick {
     height: 50px;
-	padding-left: 20px;
-    border-radius: 6px;
+	border-top: 3px solid green;
 	
-	background: #bbc3bf; /*-------------------------------------------------------------------------------------------------*/
-	font-family: 'Raleway', sans-serif;
-    font-size: 45px;
-	line-height: 46px;
+	font-family: 'Montserrat', sans-serif;
+    font-size: 0px;
+}
+
+
+.user-info .nickname {
+	display: inline-block;
+	vertical-align: top;
+	width: 393px;
+	height: 50px;
+	
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 45px;
+	line-height: 50px;
 }
 
 
 .user-info .nick a {
-    float: right;
+	display: inline-block;
     margin-top: 5px;
-    margin-right: 5px;
-    transition: all 0.2s linear;
-
+    margin-left: 5px;
     width: 40px;
     height: 40px;
-    background: lawngreen;
+	border: 2px solid transparent;
     border-radius: 4px;
+	transition: all 0.2s linear;
 }
 
 
 .user-info .nick a:hover {
-    background: limegreen;
+    border: 2px solid green;
 }
 
 
@@ -506,61 +505,57 @@ label[for='submenu-position']{
 }
 
 
-.information  table tr td {
+.information {
+	margin-top: 15px;
+}
+
+
+.information td {
 	font-family: 'Caption', sans-serif;
 }
 
 
 .profile-second {
-	height: 200px;
+	height: 160px;
 }
 
 
 .profile-score {
 	float: left;
-	width: 300px;
-	height: 200px;
-	border-right: 1px solid #bbc3bf;
+	margin-left: 20px;
+	width: 200px;
+	height: 160px;
 	
-	text-align: center;
 	font-family: 'Caption', sans-serif;
 }
 
 
 .score-label {
 	margin: auto;
-	margin-top: 20px;
-	height: 35px;
-	width: 260px;
-	border-radius: 5px;
+	height: 30px;
+	width: 200px;
+	border-top: 3px solid green;
 	
-	background-color: #bbc3bf; /*-#20B311-----------------------------------------------------------------------*/
 	font-size: 25px;
-	line-height: 35px;
+	line-height: 30px;
 	letter-spacing: 1px;
 }
 
 
 .score-value {
 	margin: auto;
-	margin-top: 15px;
-	width: 260px;
-	height: 106px;
-	border: 2px solid green;
-	border-radius: 5px;
+	width: 200px;
 	
-	font-size: 35px;
-	line-height: 106px;
-	font-weight: bold;
-	letter-spacing: 2px;
-	color: green;
+	font-size: 25px;
 }
 
 
 .last-lessons {
 	float: right;
-	width: 700px;
-	height: 200px;
+	margin-left: 20px;
+	margin-right: 20px;
+	width: 540px;
+	height: 160px;
 	
 	font-family: 'Caption', sans-serif;
 	font-size: 0px;
@@ -568,21 +563,16 @@ label[for='submenu-position']{
 
 
 .lessons-label {
-	margin: auto;
-	margin-top: 20px;
-	width: 660px;
-	height: 35px;
-	border-radius: 5px;
+	width: 540px;
+	height: 30px;
+	border-top: 3px solid green;
 	
-	text-align: center;
-	background-color: #bbc3bf; /*----------------------------------------------------------------------------------------*/
 	font-size: 25px;
-	line-height: 35px;
+	line-height: 30px;
 }
 
 
 .lessons-units {
-	margin: 20px;
 	margin-top: 15px;
 }
 
@@ -594,9 +584,9 @@ label[for='submenu-position']{
 
 .lessons-units div:nth-child(-n+5) {
 	display: inline-block;
-	margin-left: 27.5px;
-	width: 106px;
-	height: 106px;
+	margin-left: 20px;
+	width: 88px;
+	height: 88px;
 	border: 2px solid green;
 	border-radius: 5px;
 	
@@ -718,44 +708,41 @@ label[for='submenu-position']{
 	display: block;
 	margin-top: 3px;
 	margin-bottom: 5px;
-	border-left: 0.5px dashed gray;
-	border-bottom-right-radius: 5px;
-	border-top-right-radius: 5px;
-	padding: 5px;
+	border: 0.5px dashed transparent;
+	border-radius: 3px;
+	padding: 3px 3px 3px 2px;
 	width: 105px;
 	
 	font-family: 'Caption', sans-serif;
 	font-size: 12.5px;
 	line-height: 12.5px;
 	text-decoration: none;
-	color: black;
-	transition: all 0.35s linear;
+	color: grey;
+	transition: all 0.3s linear;
 }
 
 
 .remove-avatar:hover {
-	background-color: rgba(128, 128, 128, 0.5);
+	border: 0.5px dashed gray;
 }
 
 
 .avatar-back input[type='submit'] {
 	margin: 0px;
-	height: 23px;
+	height: 30px;
 	width: 93px;
-	border: none;
-	border-left: 2px solid green;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-	padding: 3px;
-	padding-right: 5px;
+	padding: 0;
+	padding-left: 3px;
+	border: 0;
+	border: 2px solid green;
+	border-radius: 3px;
 	cursor: pointer;
 	transition: all 0.35s linear;
 	
 	text-align: left;
 	background-color: white;
 	font-family: 'Caption', sans-serif;
-	font-size: 13px;
-	line-height: 13px;
+	font-size: 15px;
 }
 
 
@@ -905,31 +892,45 @@ p.avatar-addition-attention {
 /*----/content/index-----*/
 
 /*-----content/language_page-----*/
-.path {
-    background-color: orange;
+.page-head {
 	margin: auto;
 	margin-bottom: 20px;
 	width: 700px;
     height: 65px;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
-
 	cursor: default;
-    text-align: center;
+	
+	background-color: orange;
 	font-family: 'Caption', sans-serif;
-    font-size: 40px;
+    font-size: 0px;
 	line-height: 65px;
 	color: orangered;
 }
 
 
-.path a {
+.go-back {
+	display: inline-block;
+	margin-left: 12.5px;
+	width: 25px;
+	
+	text-align: center;
+	font-size: 40px;
+}
+
+
+.go-back a {
 	color: orangered;
 }
 
 
-.path .previous {
-	font-size: 25px;
+.page-name {
+	display: inline-block;
+	margin-right: 37.5px;
+	width: 625px;
+	
+	text-align: center;
+	font-size: 40px;
 }
 
 
@@ -1011,6 +1012,11 @@ p.avatar-addition-attention {
     text-align: center;
     font-size: 30px;
 	color: black;
+}
+
+
+#lex-sections .active .sec-logo {
+	border: 3px solid orange;
 }
 
 

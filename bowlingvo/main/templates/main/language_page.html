@@ -1,8 +1,11 @@
 {% load static %}
 {% include "main/header.html" %}
 
-<div class='path'>
-    <a href="/main/" class='previous'>&#8962</a><span class='previous'> </span>{{ language.name }}
+<div class='page-head'>
+	<div class='go-back'><a href="/main/"><</a></div>
+	<div class='page-name'>
+		{{ language.name }}
+	</div>
 </div>
 <div class='all-sections'>
     <div class='type-choices'>

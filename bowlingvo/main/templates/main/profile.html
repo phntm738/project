@@ -3,44 +3,47 @@
 
 {% include "main/header.html" %}
 
-<div class="profile-back">
-    <div class="profile-first">
-        <div class="profile-avatar">
-            <a href="/main/avatar/change">{% avatar user 256 %}</a>
-        </div>
-        <div class="user-info">
-            <div class="nick">{{ user.username }}<a href="/main/do-logout"><img class="logoutimg" src="{% static 'main/images/exit-2.png' %}"></a><a href="/main/edit-profile"><img src="{% static 'main/images/edit-1.png' %}"></a></div>
-            <div class="information">
-                <table>
-                    <tr>
-                        <td>Email:</td>
-                        <td>{{ user.email }}</td>
-                    </tr>
-                    <tr>
-                        <td>Последний раздел:</td>
-                        <td>...</td>
-                    </tr>
-                    <tr>
-                        <td>Последний язык:</td>
-                        <td>{{ profile.last_lang }}</td>
-                    </tr>
-                </table>
-            </div>
+<div class='profile-back'>
+    <div class='profile-first'>
+        <a href='/main/avatar/change' class='profile-avatar'>{% avatar user 194 %}</a>
+        <div class='user-info'>
+            <div class='nick'>
+				<div class='nickname'>{{ user.username }}</div>
+				<a href="/main/edit-profile"><img src="{% static 'main/images/edit-1.png' %}"></a>
+				<a href="/main"><img src="{% static 'main/images/home.png' %}"></a>
+				<a href="/main/do-logout"><img class='logoutimg' src="{% static 'main/images/exit-2.png' %}"></a>
+			</div>
+			<div class='information'>
+				<table>
+					<tr>
+						<td>Email:</td>
+						<td>{{ user.email }}</td>
+					</tr>
+					<tr>
+						<td>Последний раздел:</td>
+						<td>...</td>
+					</tr>
+					<tr>
+						<td>Последний язык:</td>
+						<td>{{ profile.last_lang }}</td>
+					</tr>
+				</table>
+			</div>
         </div>
     </div>
-    <div class="profile-second">
+    <div class='profile-second'>
 		<div class='profile-score'>
-			<div class="score-label">Очки</div>
-			<div class="score-value">{{ profile.score }}</div>
+			<div class='score-label'>Очки</div>
+			<div class='score-value'>{{ profile.score }}</div>
         </div>
-        <div class="last-lessons">
-            <div class="lessons-label">Последние уроки</div>
-            <div class="lessons-units">
+        <div class='last-lessons'>
+            <div class='lessons-label'>Последние уроки</div>
+            <div class='lessons-units'>
                 {% for lesson in last_lessons %}
                 <div>
                     {{ lesson }}
                 </div>
-                    {% endfor %}
+                {% endfor %}
            </div>
         </div>
     </div>
