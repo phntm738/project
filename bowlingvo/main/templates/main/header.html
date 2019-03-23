@@ -15,9 +15,7 @@
                         <a href='/main/do-logout'>Выход</a>
 		            </div>
                 </div>
-                <label for='submenu-position'>{% avatar user id='header-avatar' %}</label>
-            {% else %}
-                <a class='profile-logout' href='/main/do-logout'>Выход</a>
+                <label for='submenu-position' class='label-submenu-avatar'>{% avatar user id='header-avatar' %}</label>
             {% endif %}
         {% else %}
             <a href="/main/register" id="register-button">Регистрация</a>
