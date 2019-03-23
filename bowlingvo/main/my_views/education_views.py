@@ -108,9 +108,9 @@ def lesson_page(request, language_name, section_name, lesson_order):
     lesson = Lesson.objects.filter(section_id=section.id).get(order=lesson_order)
 
     if request.method == 'GET':
-        tasks = task_gen(lesson.id)
+        theory, tasks = task_gen(lesson.id)
         return render(request, 'main/lesson_page.html',
-                      {'profile': profile, 'language': language, 'section': section, 'lesson_name': str(lesson), 'lesson': lesson, 'tasks': tasks})
+                      {'profile': profile, 'language': language, 'section': section, 'lesson': lesson, 'theory': theory, 'tasks': tasks})
 
     if request.method == 'POST':
         score = int(request.POST.get('score'))
@@ -127,5 +127,4 @@ def lesson_page(request, language_name, section_name, lesson_order):
             profile.score += score
         finished_section_check(user, section)
         profile.save()
-#        finished_section_check(user, section)
         return redirect('section', language_name=language.url_name, section_name=section.url_name)

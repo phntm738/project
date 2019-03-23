@@ -41,7 +41,7 @@ class Lesson(models.Model):
         return self.section.name + str(self.order)
 
 
-class key2lesson(models.Model):
+class Key2Lesson(models.Model):
     objects = models.Manager()
 
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
@@ -52,7 +52,7 @@ class Word(models.Model):
     objects = models.Manager()
 
     key = models.CharField(max_length=64, db_index=True)
-    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+    language = models.CharField(max_length=50)
     sing_form = models.TextField()
     plur_form = models.TextField()
 
@@ -61,7 +61,7 @@ class Phrase(models.Model):
     objects = models.Manager()
 
     key = models.CharField(max_length=64, db_index=True)
-    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+    language = models.CharField(max_length=50)
     text = models.TextField()
     answer = models.TextField()
 
