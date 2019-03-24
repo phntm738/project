@@ -1,4 +1,3 @@
-from ..models import *
 from .generators.base import *
 
 
@@ -8,4 +7,7 @@ def task_gen(lesson_id):
     sec = lesson.section
     if sec.sec_type == 'L':
         theory, tasks = generator.lex_tasks(lesson)
+    else:
+        theory = []
+        tasks = []
     return theory, tasks

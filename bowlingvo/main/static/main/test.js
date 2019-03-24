@@ -1,10 +1,3 @@
-function hide_div(id) {
-	document.getElementById(id).style.display = 'none';
-}
-
-function show_div(id) {
-	document.getElementById(id).style.display = 'block';
-}
 
 
 function LessonLogic() {
@@ -125,4 +118,16 @@ function show_gram() {
 	gram = document.getElementById('gram-sections');
 	lex.style.display = 'none';
 	gram.style.display = 'block';
+}
+
+//----------------------tests----------------------------
+function tryXHR() {
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', '/main/test1', false);
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.setRequestHeader('X-CSRFToken', getCSRF());
+	xhr.send('score=10');
+	
+	var test = document.getElementById('test');
+	test.innerHTML = xhr.responseText;
 }

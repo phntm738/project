@@ -1,19 +1,19 @@
 {% include "main/header.html" %}
 
 <div class='page-head'>
-	<div class='go-back'><a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}"><</a></div>
-	<div class='page-name'>
-		{{ lesson }}
-	</div>
+    <div class='go-back'><a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}"><</a></div>
+    <div class='page-name'>
+        {{ lesson }}
+    </div>
 </div>
 
 <div class="lesson-back">
     <div id="all-tasks">
         <div class="start" id="task0">
             {% for theory_unit in theory %}
-			<div class='words'>
+            <div class='words'>
                 {{ theory_unit.for_sing }} ({{ theory_unit.for_plur }})---{{ theory_unit.rus_sing }} ({{ theory_unit.rus_plur }})
-			</div>
+            </div>
             {% endfor %}
         </div>
         {% for task in tasks %}
@@ -22,8 +22,8 @@
                 <div class='question'>
                     {% if task.type == 'input' %}
                         Введите слово в нужной форме<br>
-                        {{ task.text.0 }}<br>
-                        {{ task.text.1 }}_____{{ task.text.2 }}
+                        {{ task.text.0 }}<div>{{ task.text.1 }}</div>{{ task.text.2 }}<br>
+                        {{ task.text.3 }}_____{{ task.text.4 }}
                     {% else %}
                         Выберите правильный перевод слова<br>
                         {{ task.text.0 }}
@@ -41,7 +41,7 @@
             </div>
             {% endwith %}
         {% endfor %}
-		<div hidden id="correct-answer">Верно</div>
+        <div hidden id="correct-answer">Верно</div>
         <div hidden id="wrong-answer">
             Неверно
             <div id="your-answer"></div>

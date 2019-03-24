@@ -63,7 +63,7 @@ class BaseGenerator:
             trans_phrase = fphrase if base_lang_russian else rphrase
             task['answer'] = trans_phrase.answer
             parts = base_phrase.text.split('{}')
-            text = [parts[0] + base_phrase.answer + parts[1]]
+            text = [parts[0]] + [base_phrase.answer] + [parts[1]]
             parts = trans_phrase.text.split('{}')
             text.append(parts[0])
             text.append(parts[1])
