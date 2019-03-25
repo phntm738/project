@@ -8,6 +8,5 @@ def task_gen(lesson_id):
     if sec.sec_type == 'L':
         theory, tasks = generator.lex_tasks(lesson)
     else:
-        theory = []
-        tasks = []
+        theory, tasks = generator.gram_tasks(lesson)
     return theory, tasks
