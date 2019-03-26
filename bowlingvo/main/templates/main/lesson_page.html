@@ -7,34 +7,38 @@
     </div>
 </div>
 
-<div class="lesson-back">
-    <div id="all-tasks">
-        <div class="start" id="task0">
+<div class='lesson-back'>
+    <div id='all-tasks'>
+        <div class='start' id='task0'>
+			<div class='subheader'>Слова к уроку</div>
             {% for theory_unit in theory %}
             <div class='words'>
-                {{ theory_unit.for_sing }} ({{ theory_unit.for_plur }})---{{ theory_unit.rus_sing }} ({{ theory_unit.rus_plur }})
+                <div class='word-first'>{{ theory_unit.for_sing }}</div>
+				<div class='word-second'>{{ theory_unit.rus_sing }}</div>
+				<div class='word-first-plur'>{{ theory_unit.for_plur }}</div>
+				<div class='word-sec-plur'>{{ theory_unit.rus_plur }}</div>
             </div>
             {% endfor %}
         </div>
         {% for task in tasks %}
             {% with cur_val=forloop.counter %}
-            <div hidden class="task" id="task{{ cur_val }}" answer="{{ task.answer }}">
+            <div hidden class='task' id='task{{ cur_val }}' answer='{{ task.answer }}'>
                 <div class='question'>
                     {% if task.type == 'input' %}
-                        Введите слово в нужной форме<br>
-                        {{ task.text.0 }}<div>{{ task.text.1 }}</div>{{ task.text.2 }}<br>
+                        <div class='question-task'>Введите слово в нужной форме</div>
+                        {{ task.text.0 }}<span>{{ task.text.1 }}</span>{{ task.text.2 }}<br>
                         {{ task.text.3 }}_____{{ task.text.4 }}
                     {% else %}
-                        Выберите правильный перевод слова<br>
+                        <div class='question-task'>Выберите правильный перевод слова</div>
                         {{ task.text.0 }}
                     {% endif %}
                 </div>
-                <div class="answer">
+                <div class='answer'>
                     {% if task.type == 'input' %}
                         <div class='answer-text'><input autofocus type="text" name="user-answer-{{ cur_val }}"></div>
                     {% else %}
                         {% for var in task.choices %}
-                            <div><label><input type="radio" name="user-answer-{{ cur_val }}" value="{{ var }}"><span class='radio'></span><span class='label-radio'>{{ var }}</span></label></div>
+                            <div><label><input type='radio' name='user-answer-{{ cur_val }}' value='{{ var }}'><span class='radio'></span><span class='label-radio'>{{ var }}</span></label></div>
                         {% endfor %}
                     {% endif %}
                 </div>
