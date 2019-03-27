@@ -54,9 +54,23 @@ body {
 	width: 100%;
 	min-width: 1135px;
     height: 50px;
+	cursor: default;
 	
     background-color: black;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 15px;
     color: white;
+}
+
+
+.footer .design-by {
+	color: white;
+}
+
+
+.footer .design-by img {
+	width: 15px;
+	height: 12px;
 }
 /*----/main-----*/
 
@@ -617,6 +631,7 @@ label[for='submenu-position']{
     margin-right: auto;
     margin-top: 40px;
 	margin-bottom: 40px;
+	cursor: default;
 
     width: 450px;
     background: white;
@@ -720,8 +735,8 @@ label[for='submenu-position']{
 	display: block;
 	margin-top: 3px;
 	margin-bottom: 5px;
-	border: 0.5px dashed transparent;
-	border-radius: 3px;
+	border-top: 1px dashed gray;
+	border-bottom: 1px dashed gray;
 	padding: 3px 3px 3px 2px;
 	width: 105px;
 	
@@ -735,31 +750,27 @@ label[for='submenu-position']{
 
 
 .remove-avatar:hover {
-	border: 0.5px dashed gray;
+	background-color: lightgrey;
 }
 
 
 .avatar-back input[type='submit'] {
 	margin: 0px;
 	height: 30px;
-	width: 93px;
+	width: 110px;
 	padding: 0;
 	padding-left: 3px;
 	border: 0;
-	border: 2px solid green;
-	border-radius: 3px;
+	border-top: 2px solid green;
+	border-bottom: 2px solid green;
 	cursor: pointer;
-	transition: all 0.35s linear;
 	
 	text-align: left;
 	background-color: white;
 	font-family: 'Caption', sans-serif;
 	font-size: 15px;
-}
-
-
-.avatar-change-button:hover, .avatar-back input[type='submit']:hover {
-	background-color: green;
+	line-height: 26px;
+	color: green;
 }
 
 
@@ -1226,6 +1237,7 @@ p.avatar-addition-attention {
 	border-top-left-radius: 7px;
 	border-top-right-radius: 7px;
 	
+	font-size: 40px;
 	line-height: 83.25px;
 }
 
