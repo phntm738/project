@@ -40,12 +40,13 @@
             <div class='lessons-label'>Последние уроки</div>
             <div class='lessons-units'>
                 {% for lesson in last_lessons %}
-                <div>
+                <div class='lesson-unit'>
 					{% with 'main/images/'|add:lesson.section.language.url_name|add:'-flag.png' as flag_image %}
-                		<img style='width: 88px; height: 88px' src="{% static flag_image %}" alt='language flag'>
-                    {% endwith %}
-                    {{ lesson }}
-                </div>
+						<div style='background-image: url({% static flag_image %}); background-size: cover' class='lesson-flag'>
+						</div>
+					{% endwith %}
+					<div class='lesson-name'>{{ lesson }}</div>
+				</div>
                 {% endfor %}
            </div>
         </div>

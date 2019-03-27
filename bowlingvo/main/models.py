@@ -26,7 +26,7 @@ class Section(models.Model):
     background_url = models.CharField(max_length=250)
 
     def __str__(self):
-        return self.name
+        return str(self.language) + str(self.name)
 
 
 class Lesson(models.Model):
@@ -38,7 +38,7 @@ class Lesson(models.Model):
     tag = models.CharField(max_length=32, null=True, blank=True)
 
     def __str__(self):
-        return self.section.name + str(self.order)
+        return str(self.section) + str(self.order)
 
 
 class Key2Lesson(models.Model):
@@ -46,6 +46,9 @@ class Key2Lesson(models.Model):
 
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     key = models.CharField(max_length=64, db_index=True)
+
+    def __str__(self):
+        return str(self.lesson) + ' | ' + str(self.key)
 
 
 class Word(models.Model):
@@ -56,6 +59,9 @@ class Word(models.Model):
     sing_form = models.TextField()
     plur_form = models.TextField()
 
+    def __str__(self):
+        return self.key
+        
 
 class Phrase(models.Model):
     objects = models.Manager()
@@ -64,6 +70,9 @@ class Phrase(models.Model):
     language = models.CharField(max_length=50)
     text = models.TextField()
     answer = models.TextField()
+
+    def __str__(self):
+        return self.key
 
 
 class TheoryUnit(models.Model):
