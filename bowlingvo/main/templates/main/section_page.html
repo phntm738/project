@@ -19,7 +19,7 @@
             <a href="{% url 'lesson' language_name=language.url_name section_name=section.url_name lesson_order=lesson.order %}">
         {% endif %}
 			<div class='lex-lesson-name'>
-				{{ lesson }}
+				{{ lesson.order }}
 			</div>
 			<div class='lesson-start-button'>
 			{% if ability == 'finished' %}
