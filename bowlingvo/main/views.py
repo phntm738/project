@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.views import View
 from .models import *
 from .additional.task_gen import task_gen
+from .additional.content.english import main
 from django.http import Http404
 
 from .my_views.authorization_views import *
@@ -18,7 +19,7 @@ class ProfileView(View):
     def get(self, request):
         user = request.user
         profile = UserProfile.objects.get(user=user)
-        finished_lessons = list(FinishedLesson.objects.all().filter(user_id=user.id))
+        finished_lessons = list(FinishedLesson.objects.all().filter(user_id=user.id).order_by('-date'))
         for i in range(len(finished_lessons)):
             fl = finished_lessons[i]
             finished_lessons[i] = fl.lesson
@@ -39,5 +40,6 @@ def test1(request):
 
 
 def test(request):
+    main()
     return render(request, 'main/test.html', {})
     return render(request, 'main/test.html', {'page_name': 'test', 'script': True})

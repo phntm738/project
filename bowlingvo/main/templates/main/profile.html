@@ -45,7 +45,7 @@
 						<div style='background-image: url({% static flag_image %}); background-size: cover' class='lesson-flag'>
 						</div>
 					{% endwith %}
-					<div class='lesson-name'>{{ lesson }}</div>
+					<div class='lesson-name'>{{ lesson.section.name }} {{ lesson.order }}</div>
 				</div>
                 {% endfor %}
            </div>

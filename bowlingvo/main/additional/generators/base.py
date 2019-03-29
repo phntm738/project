@@ -71,3 +71,6 @@ class BaseGenerator:
             tasks.append(task)
         random.shuffle(tasks)
         return theory, tasks
+
+    def gram_tasks(self, lesson):
+        return [], []

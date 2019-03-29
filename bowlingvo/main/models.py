@@ -8,8 +8,6 @@ class Language(models.Model):
     name = models.CharField(max_length=64)
     url_name = models.CharField(max_length=50)
 
-    icon = models.CharField(max_length=50)
-
     def __str__(self):
         return self.name
 
@@ -23,7 +21,6 @@ class Section(models.Model):
     sec_type = models.CharField(max_length=1, default='L')
 
     description = models.TextField(null=True, blank=True)
-    background_url = models.CharField(max_length=250)
 
     def __str__(self):
         return str(self.language) + str(self.name)
@@ -35,7 +32,6 @@ class Lesson(models.Model):
     section = models.ForeignKey(Section, on_delete=models.CASCADE)
 
     order = models.IntegerField(default=1)
-    tag = models.CharField(max_length=32, null=True, blank=True)
 
     def __str__(self):
         return str(self.section) + str(self.order)
