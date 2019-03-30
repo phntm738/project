@@ -11,9 +11,9 @@ class LanguageContent:
         def __init__(self, section, order):
             self.section = section
             try:
-                l = models.Lesson.objects.get(section=section, order=order)
+                l = models.Lesson.objects.get(section=section.section, order=order)
             except models.Lesson.DoesNotExist:
-                l = models.Lesson(section=section, order=order)
+                l = models.Lesson(section=section.section, order=order)
                 l.save()
             self.lesson = l
 
@@ -74,14 +74,14 @@ class LanguageContent:
         def __init__(self, language, name, url_name):
             self.language = language
             try:
-                s = models.Section.objects.get(language=language, name=name, url_name=url_name)
+                s = models.Section.objects.get(language=language.language, name=name, url_name=url_name)
             except models.Section.DoesNotExist:
-                s = models.Section(language=language, name=name, url_name=url_name)
+                s = models.Section(language=language.language, name=name, url_name=url_name)
                 s.save()
             self.section = s
 
         def lesson(self, order):
-            return LanguageContent.Lesson(self.section, order)
+            return LanguageContent.Lesson(self, order)
 
         def end(self):
             return self.language
@@ -95,4 +95,4 @@ class LanguageContent:
         self.language = l
 
     def section(self, name, url_name):
-        return LanguageContent.Section(self.language, name, url_name)
+        return LanguageContent.Section(self, name, url_name)
