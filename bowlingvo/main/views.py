@@ -5,7 +5,6 @@ from django.http import HttpResponse
 from django.views import View
 from .models import *
 from .additional.task_gen import task_gen
-from .additional.content.english import main
 from django.http import Http404
 
 from .my_views.authorization_views import *
@@ -40,6 +39,5 @@ def test1(request):
 
 
 def test(request):
-    main()
     return render(request, 'main/test.html', {})
     return render(request, 'main/test.html', {'page_name': 'test', 'script': True})
