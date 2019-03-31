@@ -56,7 +56,7 @@ class Word(models.Model):
     plur_form = models.TextField()
 
     def __str__(self):
-        return self.key
+        return str(self.language) + '-/-' + str(self.sing_form)
         
 
 class Phrase(models.Model):

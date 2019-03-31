@@ -19,7 +19,7 @@ class LanguageContent:
 
         def word(self, sing, plur, fsing, fplur):
             try:
-                w = models.Word.objects.get(Q(sing_form=sing) | Q(plur_form=plur))
+                w = models.Word.objects.get(sing_form=sing, plur_form=plur)
                 key = w.key
                 if w.sing_form != sing: w.sing_form = sing
                 if w.plur_form != plur: w.plur_form = plur
@@ -28,7 +28,7 @@ class LanguageContent:
                 w = models.Word(key=key, language='russian', sing_form=sing, plur_form=plur)
             w.save()
             try:
-                wf = models.Word.objects.get(Q(sing_form=fsing) | Q(plur_form=fplur))
+                wf = models.Word.objects.get(sing_form=fsing, plur_form=fplur)
                 if wf.key != key: wf.key = key
                 if w.sing_form != sing: w.sing_form = sing
                 if w.plur_form != plur: w.plur_form = plur
@@ -44,7 +44,7 @@ class LanguageContent:
 
         def phrase(self, rus, rans, frgn, fans):
             try:
-                p = models.Phrase.objects.get(Q(text=rus) | Q(answer=rans))
+                p = models.Phrase.objects.get(text=rus, answer=rans)
                 key = p.key
                 if p.text != rus: p.text = rus
                 if p.answer != rans: p.answer = rans
@@ -53,7 +53,7 @@ class LanguageContent:
                 p = models.Phrase(key=key, language='russian', text=rus, answer=rans)
             p.save()
             try:
-                pf = models.Phrase.objects.get(Q(text=frgn) | Q(answer=fans))
+                pf = models.Phrase.objects.get(text=frgn, answer=fans)
                 if pf.key != key: pf.key = key
                 if p.text != frgn: p.text = frgn
                 if p.answer != fans: p.answer = fans
@@ -87,6 +87,9 @@ class LanguageContent:
             return self.language
 
     def __init__(self, name, url_name):
+        #models.Word.objects.all().delete()
+        #models.Phrase.objects.all().delete()
+        #models.Key2Lesson.objects.all().delete()
         try:
             l = models.Language.objects.get(name=name, url_name=url_name)
         except models.Language.DoesNotExist:
