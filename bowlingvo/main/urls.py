@@ -15,9 +15,10 @@ authpatterns = [
                                                redirect_authenticated_user=True), name='login'),
     path('do-logout', auth_views.LogoutView.as_view(), name='logout'),
     path('register', views.RegistrationView.as_view(), name='register'),
-    path('reset', auth_views.PasswordResetView.as_view(success_url='/main')),
+    path('reset', auth_views.PasswordResetView.as_view(template_name='main/password_reset_form.html', )),
+    path('done', auth_views.PasswordResetDoneView.as_view(template_name='main/password_reset_done.html'), name='password_reset_done'),
     re_path(r'^confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
-            auth_views.PasswordResetConfirmView.as_view(success_url='/main'), name='password_reset_confirm')
+            auth_views.PasswordResetConfirmView.as_view(success_url='/main', template_name='main/password_reset_confirm.html'), name='password_reset_confirm')
 ]
 
 
