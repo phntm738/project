@@ -87,9 +87,6 @@ class LanguageContent:
             return self.language
 
     def __init__(self, name, url_name):
-        #models.Word.objects.all().delete()
-        #models.Phrase.objects.all().delete()
-        #models.Key2Lesson.objects.all().delete()
         try:
             l = models.Language.objects.get(name=name, url_name=url_name)
         except models.Language.DoesNotExist:
