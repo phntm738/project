@@ -1305,282 +1305,252 @@ div[class='active lex-lesson-path'] {
 /*----/content/sections_page-----*/
 
 /*-----content/lesson_page-----*/
-.lesson-back {
-	width: 700px;
-	height: 250px;
+.lesson-content {
 	margin: auto;
-	margin-bottom: 40px;
-	border-radius: 15px;
+	margin-bottom: 30px;
+	width: 700px;
 	padding-top: 15px;
+	padding-bottom: 15px;
+	border-radius: 10px;
 	cursor: default;
 	
 	background-color: white;
+	font-family: 'Roboto Condenced', sans-serif;
+	font-size: 0px;
+	font-weight: 100;
 }
 
 
-.lesson-back .start {
-	height: 235px;
-}
-
-
-.lesson-back .subheader {
+.lesson-content .subheader {
 	margin-bottom: 15px;
-	height: 22.5px;
+	height: 25px;
 	
 	text-align: center;
-	font-family: 'Roboto Condenced', sans-serif;
-	font-size: 22.5px;
-	line-height: 22.5px;
+	font-size: 25px;
+	line-height: 25px;
 }
 
 
-.lesson-back .words {
-	margin-bottom: 10px;
-	
-	font-size: 0px;
+.lesson-content .word {
+	margin-bottom: 5px;
 }
 
 
-.lesson-back .words div {
+.lesson-content .word:last-child {
+	margin: 0px;
+}
+
+
+.lesson-content .word div {
 	display: inline-block;
-	width: 345px;
-	height: 15px;
+	width: 340px;
+	padding-left: 5px;
 	padding-right: 5px;
 	
-	text-align: right;
-	font-family: 'Roboto Condenced', sans-serif;
 	font-size: 15px;
 	line-height: 15px;
 }
 
 
-.lesson-back .words div:nth-child(2), .lesson-back .words div:nth-child(4) {
-	padding-right: 0px;
-	padding-left: 5px;
-	
-	text-align: left;
+.lesson-content .word div:nth-child(odd) {
+	text-align: right;
 }
 
 
-.lesson-back .words div:nth-child(3), .lesson-back .words div:nth-child(4) {
-	color: darkgrey;
+.lesson-content .word div:nth-child(n+3) {
+	color: darkgray;
 }
 
 
-#task-button, #finish-button {
-	position: absolute;
-	top: 375px;
-	margin-left: 565px;
+.lesson-content .navig {
+	height: 48px;
+}
+
+
+.lesson-content #task-button {
+	float: right;
+	margin-top: 13px;
+	margin-right: 15px;
 	width: 120px;
 	height: 35px;
+	padding: 0px;
 	border: 3px solid green;
 	border-radius: 5px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	transition: all 0.5s linear;
 	outline: none;
+	cursor: pointer;
+	transition: all 0.2s linear;
 	
 	background-color: var(--header-color);
-	text-align: center;
-	font-family: 'Caption', sans-serif;
-	font-size: 15px;
-	font-weight: bold;
-	color: green;
-	cursor: pointer;
+	font-size: 17.5px;
+	color: darkgreen;
 }
 
 
-#finish-button {
-	float: left;
-	margin-left: 290px;
-	margin-right: 290px;
-}
-
-
-#task-button:hover, #finish-button:hover {
+.lesson-content #task-button:hover {
 	background-color: lawngreen;
 }
 
 
-.task {
-	height: 235px;
-}
-
-
-.lesson-back .question {
-	width: 500px;
-	margin: auto;
-	margin-bottom: 17.5px;
+/* lesson itself */
+.lesson-content .target {
+	margin-bottom: 15px;
 	
 	text-align: center;
-	font-family: 'Roboto Condensed', sans-serif;
 	font-size: 20px;
 }
 
 
-.lesson-back .question .question-task {
-	color: darkgrey;
+.lesson-content .target div {
+	color: gray;
 }
 
 
-.lesson-back .question span {
-	text-decoration: underline;
-}
-
-
-.lesson-back .answer {
-	width: 250px;
+.lesson-content .answer {
 	margin: auto;
-	
-	font-family: 'Roboto Condenced', sans-serif;
-	font-size: 15px;
+	margin-bottom: 20px;
+	width: 250px;
 }
 
 
-.lesson-back .answer div {
+.lesson-content .answer div {
+	height: 30px;
+	padding-left: 5px;
 	border-bottom: 1px solid gray;
-}
-
-
-.lesson-back .answer div:last-child {
-	border: 0px;
-}
-
-
-.lesson-back .answer label {
-	display: block;
-	vertical-align: top;
 	cursor: pointer;
 }
 
 
-.lesson-back input[type='radio'] {
-	display: none;
+.lesson-content .answer div:hover {
+	background-color: rgba(0, 0, 0, 0.05);
 }
 
 
-.lesson-back input[type='radio'] + .radio {
+.lesson-content label {
+	width: 245px;
+	height: 30px;
+}
+
+
+.lesson-content .radio {
 	-webkit-appearance: none;
-	display: inline-block;
-	width: 15px;
+	margin: 0;
+	margin-top: 7.5px;
 	height: 15px;
-	margin: 5px;
-	box-sizing: border-box;
-	border: 2px solid green;
-	border-radius: 100%;
-	outline: none;
+	width: 15px;
+	border: 2.5px solid gray;
+	border-radius: 50%;
+	cursor: pointer;
 }
 
 
-.lesson-back input[type='radio']:checked + .radio:before {
-	content: '';
-	display: block;
-	background: green;
-	border-radius: 100%;
-	width: 7px;
-	height: 7px;
-	margin: 2px;
-	pointer-events: none;
+.lesson-content .radio:checked {
+	border-color: green;
 }
 
 
-.lesson-back .label-radio {
+.lesson-content .label-radio {
 	display: inline-block;
+	width: 225px;
+	height: 30px;
+	padding-left: 5px;
+	cursor: pointer;
+	
 	vertical-align: top;
-	line-height: 25px;
+	font-size: 17px;
+	line-height: 30px;
 }
 
 
-.lesson-back input[type='text'] {
+.lesson-content .answer-text {
+	margin: 0;
+	margin-left: 50px;
 	width: 150px;
-	height: 28px;
+	height: 29px;
+	padding: 0;
+	padding-left: 2.5px;
+	padding-right: 2.5px;
+	border: 2px solid green;
+	transition: all 0.1s linear;
+	
+	font-size: 20px;
+}
+ 
+
+.lesson-content #correct-answer {
+	float: left;
+	margin-top: 28px;
+	width: 550px;
+	height: 20px;
+	padding-left: 15px;
+	
+	font-size: 20px;
 	line-height: 20px;
-	padding: 0 0 0 2px;
-	border: 1px solid transparent;
-	border-bottom: 2px solid green;
-	outline: none;
-	transition: all 0.15s linear;
-	
-	font-family: 'Caption', sans-serif;
-	font-size: 20px;
-	color: black;
-}
-
-
-.lesson-back input[type='text']:focus {
-	border: 1px solid green;
-	border-bottom: 2px solid green;
-}
-
-
-.lesson-back .answer-text {
-	width: 150px;
-	margin: auto;
-}
-
-
-.lesson-back .answer-text .input {
-	width: 150px;
-}
-
-
-#correct-answer, #wrong-answer {
-	position: absolute;
-	
-	margin-left: 15px;
-	width: 535px;
-	
-	font-family: 'Caption', sans-serif;
-	font-size: 20px;
-	line-height: 22.5px;
-	font-weight: bold;
-}
-
-
-#correct-answer {
-	top: 387.5px;
-	
-	height: 22.5px;
-	
 	color: green;
 }
 
 
-#wrong-answer {
-	top: 352.5px;
+.lesson-content #wrong-answer {
+	float: left;
+	width: 550px;
+	padding-left: 15px;
 	
-	height: 57.5px;
-	
+	font-size: 20px;
+	line-height: 20px;
 	color: orange;
 }
 
 
-#wrong-answer div {
+.lesson-content #wrong-answer div {
 	font-size: 15px;
-	line-height: 17.5px;
+	line-height: 15px;
 	color: black;
 }
 
-
-.lesson-back .finish p {
-	height: 30px;
-	margin-top: 0px;
-	margin-bottom: 15px;
+/* lesson finished */
+.lesson-content .finish {
+	margin: auto;
+	width: 350px;
 	
-	text-align: center;
-	font-family: 'Roboto Condenced', sans-serif;
 	font-size: 25px;
 }
 
 
-#lesson-score {
-	height: 35px;
-	padding-top: 37.5px;
-	margin-bottom: 37.5px;
+.lesson-content .finish p {
+	margin: 0px;
 	
 	text-align: center;
-	font-family: 'Caption', sans-serif;
+}
+
+
+.lesson-content #lesson-score {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	
+	text-align: center;
 	font-size: 30px;
+	font-weight: bold;
 	color: green;
+}
+
+
+.lesson-content form {
+	margin: 0;
+}
+
+
+.lesson-content #finish-button {
+	margin-left: 115px;
+	width: 120px;
+	height: 35px;
+	padding: 0px;
+	border: 3px solid green;
+	border-radius: 5px;
+	outline: none;
+	cursor: pointer;
+	transition: all 0.2s linear;
+	
+	background-color: var(--header-color);
+	font-size: 17.5px;
+	color: darkgreen;
 }
 /*----/content/lesson_page-----*/

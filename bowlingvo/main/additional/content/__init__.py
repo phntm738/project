@@ -1,4 +1,4 @@
 
-from . import english
+from . import english, french
 
-__all__ = ["english"]
+__all__ = ["english", 'french']
