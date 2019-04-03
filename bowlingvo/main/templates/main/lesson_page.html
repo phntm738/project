@@ -3,64 +3,66 @@
 <div class='page-head'>
     <div class='go-back'><a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}"><</a></div>
     <div class='page-name'>
-        {{ lesson }}
+        {{ section.name }} {{ lesson.order }}
     </div>
 </div>
 
-<div class='lesson-back'>
+<div class='lesson-content'>
     <div id='all-tasks'>
-        <div class='start' id='task0'>
+        <div id='task0'>
 			<div class='subheader'>Слова к уроку</div>
             {% for theory_unit in theory %}
-            <div class='words'>
-                <div class='word-first'>{{ theory_unit.for_sing }}</div>
-				<div class='word-second'>{{ theory_unit.rus_sing }}</div>
-				<div class='word-first-plur'>{{ theory_unit.for_plur }}</div>
-				<div class='word-sec-plur'>{{ theory_unit.rus_plur }}</div>
+            <div class='word'>
+                <div>{{ theory_unit.for_sing }}</div>
+				<div>{{ theory_unit.rus_sing }}</div>
+				<div>{{ theory_unit.for_plur }}</div>
+				<div>{{ theory_unit.rus_plur }}</div>
             </div>
             {% endfor %}
         </div>
         {% for task in tasks %}
-            {% with cur_val=forloop.counter %}
-            <div hidden class='task' id='task{{ cur_val }}' answer='{{ task.answer }}'>
-                <div class='question'>
-                    {% if task.type == 'input' %}
-                        <div class='question-task'>Введите слово в нужной форме</div>
-                        {{ task.text.0 }}<span>{{ task.text.1 }}</span>{{ task.text.2 }}<br>
-                        {{ task.text.3 }}_____{{ task.text.4 }}
-                    {% else %}
-                        <div class='question-task'>Выберите правильный перевод слова</div>
-                        {{ task.text.0 }}
-                    {% endif %}
-                </div>
-                <div class='answer'>
-                    {% if task.type == 'input' %}
-                        <div class='answer-text'><input autofocus type="text" name="user-answer-{{ cur_val }}"></div>
-                    {% else %}
-                        {% for var in task.choices %}
-                            <div><label><input type='radio' name='user-answer-{{ cur_val }}' value='{{ var }}'><span class='radio'></span><span class='label-radio'>{{ var }}</span></label></div>
-                        {% endfor %}
-                    {% endif %}
-                </div>
+        {% with cur_val=forloop.counter %}
+        <div hidden class='task' id='task{{ cur_val }}' answer='{{ task.answer }}'>
+            <div class='target'>
+                {% if task.type == 'input' %}
+                    <div>Введите слово в нужной форме</div>
+						{{ task.text.0 }}{{ task.text.1 }}{{ task.text.2 }}<br>
+						{{ task.text.3 }}_____{{ task.text.4 }}
+                {% else %}
+					<div>Выберите правильный перевод слова</div>
+                    {{ task.text.0 }}
+                {% endif %}
             </div>
-            {% endwith %}
-        {% endfor %}
-        <div hidden id="correct-answer">Верно</div>
-        <div hidden id="wrong-answer">
-            Неверно
-            <div id="your-answer"></div>
-            <div id="expected-answer"></div>
+			<div class='answer'>
+				{% if task.type == 'input' %}
+				<input autofocus type='text' name='user-answer-{{ cur_val }}' class='answer-text'>
+				{% else %}
+                {% for var in task.choices %}
+                <div><label><input type='radio' name='user-answer-{{ cur_val }}' value='{{ var }}' class='radio'><span class='label-radio'>{{ var }}</span></label></div>
+                {% endfor %}
+				{% endif %}
+			</div>
         </div>
-        <button id="task-button" onclick="lesson.getNext()">Начать</button>
-    </div>
-    <div hidden class="finish" id="finish">
+        {% endwith %}
+        {% endfor %}
+        <div class='navig'>
+			<div hidden id='correct-answer'>Верно</div>
+			<div hidden id='wrong-answer'>
+				Неверно
+				<div id='your-answer'></div>
+				<div id='expected-answer'></div>
+			</div>
+			<button id='task-button' onclick='lesson.getNext()'>Начать</button>
+		</div>
+	</div>
+    <div hidden class='finish' id='finish'>
         <p>Вы закончили урок</p>
         <p>Ваши очки:</p>
-        <div id="lesson-score"></div>
-        <form action="{% url 'lesson' language_name=language.url_name section_name=section.url_name lesson_order=lesson.order %}" method="post">
+        <div id='lesson-score'></div>
+        <form action="{% url 'lesson' language_name=language.url_name section_name=section.url_name lesson_order=lesson.order %}" method='post'>
             {% csrf_token %}
-            <input hidden name="score" type="text" id="score-input">
-            <input type="submit" id='finish-button' value="Завершить">
+            <input hidden name='score' type='text' id='score-input'>
+            <input type='submit' id='finish-button' value='Завершить'>
         </form>
     </div>
 </div>
