@@ -22,7 +22,7 @@ def main():
             .word('молоко', 'молоко', 'milk', 'milk')\
             .word('хлопья', 'хлопья', 'cereals', 'cereals')\
             .word('сахар', 'сахар', 'sugar', 'sugar')\
-            .phrase('Я не пью {} с молоком.', 'чай', "I don't drink {} with milk.", 'tea')\
+            .phrase('Я не пью {} с молоком.', 'чай', 'I don\'t drink {} with milk.', 'tea')\
             .phrase('Ты ешь {} на завтрак?', 'хлопья', 'Do you have {} for breakfast?', 'cereals')\
         .end()\
         .lesson(3)\
@@ -31,8 +31,8 @@ def main():
             .word('салат', 'салаты', 'salad', 'salads')\
             .word('сок', 'соки', 'juice', 'juices')\
             .word('стейк', 'стейки', 'steak', 'steaks')\
-            .phrase('Меня пригласили на {} к Роббинсонам.', 'ужин', "I've been invited for a {} with Robbinsons", 'dinner')\
-            .phrase('Я не очень люблю {}, но мне нравятся стейки.', 'салаты', "I'm not fond of {}, but I like steaks.", 'salads')\
+            .phrase('Меня пригласили на {} к Роббинсонам.', 'ужин', 'I\'ve been invited for a {} with Robbinsons', 'dinner')\
+            .phrase('Я не очень люблю {}, но мне нравятся стейки.', 'салаты', 'I\'m not fond of {}, but I like steaks.', 'salads')\
             .phrase('Вы бы хотели немного {}?', 'сока', 'Would you like some {}?', 'juice')\
         .end()\
         .lesson(4)\
@@ -152,6 +152,25 @@ def main():
             .word('музей', 'музеи', 'museum', 'museums')\
             .word('ресторан', 'рестораны', 'restaurant', 'restaurants')\
             .phrase('Где находится вегетарианский {}?', 'ресторан', 'Where is a vegetarian {}?', 'restaurant')\
+        .end()\
+    .end()\
+    .section('Транспорт', 'transport')\
+        .lesson(1)\
+            .word('транспорт', 'транспорт', 'transport', 'transport')\
+            .word('автобус', 'автобусы', 'bus', 'buses')\
+            .word('трамвай', 'трамваи', 'tram', 'trams')\
+            .word('троллейбус', 'троллейбусы', 'trolleybus', 'trolleybuses')\
+            .word('поезд', 'поезда', 'train', 'trains')\
+            .phrase('Этот {} опаздывает.', 'поезд', 'This {} is late.', 'train')\
+            .phrase('{} 12 идёт до музея?', 'Трамвай', 'Does {} 12 go to the museum?', 'tram')\
+        .end()\
+        .lesson(2)\
+            .word('машина', 'машины', 'car', 'cars')\
+            .word('такси', 'такси', 'taxi', 'taxis')\
+            .word('велосипед', 'велосипеды', 'bike', 'bikes')\
+            .word('мотоцикл', 'мотоциклы', 'motorbike', 'motorbikes')\
+            .word('грузовик', 'грузовики', 'truck', 'trucks')\
+            .phrase('До центра можно добраться на {} или метро.', 'такси', 'The center can be reached by {} or by metro.', 'taxi')\
         .end()\
     .end()\
     .section('Время', 'time')\

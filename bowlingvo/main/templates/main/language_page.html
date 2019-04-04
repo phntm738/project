@@ -17,6 +17,9 @@
         {% for section, ability in lex_sections %}
         <a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}"><div class='lex-sec {{ ability }}'>
             <div class='sec-logo'>
+				{% with 'main/images/sections/section-'|add:section.url_name|add:'.png' as section_image %}
+				<img src="{% static section_image %}">
+				{% endwith %}
             </div>
             <div class='sec-name'>
                 {{ section.name }}
