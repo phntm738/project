@@ -328,7 +328,7 @@ label[for='submenu-position']{
     width: 400px;
     height: 18px;
 
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Roboto Condenced', sans-serif;
     font-size: 18px;
 	line-height: 18px;
 	font-weight: normal;
@@ -420,6 +420,19 @@ label[for='submenu-position']{
 
 .the_letter_was_sent span {
 	font-style: italic;
+}
+
+
+.login-back #id_password {
+	margin-bottom: 7px;
+}
+
+
+#login-form a {
+	margin-left: 25px;
+	
+	font-family: 'Roboto Condenced', sans-serif;
+	font-size: 15px;
 }
 /*----/content/authorization-----*/
 
@@ -620,6 +633,8 @@ label[for='submenu-position']{
 	height: 20px;
 	
 	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	font-size: 20px;
 	line-height: 20px;
 }
@@ -735,10 +750,9 @@ label[for='submenu-position']{
 	display: block;
 	margin-top: 3px;
 	margin-bottom: 5px;
-	border-top: 1px dashed gray;
-	border-bottom: 1px dashed gray;
+	border: 1px dashed gray;
 	padding: 3px 3px 3px 2px;
-	width: 105px;
+	width: 103px;
 	
 	font-family: 'Caption', sans-serif;
 	font-size: 12.5px;
@@ -750,7 +764,7 @@ label[for='submenu-position']{
 
 
 .remove-avatar:hover {
-	background-color: lightgrey;
+	border-radius: 5px;
 }
 
 
@@ -761,16 +775,21 @@ label[for='submenu-position']{
 	padding: 0;
 	padding-left: 3px;
 	border: 0;
-	border-top: 2px solid green;
-	border-bottom: 2px solid green;
+	border: 2px solid green;
 	cursor: pointer;
+	transition: all 0.3s linear;
 	
 	text-align: left;
 	background-color: white;
 	font-family: 'Caption', sans-serif;
-	font-size: 15px;
+	font-size: 17px;
 	line-height: 26px;
 	color: green;
+}
+
+
+.avatar-back input[type='submit']:hover {
+	border-radius: 7px;
 }
 
 
@@ -828,6 +847,115 @@ p.avatar-addition-attention {
 }
 /*----/content/avatar_change-----*/
 
+/*-----content/password-reset-----*/
+.password-reset {
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 700px;
+	padding: 15px;
+	border-radius: 5px;
+	cursor: default;
+	
+	background-color: white;
+	font-family: 'Roboto Condenced', sans-serif;
+}
+
+
+.password-reset p {
+	margin: 0px;
+	
+	text-align: center;
+	font-size: 20px;
+}
+
+
+.password-reset form {
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+
+
+.password-reset #id_email {
+	margin-bottom: 10px;
+	margin-left: 275px;
+	width: 150px;
+	height: 30px;
+	padding-left: 3px;
+	padding-right: 3px;
+	border: 2px solid green;
+	
+	font-size: 17px;
+}
+
+
+.password-reset .success {
+	text-align: center;
+	font-size: 20px;
+}
+
+
+.password-reset .password-confirm {
+	margin: auto;
+	margin-top: 10px;
+	width: 350px;
+}
+
+
+.password-reset .password-confirm label {
+	display: block;
+	
+	font-size: 17px;
+}
+
+
+.password-reset .password-confirm input {
+	margin-bottom: 10px;
+	width: 200px;
+	height: 30px;
+	padding-left: 3px;
+	padding-right: 3px;
+	border: 2px solid green;
+}
+
+
+.password-reset .reset-confirm {
+	display: block;
+	margin: auto;
+	width: 150px;
+	height: 30px;
+	padding: 0px;
+	border: 2px solid green;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.2s linear;
+	
+	background-color: var(--header-color);
+	font-size: 17px;
+	color: darkgreen;
+}
+
+
+.password-reset .reset-confirm:hover {
+	background-color: lawngreen;
+}
+
+
+.password-reset .errorlist {
+	margin: 0px;
+	margin-bottom: 10px;
+	padding: 0px;
+}
+
+
+.password-reset .errorlist li {
+	display: block;
+	
+	color: orange;
+	font-size: 17px;
+}
+/*----/content/password-reset-----*/
+
 /*-----content/index-----*/
 .greetings {
 	margin-top: 40px;
@@ -862,15 +990,10 @@ p.avatar-addition-attention {
 
 
 .lang {
-	width: 325px;
+	width: 400px;
 	margin: auto;
 	margin-bottom: 15px;
 	transition: all 0.15s linear;
-}
-
-
-.lang:hover {
-	width: 400px;
 }
 
 
@@ -880,16 +1003,11 @@ p.avatar-addition-attention {
 
 
 .flag-icon {
-	width: 0px;
+	width: 75px;
 	height: 75px;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
 	transition: all 0.15s linear;
-}
-
-
-.lang:hover .flag-icon {
-	width: 75px;
 }
 
 
@@ -911,6 +1029,11 @@ p.avatar-addition-attention {
 	font-family: 'Roboto Condenced', sans-serif;
     font-size: 20px;
 	color: black;
+}
+
+
+.lang:hover .language-name {
+	background-color: lightgrey;
 }
 /*----/content/index-----*/
 
@@ -1039,7 +1162,7 @@ p.avatar-addition-attention {
     width: 115px;
     height: 115px;
 	line-height: 115px;
-    border: 3px solid green;
+    border: 3px solid orange;
     border-radius: 50%;
 	
 	background-color: rgba(0, 0, 0, 0.2);
@@ -1050,7 +1173,14 @@ p.avatar-addition-attention {
 
 
 #lex-sections .active .sec-logo {
-	border: 3px solid orange;
+	border: 3px solid green;
+}
+
+
+#lex-sections .lex-sec .sec-logo img {
+	width: 115px;
+	height: 115px;
+	border-radius: 50%;
 }
 
 
@@ -1096,7 +1226,7 @@ p.avatar-addition-attention {
 	display: inline-block;
 	width: 564px;
 	vertical-align: top;
-	border-left: 3px solid green;
+	border-left: 3px solid orange;
 	padding-left: 7.5px;
 	transition: all 0.3s linear;
 	
@@ -1106,7 +1236,7 @@ p.avatar-addition-attention {
 
 
 #gram-sections .active .sec-name {
-	border-left: 3px solid orange;
+	border-left: 3px solid green;
 }
 
 
@@ -1117,12 +1247,12 @@ p.avatar-addition-attention {
 
 
 #gram-sections .finished:hover .sec-name {
-	background-color: lightgrey;
+	background-color: rgba(255, 165, 0, 0.5);
 }
 
 
 #gram-sections .active:hover .sec-name {
-	background-color: rgba(255, 165, 0, 0.5);
+	background-color: lightgrey;
 }
 
 
@@ -1137,7 +1267,7 @@ p.avatar-addition-attention {
 	float: right;
 	padding-right: 12.5px;
 	padding-left: 7.5px;
-	border-left: 3px solid green;
+	border-left: 3px solid orange;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
 	
@@ -1147,7 +1277,7 @@ p.avatar-addition-attention {
 
 
 #gram-sections .active .sec-url {
-	border-left: 3px solid orange;
+	border-left: 3px solid green;
 }
 
 
@@ -1164,7 +1294,7 @@ p.avatar-addition-attention {
 	
 	font-family: 'Caption', sans-serif;
 	font-weight: bold;
-	color: green;
+	color: orange;
 }
 
 
@@ -1177,7 +1307,7 @@ p.avatar-addition-attention {
 
 
 #gram-sections .active .gram-path-left, #gram-sections .active .gram-path-right {
-	color: orange;
+	color: green;
 }
 
 
@@ -1255,22 +1385,22 @@ p.avatar-addition-attention {
 
 
 .finished .lex-lesson-name, .finished .lesson-start-button {
-	border-color: green;
-}
-
-
-.active .lex-lesson-name, .active .lesson-start-button {
 	border-color: orange;
 }
 
 
+.active .lex-lesson-name, .active .lesson-start-button {
+	border-color: green;
+}
+
+
 .finished:hover .lesson-start-button {
-	background-color: rgba(0, 128, 0, 0.5);
+	background-color: rgba(255, 165, 0, 0.5);
 }
 
 
 .active:hover .lesson-start-button {
-	background-color: rgba(256, 165, 0, 0.5);
+	background-color: lightgrey;
 }
 
 
@@ -1290,12 +1420,12 @@ p.avatar-addition-attention {
 
 
 div[class='finished lex-lesson-path'] {
-	color: green;
+	color: orange;
 }
 
 
 div[class='active lex-lesson-path'] {
-	color: orange;
+	color: green;
 }
 
 
@@ -1348,6 +1478,7 @@ div[class='active lex-lesson-path'] {
 	padding-right: 5px;
 	
 	font-size: 15px;
+	font-weight: light;
 	line-height: 15px;
 }
 
@@ -1440,6 +1571,8 @@ div[class='active lex-lesson-path'] {
 	border: 2.5px solid gray;
 	border-radius: 50%;
 	cursor: pointer;
+	
+	background-color: white;
 }
 
 
