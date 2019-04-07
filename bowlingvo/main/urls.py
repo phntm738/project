@@ -34,7 +34,8 @@ edupatterns = [
     path('', views.index, name='index'),
     path('lang/<str:language_name>', views.language_page, name='language'),
     path('lang/<str:language_name>/sec/<str:section_name>', views.section_page, name='section'),
-    path('lang/<str:language_name>/sec/<str:section_name>/les/<int:lesson_order>', views.lesson_page, name='lesson')
+    path('lang/<str:language_name>/sec/<str:section_name>/les/<int:lesson_order>', views.lesson_page, name='lesson'),
+    path('game', views.GameView.as_view(), name='game')
 ]
 
 

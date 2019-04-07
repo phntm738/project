@@ -39,5 +39,10 @@ def test1(request):
 
 
 def test(request):
+    f = open('tasks.txt', 'w', encoding="utf-8")
+    theory, tasks = task_gen(30)
+    for task in tasks:
+        f.write(str(task))
+    f.close()
     return render(request, 'main/test.html', {})
     return render(request, 'main/test.html', {'page_name': 'test', 'script': True})

@@ -105,6 +105,22 @@ function LessonLogic() {
 var lesson = new LessonLogic();
 
 
+function GameLogic() {
+	
+	var self = this;
+	
+	var tasks = [].slice.call(document.getElementsByClassName('task'));
+	
+	self.check = function() {
+		
+	}
+
+}
+
+
+var game = new GameLogic();
+
+
 function show_lex() {
 	lex = document.getElementById('lex-sections');
 	gram = document.getElementById('gram-sections');

@@ -1,0 +1,30 @@
+{% include "main/header.html" %}
+
+<div class="frame-back">
+    {% for task in tasks %}
+        {% with cur_val=forloop.counter %}
+            <div id="task{{ cur_val }}" class="task">
+                {% if task.type == 'input' %}
+                    {{ task.text.0 }}{{ task.text.1 }}{{ task.text.2 }}<div class="sep"></div>{{ task.text.3 }}_____{{ task.text.4 }}
+                    <input autofocus type='text' name='user-answer-{{ cur_val }}' class='answer-text'>
+                {% else %}
+                    {{ task.text.0 }}
+                    <select>
+                    {% for choice in task.choices %}
+                       <option name="user-answer-{{ cur_val }}" value="{{ choice }}">{{ choice }}</option>
+                    {% endfor %}
+                    </select>
+                {% endif %}
+            </div>
+        {% endwith %}
+    {% endfor %}
+    <button onclick="game.check()">1 бросок</button>
+</div>
+<div hidden id="encoded">{{ encoded }}</div>
+<script>
+    function getCSRF() {
+        return '{{ csrf_token }}'
+    }
+</script>
+
+{% include "main/footer.html" %}

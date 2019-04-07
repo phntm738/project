@@ -1,8 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.decorators.http import require_GET
 from django.shortcuts import render, redirect
 from ..models import *
+from django.views import View
 from ..additional.task_gen import task_gen
 from datetime import datetime
 
@@ -128,3 +130,15 @@ def lesson_page(request, language_name, section_name, lesson_order):
         finished_section_check(user, section)
         profile.save()
         return redirect('section', language_name=language.url_name, section_name=section.url_name)
+
+
+class GameView(LoginRequiredMixin, View):
+    login_url = '/main/login'
+    template_name = 'main/frame.html'
+
+    def get(self, request):
+        encoded, tasks = task_gen('frame')
+        return render(request, self.template_name, {'tasks': tasks, 'encoded': encoded})
+
+    def post(self, request):
+        pass
