@@ -111,8 +111,12 @@ def lesson_page(request, language_name, section_name, lesson_order):
 
     if request.method == 'GET':
         theory, tasks = task_gen(lesson.id)
+        if lesson.section.sec_type == 'G':
+            type='G'
+        else:
+            type='L'
         return render(request, 'main/lesson_page.html',
-                      {'profile': profile, 'language': language, 'section': section, 'lesson': lesson, 'theory': theory, 'tasks': tasks})
+                      {'profile': profile, 'language': language, 'section': section, 'lesson': lesson, 'type': type, 'theory': theory, 'tasks': tasks})
 
     if request.method == 'POST':
         score = int(request.POST.get('score'))
@@ -136,8 +140,8 @@ class GameView(LoginRequiredMixin, View):
     login_url = '/main/login'
     template_name = 'main/frame.html'
 
-    def get(self, request):
-        encoded, tasks = task_gen('frame')
+    def get(self, request, language_name):
+        encoded, tasks = task_gen('frame', request.user, language_name)
         return render(request, self.template_name, {'tasks': tasks, 'encoded': encoded})
 
     def post(self, request):

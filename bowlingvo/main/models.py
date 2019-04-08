@@ -23,7 +23,7 @@ class Section(models.Model):
     description = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return str(self.language) + str(self.name)
+        return str(self.language) + '-/-' + str(self.name) + '(' + str(self.sec_type) + ')'
 
 
 class Lesson(models.Model):
@@ -34,7 +34,7 @@ class Lesson(models.Model):
     order = models.IntegerField(default=1)
 
     def __str__(self):
-        return str(self.section) + str(self.order)
+        return str(self.section) + '-/-' + str(self.order)
 
 
 class Key2Lesson(models.Model):
@@ -76,6 +76,15 @@ class TheoryUnit(models.Model):
 
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     theory = models.TextField()
+
+
+class TheoryTask(models.Model):
+    objects = models.Manager()
+
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+    type = models.CharField(max_length=1, default='C')
+    task = models.TextField()
+    answer = models.CharField(max_length=32)
 
 
 class FinishedLesson(models.Model):

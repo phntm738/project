@@ -10,15 +10,21 @@
 <div class='lesson-content'>
     <div id='all-tasks'>
         <div id='task0'>
-			<div class='subheader'>Слова к уроку</div>
-            {% for theory_unit in theory %}
-            <div class='word'>
-                <div>{{ theory_unit.for_sing }}</div>
-				<div>{{ theory_unit.rus_sing }}</div>
-				<div>{{ theory_unit.for_plur }}</div>
-				<div>{{ theory_unit.rus_plur }}</div>
-            </div>
-            {% endfor %}
+            {% if type == 'L' %}
+    			<div class='subheader'>Слова к уроку</div>
+                {% for theory_unit in theory %}
+                <div class='word'>
+                    <div>{{ theory_unit.for_sing }}</div>
+                    <div>{{ theory_unit.rus_sing }}</div>
+                    <div>{{ theory_unit.for_plur }}</div>
+                    <div>{{ theory_unit.rus_plur }}</div>
+                </div>
+                {% endfor %}
+            {% else %}
+                {% autoescape off %}
+                {{ theory }}
+                {% endautoescape %}
+            {% endif %}
         </div>
         {% for task in tasks %}
         {% with cur_val=forloop.counter %}
@@ -26,10 +32,18 @@
             <div class='target'>
                 {% if task.type == 'input' %}
                     <div>Введите слово в нужной форме</div>
-						{{ task.text.0 }}{{ task.text.1 }}{{ task.text.2 }}<br>
-						{{ task.text.3 }}_____{{ task.text.4 }}
+                    {% if type == 'L' %}
+                        {{ task.text.0 }}{{ task.text.1 }}{{ task.text.2 }}<br>
+                        {{ task.text.3 }}_____{{ task.text.4 }}
+                    {% else %}
+                        {{ task.text.0 }}_____{{ task.text.1 }}
+                    {% endif %}
                 {% else %}
-					<div>Выберите правильный перевод слова</div>
+                    {% if type == 'L' %}
+					    <div>Выберите правильный перевод слова</div>
+                    {% else %}
+                        <div>Выберите правильный ответ</div>
+                    {% endif %}
                     {{ task.text.0 }}
                 {% endif %}
             </div>

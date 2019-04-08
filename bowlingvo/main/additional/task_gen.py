@@ -5,21 +5,13 @@ import base64
 import json
 
 
-def task_gen(lesson_id):
+def task_gen(lesson_id, user=None, language=None):
     if lesson_id == 'frame':
-        tasks = [{'type': 'choice', 'text': ['sunday'], 'answer': 'воскресенье', 'choices': ['четверг', 'воскресенье', 'пятница', 'неделя']},
-                {'type': 'choice', 'text': ['mondays'], 'answer': 'понедельники', 'choices': ['понедельники', 'вторники', 'четверги', 'среды']},
-                {'type': 'choice', 'text': ['вторники'], 'answer': 'tuesdays', 'choices': ['sundays', 'weeks', 'tuesdays', 'mondays']},
-                {'type': 'choice', 'text': ['суббота'], 'answer': 'saturday', 'choices': ['saturday', 'friday', 'thursday', 'sunday']},
-                {'type': 'choice', 'text': ['weeks'], 'answer': 'недели', 'choices': ['вторники', 'субботы', 'среды', 'недели']},
-                {'type': 'choice', 'text': ['пятницы'], 'answer': 'fridays', 'choices': ['saturdays', 'sundays', 'fridays', 'thursdays']},
-                {'type': 'choice', 'text': ['четверги'], 'answer': 'thursdays', 'choices': ['fridays', 'sundays', 'thursdays', 'wednesdays']},
-                {'type': 'input', 'answer': 'воскресенье', 'text': ['This ', 'sunday', " I'll go to London.", 'В это ', ' я поеду в Лондон.']},
-                {'type': 'choice', 'text': ['wednesday'], 'answer': 'среда', 'choices': ['неделя', 'четверг', 'среда', 'понедельник']}]
-        ans = [task['answer'] for task in tasks]
-        d = dict(attempt=1, answers=ans)
-        j = json.dumps(d)
-        encoded = base64.b64encode(j.encode()).decode()
+        mod_name = 'main.additional.generators.' + language
+        module = importlib.import_module(mod_name)
+        class_name = language[0].upper() + language[1:]
+        generator = getattr(module, class_name + 'Generator')()
+        encoded, tasks = generator.frame(user)
         return encoded, tasks
     lesson = Lesson.objects.get(pk=lesson_id)
     sec = lesson.section

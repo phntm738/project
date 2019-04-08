@@ -5,6 +5,4 @@ from .base import BaseGenerator
 
 
 class SpanishGenerator(BaseGenerator):
-
-    def gram_tasks(self, lesson):
-        return [], []
+    language = 'spanish'
