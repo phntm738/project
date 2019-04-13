@@ -146,6 +146,7 @@ class BaseGenerator:
             text.append(parts[1])
             task = dict(type='input', text=text)
             ans = trans.answer
+        task['tasktype'] = 'L'
         return task, ans
 
     def gen_gram(self, lesson):
@@ -164,6 +165,7 @@ class BaseGenerator:
             text = list(inp_task.task.split('{}'))
             task = dict(type='input', text=text)
             ans = inp_task.answer
+        task['tasktype'] = 'G'
         return task, ans
 
     def frame(self, user):

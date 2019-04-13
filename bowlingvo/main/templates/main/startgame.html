@@ -1,0 +1,10 @@
+{% include "main/header.html" %}
+
+{{ error_message }}
+<form action="{% url 'gamestart' language_name=language %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="frames">
+    <input type="submit" value="Начать">
+</form>
+
+{% include "main/footer.html" %}

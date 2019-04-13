@@ -112,7 +112,44 @@ function GameLogic() {
 	var tasks = [].slice.call(document.getElementsByClassName('task'));
 	
 	self.check = function() {
-		
+		var url_par = document.getElementById('url_par').textContent;
+		var encoded  = document.getElementById('encoded').textContent;
+		var tasks = document.getElementsByClassName('task');
+		var answers = [];
+		for (var i = 0; i < tasks.length; i++) {
+			var task = tasks[i];
+			var tasktype = task.getAttribute('tasktype');
+			if (task.children.length == 1) {
+				var sel = task.children[0];
+				var strUser = sel.options[sel.selectedIndex].value;
+				answers.push([tasktype, strUser]);
+			} else {
+				var inp = task.children[1];
+				answers.push([tasktype, inp.value]);
+			}
+		}
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', '/main/lang/' + url_par + '/game', false);
+		xhr.setRequestHeader('X-CSRFToken', getCSRF());
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.send('encoded=' + encoded + '&answers=' + JSON.stringify(answers));
+		var params = xhr.responseText;
+		params = JSON.parse(params);
+		if (params.end) {
+			tasks = document.getElementById('all-tasks');
+			tasks.innerHTML = '';
+			tasks.hidden = true;
+			document.getElementById('score').textContent = params.score;
+			document.getElementById('finish-frame').hidden = false;
+		} else {
+			document.getElementById('encoded').textContent = params.encoded;
+			for (var i = 0; i < tasks.length; i++) {
+				task = tasks[i];
+				task.hidden = params.ans[i];
+			}
+			var throw_button = document.getElementById('throw-button');
+			throw_button.textContent = '2 бросок';
+		}
 	}
 
 }

@@ -7,8 +7,13 @@ from .models import *
 from .additional.task_gen import task_gen
 from django.http import Http404
 
-from .my_views.authorization_views import *
-from .my_views.education_views import *
+from .additional_views.authorization_views import *
+from .additional_views.education_views import *
+from .additional_views.game_views import *
+
+
+def handler404(request, exception):
+    return HttpResponse(1)
 
 
 @method_decorator(login_required, name='get')
@@ -29,20 +34,15 @@ def stop(request):
     raise Http404
 
 
-def test1(request):
-    if request.method == 'GET':
-        ans = '<a href="#">aaa</a>'
-        return HttpResponse(ans)
-    if request.method == 'POST':
-        score = request.POST.get('score')
-        return HttpResponse(score)
+from django.middleware.csrf import get_token as get_csrf
 
 
 def test(request):
-    f = open('tasks.txt', 'w', encoding="utf-8")
-    theory, tasks = task_gen(30)
-    for task in tasks:
-        f.write(str(task))
-    f.close()
-    return render(request, 'main/test.html', {})
-    return render(request, 'main/test.html', {'page_name': 'test', 'script': True})
+    if request.method == 'GET':
+        response = render(request, 'main/test.html')
+        csrf = get_csrf(request)
+        response.set_cookie('csrftoken', csrf)
+        return response
+    if request.method == 'POST':
+        inp = request.POST.get('test')
+        return HttpResponse(inp)

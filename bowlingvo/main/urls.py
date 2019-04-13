@@ -4,9 +4,15 @@ from .forms import LoginForm
 
 from . import views
 
+from django.conf import urls
+urls.handler04 = 'main.views.handler404'  # page not found
+#urls.handler500 = 'main.views.handler500'  # server error
+#urls.handler403 = 'main.views.handler403'  # permission denied
+#urls.handler400 = 'main.views.handler400'  # bad request
+
+
 urlpatterns = [
     path('test', views.test),
-    path('test1', views.test1),
 ]
 
 
@@ -35,7 +41,9 @@ edupatterns = [
     path('lang/<str:language_name>', views.language_page, name='language'),
     path('lang/<str:language_name>/sec/<str:section_name>', views.section_page, name='section'),
     path('lang/<str:language_name>/sec/<str:section_name>/les/<int:lesson_order>', views.lesson_page, name='lesson'),
-    path('lang/<str:language_name>/game', views.GameView.as_view(), name='game')
+    path('lang/<str:language_name>/startgame', views.GameStartView.as_view(), name='gamestart'),
+    path('lang/<str:language_name>/game', views.GameView.as_view(), name='game'),
+    path('lang/<str:language_name>/endgame', views.endgame, name='endgame')
 ]
 
 

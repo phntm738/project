@@ -114,3 +114,14 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     score = models.IntegerField(default=0)
     last_lang = models.IntegerField(default=0)
+
+
+class FrameRecord(models.Model):
+    objects = models.Manager()
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    max_frames = models.IntegerField()
+    cur_frame = models.IntegerField(default=0)
+    score_table = models.TextField(default='[]')
+    frame_score = models.IntegerField(default=0)
+

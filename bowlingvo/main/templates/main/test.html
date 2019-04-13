@@ -1,11 +1,8 @@
 {% include "main/header.html" %}
 
-<button onclick="tryXHR()">test</button>
-<div id="test"></div>
-<script>
-    function getCSRF() {
-        return '{{ csrf_token }}'
-    }
-</script>
+<form action="/main/test" method="post">
+    <input type="text" name="test">
+    <input type="submit" value="submit">
+</form>
 
 {% include "main/footer.html" %}

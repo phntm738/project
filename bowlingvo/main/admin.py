@@ -32,5 +32,6 @@ admin.site.register(FinishedSection)
 admin.site.register(Word)
 admin.site.register(Phrase)
 admin.site.register(Key2Lesson)
+admin.site.register(FrameRecord)
 
 

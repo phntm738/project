@@ -1,6 +1,5 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.decorators.http import require_GET
 from django.shortcuts import render, redirect
 from ..models import *
@@ -134,15 +133,3 @@ def lesson_page(request, language_name, section_name, lesson_order):
         finished_section_check(user, section)
         profile.save()
         return redirect('section', language_name=language.url_name, section_name=section.url_name)
-
-
-class GameView(LoginRequiredMixin, View):
-    login_url = '/main/login'
-    template_name = 'main/frame.html'
-
-    def get(self, request, language_name):
-        encoded, tasks = task_gen('frame', request.user, language_name)
-        return render(request, self.template_name, {'tasks': tasks, 'encoded': encoded})
-
-    def post(self, request):
-        pass
