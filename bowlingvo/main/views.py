@@ -13,6 +13,7 @@ from .additional_views.game_views import *
 
 
 def handler404(request, exception):
+    template_name = 'main/404.html'
     return HttpResponse(1)
 
 
@@ -38,6 +39,7 @@ from django.middleware.csrf import get_token as get_csrf
 
 
 def test(request):
+    return render(request, 'main/404.html')
     if request.method == 'GET':
         response = render(request, 'main/test.html')
         csrf = get_csrf(request)
