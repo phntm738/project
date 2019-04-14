@@ -8,7 +8,6 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('auth', '0011_update_proxy_permissions'),
         ('main', '0008_theorytask'),
     ]
 
