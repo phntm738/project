@@ -556,7 +556,7 @@ def main():
             .word('спорт', 'спорт', 'sport', 'sport')\
             .word('футбол', 'футбол', 'football', 'football')\
             .word('баскетбол', 'баскетбол', 'basketball', 'basketball')\
-            .word('воллейбол', 'воллейбол', 'volleyball', 'volleyball')\
+            .word('волейбол', 'волейбол', 'volleyball', 'volleyball')\
             .word('мяч', 'мячи', 'ball', 'balls')\
             .phrase('Брось мне {}.', 'мяч', 'Through me a {}.', 'ball')\
         .end()\

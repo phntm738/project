@@ -10,12 +10,12 @@
                 <input type='text' id='submenu-position'>
                 <div id="user"><label for='submenu-position'>{{ user.username }}</label>
                     <div class='header-submenu'>
-                        {% if user.is_superuser %}
+                        <a href='/main/profile'>Профиль</a>
+						<div></div>
+						{% if user.is_superuser %}
                             <a href="/admin">Админка</a>
                             <div></div>
                         {% endif %}
-                        <a href='/main/profile'>Профиль</a>
-						<div></div>
                         <a href='/main/do-logout'>Выход</a>
 		            </div>
                 </div>

@@ -1,6 +1,15 @@
 {% include "main/header.html" %}
 
-<div>Поздравляем, вы закончили игру по языку "{{ language_title }}" и набрали {{ score }} очков</div>
-<a href="{% url 'language' language_name=language_name %}">Назад</a>
+<div class='page-head'>
+	<div class='go-back'><a href="{% url 'language' language_name=language_name %}"><</a></div>
+	<div class='page-name'>Конец игры</div>
+</div>
+
+<div class='game-lobby'>
+	<h2>Поздравляем, Вы закончили игру по языку "{{ language_title }}"!</h2>
+	<h2>Ваши очки:</h2>
+	<div class='score'>{{ score }}</div>
+	<a href="{% url 'language' language_name=language_name %}" class='game-return'>Вернуться назад</a>
+</div>
 
 {% include "main/footer.html" %}
