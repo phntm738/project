@@ -1,11 +1,20 @@
 {% include "main/header.html" %}
 
-{{ error_message }}
-<form action="{% url 'startgame' language_name=language %}" method="post">
-    {% csrf_token %}
-    <input type="text" name="frames">
-    <input type="submit" value="Начать">
-</form>
-<a href="{% url 'language' language_name=language %}">aaa</a>
+<div class='page-head'>
+	<div class='go-back'><a href="{% url 'language' language_name=language %}"><</a></div>
+	<div class='page-name'>{{ language }}</div>
+</div>
+
+<div class='game-lobby'>
+	<h1>Игра</h1>
+	<h2>Введите число фреймов, которое хотели бы пройти</h2>
+	<div class='error'>{{ error_message }}</div>
+	<form action="{% url 'startgame' language_name=language %}" method="post">
+		{% csrf_token %}
+		<input type="text" name="frames" class='frames-number'>
+		<input type="submit" value="Начать игру" class='start-button'>
+	</form>
+	<a href="{% url 'language' language_name=language %}" class='game-return'>Вернуться назад</a>
+</div>
 
 {% include "main/footer.html" %}

@@ -54,7 +54,10 @@
         </div>
         {% endfor %}
     </div>
-    <div><a href="{% url 'startgame' language_name=language.url_name %}">aaa</a></div>
+</div>
+
+<div>
+	<a href="{% url 'startgame' language_name=language.url_name %}" class='start-game-button'>Начать игру</a>
 </div>
 
 {% include "main/footer.html" %}

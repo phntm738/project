@@ -72,6 +72,24 @@ body {
 	width: 15px;
 	height: 12px;
 }
+
+
+html::-webkit-scrollbar {
+	width: 0.7%;
+	height: 1.6%;
+	cursor: pointer;
+	
+	background-color: lightgray;
+}
+
+html::-webkit-scrollbar-button, html::-webkit-scrollbar-button:horisontal {
+	height: 0px;
+}
+
+html::-webkit-scrollbar-thumb {
+	cursor: pointer;
+	background-color: green;
+}
 /*----/main-----*/
 
 /*-----header-----*/
@@ -356,7 +374,7 @@ label[for='submenu-position']{
 }
 
 
-#login-form .authorization-submit, #register-form .authorization-submit, .avatar-to-profile, .to-avatar {
+#login-form .authorization-submit, #register-form .authorization-submit, .avatar-to-profile, .to-avatar, .game-return {
     display: block;
 	margin: auto;
     margin-top: 25px;
@@ -389,7 +407,7 @@ label[for='submenu-position']{
 }
 
 
-#login-form .authorization-submit:hover, #register-form .authorization-submit:hover, .avatar-to-profile:hover, .to-avatar:hover {
+#login-form .authorization-submit:hover, #register-form .authorization-submit:hover, .avatar-to-profile:hover, .to-avatar:hover, .game-return:hover {
     border: 1px solid rgba(0, 0, 0, .15);
 	
     background: var(--backgroundcolor);
@@ -750,7 +768,7 @@ label[for='submenu-position']{
 	display: block;
 	margin-top: 3px;
 	margin-bottom: 5px;
-	border: 1px dashed gray;
+	border: 1px dashed lightgray;
 	padding: 3px 3px 3px 2px;
 	width: 103px;
 	
@@ -764,7 +782,9 @@ label[for='submenu-position']{
 
 
 .remove-avatar:hover {
-	border-radius: 5px;
+	border-color: green;
+	
+	color: green;
 }
 
 
@@ -775,21 +795,23 @@ label[for='submenu-position']{
 	padding: 0;
 	padding-left: 3px;
 	border: 0;
-	border: 2px solid green;
+	border: 2px solid lightgray;
 	cursor: pointer;
 	transition: all 0.3s linear;
 	
-	text-align: left;
 	background-color: white;
+	text-align: left;
 	font-family: 'Caption', sans-serif;
 	font-size: 17px;
 	line-height: 26px;
-	color: green;
+	color: gray;
 }
 
 
 .avatar-back input[type='submit']:hover {
-	border-radius: 7px;
+	border-color: green;
+	
+	color: green;
 }
 
 
@@ -1105,19 +1127,19 @@ p.avatar-addition-attention {
 
 
 #lex-button, #gram-button {
+	float: left;
     width: 300px;
 	height: 35px;
-    float: left;
+	padding-left: 10px;
+	padding-top: 3px;
 	border-top: 5px solid green;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
-	padding-left: 10px;
-	padding-top: 3px;
-	
 	transition: all 0.25s linear;
+	cursor: pointer;
+	
 	font-family: 'Caption', sans-serif;
 	font-size: 25px;
-	cursor: pointer;
 }
 
 
@@ -1131,10 +1153,10 @@ p.avatar-addition-attention {
 }
 
 
-#lex-sections, #gram-sections, #lex-lessons {
+#lex-sections, #gram-sections {
 	margin: auto;
 	width: 700px;
-	margin-bottom: 40px;
+	margin-bottom: 15px;
 }
 
 
@@ -1319,6 +1341,30 @@ p.avatar-addition-attention {
 #gram-sections .gram-path:first-child {
 	display: none;
 }
+
+
+.start-game-button {
+	display: block;
+	margin: auto;
+	margin-bottom: 40px;
+	width: 300px;
+	height: 35px;
+	padding-left: 10px;
+	padding-top: 3px;
+	border-bottom: 5px solid green;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	transition: all 0.25s linear;
+	cursor: pointer;
+	
+	font-family: 'Caption', sans-serif;
+	font-size: 25px;
+}
+
+
+.start-game-button:hover {
+	background-color: rgba(0, 128, 0, 0.5);
+}
 /*----/content/language_page-----*/
 
 /*-----content/sections_page-----*/
@@ -1336,6 +1382,10 @@ p.avatar-addition-attention {
 
 
 #lex-lessons {
+	margin: auto;
+	margin-bottom: 40px;
+	width: 700px;
+	
 	font-size: 0px;
 }
 
@@ -1581,6 +1631,20 @@ div[class='active lex-lesson-path'] {
 }
 
 
+.lesson-content .radio:checked::before {
+	content: '';
+	display: block;
+	margin-top: 1.5px;
+	margin-left: 1.5px;
+	width: 7px;
+	height: 7px;
+	border: 0;
+	border-radius: 50%;
+	
+	background-color: green;
+}
+
+
 .lesson-content .label-radio {
 	display: inline-block;
 	width: 225px;
@@ -1686,4 +1750,233 @@ div[class='active lex-lesson-path'] {
 	font-size: 17.5px;
 	color: darkgreen;
 }
+
+/*  grammar  */
+.lesson-content .title {
+	text-align: center;
+	font-size: 30px;
+}
+
+
 /*----/content/lesson_page-----*/
+
+/*-----content/game-----*/
+.game-lobby {
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	width: 700px;
+	padding-top: 10px;
+	padding-bottom: 15px;
+	border-radius: 10px;
+	
+	background-color: white;
+}
+
+
+.game-lobby h1 {
+	margin: 0;
+	margin-bottom: 5px;
+	cursor: default;
+	
+	text-align: center;
+	font-family: 'Roboto Condenced', sans-serif;
+	font-size: 35px;
+	font-weight: normal;
+}
+
+
+.game-lobby h2 {
+	margin: 0;
+	margin-bottom: 10px;
+	cursor: default;
+	
+	text-align: center;
+	font-family: 'Roboto Condenced', sans-serif;
+	font-size: 25px;
+	font-weight: normal;
+}
+
+
+.game-lobby .error {
+	margin-bottom: 5px;
+	cursor: default;
+	
+	text-align: center;
+	font-family: 'Roboto Condenced', sans-serif;
+	font-size: 17px;
+	color: red;
+}
+
+
+.game-lobby .frames-number {
+	display: block;
+	margin: auto;
+	margin-bottom: 10px;
+	width: 50px;
+	height: 50px;
+	border: 2px solid green;
+	
+	text-align: center;
+	font-family: 'Roboto Condenced', sans-serif;
+	font-size: 30px;
+}
+
+
+.game-lobby .start-button {
+	display: block;
+	margin: auto;
+    width: 120px;
+    height: 35px;
+    padding: 0px;
+    border: 3px solid green;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s linear;
+	
+    background-color: var(--header-color);
+    font-size: 17.5px;
+    color: darkgreen;
+}
+
+
+.game-lobby .start-button:hover {
+	background-color: lawngreen;
+}
+
+
+.frame-back {
+	margin: auto;
+	margin-bottom: 40px;
+	width: 700px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 10px;
+	
+	background-color: white;
+}
+
+
+.frame-back .task {
+	margin: 10px;
+	border: 2px solid lightgray;
+	border-radius: 5px;
+	padding: 5px;
+	cursor: default;
+	
+	font-family: 'Roboto Condenced', sans-serif;
+	font-size: 0px;
+}
+
+
+.frame-back .question {
+	display: inline-block;
+	width: 466px;
+	
+	font-size: 17px;
+	line-height: 25px;
+}
+
+
+.frame-back .answer {
+	display: inline-block;
+	width: 200px;
+	height: 24px;
+	border: 1.5px solid green;
+	padding-left: 4px;
+	outline: none;
+	
+	vertical-align: top;
+	font-size: 17px;
+}
+
+
+.frame-back .answer-text {
+	height: 34px;
+}
+
+
+#throw-button {
+	display: block;
+	margin: auto;
+    width: 120px;
+    height: 35px;
+    padding: 0px;
+    border: 3px solid green;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s linear;
+	
+    background-color: var(--header-color);
+    font-size: 17.5px;
+    color: darkgreen;
+}
+
+
+#throw-button:hover, #finish-frame .continue:hover {
+	background-color: lawngreen;
+}
+
+
+#finish-frame {
+	margin: auto;
+	width: 700px;
+	border-radius: 10px;
+	padding: 10px;
+	cursor: default;
+	
+	background-color: white;
+	text-align: center;
+	font-family: 'Roboto Condenced', sans-serif;
+	font-size: 25px;
+}
+
+
+#finish-frame #score {
+	font-size: 30px;
+	line-height: 50px;
+	color: green;
+}
+
+
+#finish-frame .continue {
+	display: block;
+	margin: auto;
+    width: 114px;
+    height: 29px;
+    padding: 0px;
+    border: 3px solid green;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s linear;
+	
+	text-align: center;
+    background-color: var(--header-color);
+	font-family: 'Roboto Condenced', sans-serif;
+    font-size: 17.5px;
+	line-height: 29px;
+    color: darkgreen;
+}
+
+
+.game-lobby .score {
+	height: 50px;
+	cursor: default;
+	
+	text-align: center;
+	font-family: 'Roboto Condenced', sans-serif;
+	font-size: 30px;
+	line-height: 50px;
+	color: green;
+}
+
+
+.game-lobby .game-return {
+	width: 300px;
+	
+	font-size: 20px;
+}
+/*----/content/game-----*/
