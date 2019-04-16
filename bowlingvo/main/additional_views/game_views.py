@@ -1,5 +1,4 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views import View
 import json
 import base64
 from django.contrib.auth.decorators import login_required
@@ -16,21 +15,33 @@ class GameStartView(LoginRequiredMixin, View):
     template_name = 'main/startgame.html'
 
     def get(self, request, language_name):
-        return render(request, self.template_name, {'language': language_name})
+        language = Language.objects.get(url_name=language_name)
+        return render(request, self.template_name, {'language': language})
 
     def post(self, request, language_name):
-        frames = int(request.POST.get('frames'))
-        max_frames = len([fs for fs in FinishedSection.objects.filter(user=request.user) if fs.section.language.url_name == language_name])
-        if 1 <= frames <= min(max_frames, 10):
-            FrameRecord.objects.filter(user=request.user).delete()
-            game = FrameRecord(user=request.user, max_frames=frames)
-            game.save()
-            return redirect(reverse('game', kwargs={'language_name': language_name}))
-        elif frames < 1:
-            error_message = 'Число фреймов должно быть не меньше 1'
-        else:
-            error_message = 'Число фреймов должно быть не больше 10 и не больше числа пройденных секций (%d)' % max_frames
-        return render(request, self.template_name, {'language': language_name, 'error_message': error_message})
+        frames = request.POST.get('frames')
+        try:
+            frames = int(frames)
+            max_frames = len([fs for fs in FinishedSection.objects.filter(user=request.user) if fs.section.language.url_name == language_name])
+            if 1 <= frames <= min(max_frames, 10):
+                profile = UserProfile.objects.get(user=request.user)
+                if profile.score < 20:
+                    error_message = 'У вас не хватает очков, чтобы начать игру: требуется 20, у вас - %d' % profile.score
+                else:
+                    profile.score -= 20
+                    profile.save()
+                    FrameRecord.objects.filter(user=request.user).delete()
+                    game = FrameRecord(user=request.user, max_frames=frames)
+                    game.save()
+                    return redirect(reverse('game', kwargs={'language_name': language_name}))
+            elif frames < 1:
+                error_message = 'Число фреймов должно быть не меньше 1'
+            else:
+                error_message = 'Число фреймов должно быть не больше 10 и не больше числа пройденных секций (%d)' % max_frames
+        except ValueError:
+            error_message = 'Пожалуйста, введите натуральное число фреймов'
+        language = Language.objects.get(url_name=language_name)
+        return render(request, self.template_name, {'language': language, 'error_message': error_message})
 
 
 class GameView(LoginRequiredMixin, View):
@@ -74,7 +85,7 @@ class GameView(LoginRequiredMixin, View):
         ans = []
         score = 0
         for i in range(len(answers)):
-            if answers[i][1] == params['answers'][i]:
+            if answers[i][1].strip().lower() == params['answers'][i].strip().lower():
                 ans.append(True)
                 if answers[i][0] == 'L':
                     score += 1

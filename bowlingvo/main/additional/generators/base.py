@@ -44,13 +44,21 @@ class BaseGenerator:
                 base_word = fwrd
                 trans_word = rwrd
                 choice_list = list(rus_choices_plur) if use_plur else list(rus_choices_sing)
-            task['text'] = [base_word.plur_form if use_plur else base_word.sing_form]
-            answer = trans_word.plur_form if use_plur else trans_word.sing_form
+
+            def strip_unique(text):
+                if '/' in text:
+                    return list(text.split('/'))[0]
+                return text
+
+            task['text'] = [strip_unique(base_word.plur_form if use_plur else base_word.sing_form)]
+            answer = strip_unique(trans_word.plur_form if use_plur else trans_word.sing_form)
             task['answer'] = answer
+
             choice_list.remove(answer)
             choices = random.sample(choice_list, 3)
             pos = random.randint(0, 3)
             choices.insert(pos, answer)
+            choices = [strip_unique(choice) for choice in choices]
             task['choices'] = choices
             tasks.append(task)
 
@@ -104,8 +112,19 @@ class BaseGenerator:
 
     def gen_lex(self, lesson):
         type_per = random.randint(0, 1)
+        f = open('log.txt', 'a')
+
+        def strip_unique(text):
+            if '/' in text:
+                return list(text.split('/'))[0]
+            return text
+
         if type_per:
             keys = random.sample(list(lesson.key2lesson_set.filter(key__startswith='w')), 4)
+            log_keys = [key.key for key in keys]
+            log_text = ' '.join(log_keys) + '\n'
+            f.write(log_text)
+            f.close()
             words = [[Word.objects.get(key=key.key, language='russian'), Word.objects.get(key=key.key, language=self.language)] for key in keys]
             task_pos = random.randint(0, 3)
             task_words = words.pop(task_pos)
@@ -129,9 +148,13 @@ class BaseGenerator:
                 choices = [w.sing_form for w in choice_words]
             pos = random.randint(0, 3)
             choices.insert(pos, ans)
-            task = dict(type='choice', text=[text], choices=choices)
+            choices = [strip_unique(choice) for choice in choices]
+            task = dict(type='choice', text=[strip_unique(text)], choices=choices)
         else:
             key = random.choice(list(lesson.key2lesson_set.filter(key__startswith='p')))
+            log_text = key.key + '\n'
+            f.write(log_text)
+            f.close()
             base_lang_rus = random.randint(0, 1)
             if base_lang_rus:
                 base = Phrase.objects.get(key=key.key, language='russian')
@@ -147,7 +170,7 @@ class BaseGenerator:
             task = dict(type='input', text=text)
             ans = trans.answer
         task['tasktype'] = 'L'
-        return task, ans
+        return task, strip_unique(ans)
 
     def gen_gram(self, lesson):
         type_per = random.randint(0, 1)
@@ -169,6 +192,8 @@ class BaseGenerator:
         return task, ans
 
     def frame(self, user):
+        f = open('log.txt', 'w')
+        f.close()
         sections = [s.section for s in FinishedSection.objects.filter(user=user)
                    if s.section.language.url_name == self.language]
         pins = 0

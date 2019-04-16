@@ -4,7 +4,7 @@ function LessonLogic() {
 	
 	var self = this;
 	
-	var my_button = document.getElementById('task-button');
+	var my_button = document.getElementById('task-button');	
 	
 	var my_tasks = [].slice.call(document.getElementsByClassName('task'));
 	
@@ -39,7 +39,7 @@ function LessonLogic() {
 			}
 		}
 		
-		if (user_answer == answer) {
+		if (user_answer.toLowerCase() == answer.toLowerCase()) {
 			var correct = document.getElementById('correct-answer');
 			correct.hidden = false;
 			score += 10;
@@ -85,6 +85,10 @@ function LessonLogic() {
 			
 			var task_new = document.getElementById('task' + next_id);
 			task_new.hidden = false;
+			var inp = task_new.getElementsByTagName('input');
+			if (inp.length == 1) {
+				inp[0].focus();
+			}
 			my_button.firstChild.data = 'Проверить';
 			my_button.removeAttribute('onclick');
 			my_button.setAttribute('onclick', 'lesson.checkTask()');
@@ -101,6 +105,14 @@ function LessonLogic() {
 	}		
 }
 
+document.onkeyup = function(event) {
+	if (event.keyCode == 13) {
+		var btn = document.getElementById('task-button');
+		if (btn) {
+			btn.click();
+		}
+	}
+};
 
 var lesson = new LessonLogic();
 
@@ -161,6 +173,8 @@ var game = new GameLogic();
 function show_lex() {
 	lex = document.getElementById('lex-sections');
 	gram = document.getElementById('gram-sections');
+	document.getElementById('lex-button').classList.toggle('highlight');
+	document.getElementById('gram-button').classList.toggle('highlight');
 	gram.style.display = 'none';
 	lex.style.display = 'block';
 }
@@ -169,6 +183,8 @@ function show_lex() {
 function show_gram() {
 	lex = document.getElementById('lex-sections');
 	gram = document.getElementById('gram-sections');
+	document.getElementById('lex-button').classList.toggle('highlight');
+	document.getElementById('gram-button').classList.toggle('highlight');
 	lex.style.display = 'none';
 	gram.style.display = 'block';
 }

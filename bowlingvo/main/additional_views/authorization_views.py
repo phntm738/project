@@ -55,12 +55,14 @@ class RegistrationView(View):
             return render(request, self.template_name, {'form': form})
 
 
-def send_mail(request, user):
+def send_mail(request, user, mail_subject=None, template=None):
     current_site = get_current_site(request)
-    mail_subject = 'Активация аккаунта на bowlingvo.ru'
-    uid = urlsafe_base64_encode(force_bytes(user.pk)).decode("utf-8")
+    basic_mail_subject = 'Активация аккаунта на BowLingvo'
+    mail_subject = mail_subject or basic_mail_subject
+    uid = urlsafe_base64_encode(force_bytes(user.pk))
     token = account_activation_token.make_token(user)
-    message = render_to_string('main/acc_activation.html', {
+    template = template or 'main/acc_activation.html'
+    message = render_to_string(template, {
         'user': user,
         'domain': current_site.domain,
         'uid': uid,

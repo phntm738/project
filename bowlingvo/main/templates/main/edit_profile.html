@@ -1,0 +1,33 @@
+{% include "main/header.html" %}
+
+{% for s in success %}
+    {{ s }}<br>
+{% endfor %}
+<form action="{% url 'edit_profile' %}" method="post">
+    {% csrf_token %}
+    {% for er in errors.username %}
+        {{ er|escape }}<br>
+    {% endfor %}
+    <input type="text" name="username" placeholder="Сменить имя пользователя">
+    {% for er in errors.email %}
+        {{ er|escape }}<br>
+    {% endfor %}
+    <input type="text" name="email" placeholder="Сменить email">
+    {% for er in errors.old_password %}
+        {{ er|escape }}<br>
+    {% endfor %}
+    <input type="password" name="old_password" placeholder="Старый пароль">
+    {% for er in errors.new_password1 %}
+        {% for e in er %}
+            {{ e|escape }}<br>
+        {% endfor %}
+    {% endfor %}
+    <input type="password" name="new_password1" placeholder="Новый пароль">
+    {% for er in errors.new_password2 %}
+        {{ er|escape }}<br>
+    {% endfor %}
+    <input type="password" name="new_password2" placeholder="Повторите пароль">
+    <input type="submit" value="Сохранить">
+</form>
+<a href="{% url 'profile' %}">Назад</a>
+{% include "main/footer.html" %}

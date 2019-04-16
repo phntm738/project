@@ -1,9 +1,7 @@
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 from django.views.decorators.http import require_GET
 from django.shortcuts import render, redirect
 from ..models import *
-from django.views import View
 from ..additional.task_gen import task_gen
 from datetime import datetime
 
@@ -111,11 +109,11 @@ def lesson_page(request, language_name, section_name, lesson_order):
     if request.method == 'GET':
         theory, tasks = task_gen(lesson.id)
         if lesson.section.sec_type == 'G':
-            type='G'
+            sec_type = 'G'
         else:
-            type='L'
+            sec_type = 'L'
         return render(request, 'main/lesson_page.html',
-                      {'profile': profile, 'language': language, 'section': section, 'lesson': lesson, 'type': type, 'theory': theory, 'tasks': tasks})
+                      {'profile': profile, 'language': language, 'section': section, 'lesson': lesson, 'type': sec_type, 'theory': theory, 'tasks': tasks})
 
     if request.method == 'POST':
         score = int(request.POST.get('score'))

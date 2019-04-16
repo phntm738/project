@@ -1,7 +1,8 @@
 {% include "main/header.html" %}
 
 <form action="/main/test" method="post">
-    <input type="text" name="test">
+    {% csrf_token %}
+    <input type="text" name="test" placeholder="test" value="">
     <input type="submit" value="submit">
 </form>
 

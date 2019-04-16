@@ -115,6 +115,9 @@ class UserProfile(models.Model):
     score = models.IntegerField(default=0)
     last_lang = models.IntegerField(default=0)
 
+    def __str__(self):
+        return str(self.user)
+
 
 class FrameRecord(models.Model):
     objects = models.Manager()
@@ -125,3 +128,5 @@ class FrameRecord(models.Model):
     score_table = models.TextField(default='[]')
     frame_score = models.IntegerField(default=0)
 
+    def __str__(self):
+        return str(self.user)
