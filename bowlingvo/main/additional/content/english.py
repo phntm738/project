@@ -38,7 +38,7 @@ def main():
             .word('варенье', 'варенья', 'jam', 'jams')\
             .word('мёд', 'мёд', 'honey', 'honey')\
             .word('сметана', 'сметана', 'sour cream', 'sour cream')\
-            .word('конфета', 'конфеты', 'candy', 'candy')\
+            .word('конфета', 'конфеты', 'candy', 'candies')\
             .phrase('Какой вкус {} твой любимый?', 'мороженого', 'What is your favourite {} flavour?', 'ice cream')\
         .end()\
         .lesson(5)\
