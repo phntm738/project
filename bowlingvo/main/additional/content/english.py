@@ -9,15 +9,15 @@ def main():
         .lesson(1)\
             .word('завтрак', 'завтраки', 'breakfast', 'breakfasts')\
             .word('хлеб', 'хлеба', 'bread', 'bread')\
-            .word('сыр', 'сыры', 'cheese', 'cheese')\
+            .word('сыр', 'сыры', 'cheese', 'cheeses')\
             .word('сливочное масло', 'сливочное масло', 'butter', 'butter')\
-            .word('йогурт', 'йогурты', 'yoghurt', 'yoghurt')\
+            .word('йогурт', 'йогурты', 'yoghurt', 'yoghurts')\
             .phrase('Я ем на завтрак тост и {}.', 'сыр', 'I eat a toast and {} for breakfast.', 'cheese')\
             .phrase('Мой брат любит персиковый {}.', 'йогурт', 'My brother likes peach {}.', 'yoghurt')\
             .phrase('{} - важный приём пищи.', 'Завтрак', '{} is an important meal.', 'Breakfast')\
         .end()\
         .lesson(2)\
-            .word('чай', 'чаи', 'tea', 'tea')\
+            .word('чай', 'чаи', 'tea', 'teas')\
             .word('кофе', 'кофе', 'coffee', 'coffee')\
             .word('молоко', 'молоко', 'milk', 'milk')\
             .word('хлопья', 'хлопья', 'cereals', 'cereals')\
@@ -37,8 +37,8 @@ def main():
             .word('мороженое', 'мороженое', 'ice cream', 'ice cream')\
             .word('варенье', 'варенья', 'jam', 'jams')\
             .word('мёд', 'мёд', 'honey', 'honey')\
-            .word('сметана', 'сметаны', 'sour cream', 'sour creams')\
-            .word('конфета', 'конфеты', 'sweet', 'sweets')\
+            .word('сметана', 'сметана', 'sour cream', 'sour cream')\
+            .word('конфета', 'конфеты', 'candy', 'candy')\
             .phrase('Какой вкус {} твой любимый?', 'мороженого', 'What is your favourite {} flavour?', 'ice cream')\
         .end()\
         .lesson(5)\
@@ -52,7 +52,7 @@ def main():
             .phrase('Вы бы хотели немного {}?', 'сока', 'Would you like some {}?', 'juice')\
         .end()\
         .lesson(6)\
-            .word('фрукт', 'фрукты', 'fruit', 'fruit')\
+            .word('фрукт', 'фрукты', 'fruit', 'fruits')\
             .word('яблоко', 'яблоки', 'apple', 'apples')\
             .word('апельсин', 'апельсины', 'orange', 'oranges')\
             .word('груша', 'груши', 'pear', 'pears')\
@@ -78,9 +78,9 @@ def main():
             .word('тарелка', 'тарелки', 'plate', 'plates')\
             .word('чашка', 'чашки', 'cup', 'cups')\
             .phrase('Я буду {} чая.', 'чашку', 'I would like a {} of tea.', 'cup')\
-            .phrase('Передайте мне {}, пожалуйста.', 'нож', 'Give me the {}, please.', 'knife')\
+            .phrase('Передайте мне {}, пожалуйста.', 'нож', 'Pass me the {}, please.', 'knife')\
             .phrase('Добавьте столовую {} муки.', 'ложку', 'Add a table {} of flour.', 'spoon')\
-            .phrase('Испоьзуй {} и нож.', 'вилку', 'Use a {} and a knife.', 'fork')\
+            .phrase('Используй {} и нож.', 'вилку', 'Use a {} and a knife.', 'fork')\
         .end()\
         .lesson(9)\
             .word('овощ', 'овощи', 'vegetable', 'vegetables')\
@@ -99,7 +99,7 @@ def main():
             .word('соль', 'соль', 'salt', 'salt')\
             .phrase('Ты добавил {} в воду?', 'соль', 'Did you put {} in water?', 'salt')\
             .phrase('Я не люблю {}, а ты?', 'сельдерей', 'I don\'t like {}, and you?', 'celery')\
-            .phrase('Она забыла купить {}.', 'перец', 'She forgot to buy {}.', 'pepper')\
+            .phrase('Она забыла купить {}.', 'перец', 'She forgot to buy a {}.', 'pepper')\
         .end()\
         .lesson(11)\
             .word('мука', 'мука', 'flour', 'flour')\
@@ -144,21 +144,21 @@ def main():
             .phrase('Купи в магазине {}.', 'сосиски', 'Buy some {} in the shop.', 'sausages')\
         .end()\
         .lesson(16)\
-            .word('соус', 'соусы', 'sause', 'sauses')\
+            .word('соус', 'соусы', 'sauce', 'sauces')\
             .word('кетчуп', 'кетчупы', 'ketchup', 'ketchups')\
             .word('майонез', 'майонезы', 'mayonnaise', 'mayonnaises')\
             .word('уксус', 'уксусы', 'vinegar', 'vinegars')\
             .word('горчица', 'горчицы', 'mustard', 'mustards')\
-            .phrase('Я буду картофель с сырным {}.', 'соусом', 'I\'d like french fries with cheese {}.', 'sause')\
+            .phrase('Я буду картофель с сырным {}.', 'соусом', 'I\'d like french fries with cheese {}.', 'sauce')\
         .end()\
         .lesson(17)\
             .word('вкус', 'вкусы', 'taste', 'tastes')\
-            .word('сладкий', 'сладкий', 'sweet', 'sweet')\
-            .word('солёный', 'солёный', 'salty', 'salty')\
-            .word('кислый', 'кислый', 'sour', 'sour')\
-            .word('горький', 'горький', 'bitter', 'bitter')\
-            .word('острый', 'острый', 'spicy', 'spicy')\
-            .word('пресный', 'пресный', 'insipid', 'insipid')\
+            .word('сладкий', 'сладкие', 'sweet', 'sweet')\
+            .word('солёный', 'солёные', 'salty', 'salty')\
+            .word('кислый', 'кислые', 'sour', 'sour')\
+            .word('горький', 'горькие', 'bitter', 'bitter')\
+            .word('острый', 'острые', 'spicy', 'spicy')\
+            .word('пресный', 'пресные', 'insipid', 'insipid')\
             .phrase('Этот суп {}, ты добавил соль?', 'пресный', 'This soup is {}, did you add salt?', 'insipid')\
         .end()\
     .end()\
@@ -169,21 +169,21 @@ def main():
             .word('дорога', 'дороги', 'road', 'roads')\
             .word('здание', 'здания', 'building', 'buildings')\
             .word('столица', 'столицы', 'capital', 'capitals')\
-            .phrase('Давай зайдём в моё любимое {}.', 'кафе', 'Let\'s visit my favourite {}.', 'cafe')\
+            .phrase('Давай заедем в мой любимый {}.', 'городок', 'Let\'s visit my favourite {}.', 'town')\
         .end()\
         .lesson(2)\
             .word('улица', 'улицы', 'street', 'streets')\
             .word('проспект', 'проспекты', 'avenue', 'avenues')\
             .word('площадь', 'площади', 'square', 'squares')\
-            .word('квартал', 'кварталы', 'quarter', 'quarters')\
-            .word('район', 'районы', 'area', 'areas')\
-            .phrase('Пройдите этот {} и поверните налево.', 'квартал', 'Go through this {} and turn left.', 'quarter')\
+            .word('квартал', 'кварталы', 'block', 'blocks')\
+            .word('район', 'районы', 'district', 'districts')\
+            .phrase('Пройдите этот {} и поверните налево.', 'квартал', 'Go through this {} and turn left.', 'block')\
             .phrase('Этот {} проходит через весь город с севера на юг.', 'проспект', 'This {} goes through the whole city from north to south.', 'avenue')\
         .end()\
         .lesson(3)\
             .word('пекарня', 'пекарни', 'bakery', 'bakeries')\
-            .word('бакалейный магазин', 'бакалейные магазины', 'grocery', 'groceries')\
-            .word('мясной магазин', 'мясные магазины', 'butcher\'s', 'butcher\'s')\
+            .word('продуктовый магазин', 'продуктовые магазины', 'grocery', 'groceries')\
+            .word('мясной магазин', 'мясные магазины', 'butcher\'s shop', 'butcher\'s shops')\
             .word('супермаркет', 'супермаркеты', 'supermarket', 'supermarkets')\
             .word('торговый центр', 'торговые центры', 'shopping mall', 'shopping malls')\
             .word('кафе', 'кафе', 'cafe', 'cafes')\
@@ -222,7 +222,7 @@ def main():
             .word('мост', 'мосты', 'bridge', 'bridges')\
             .word('набережная', 'набережные', 'embankment', 'embankments')\
             .phrase('{} Темзы - очень красивое место.', 'Набережная', 'The Thames {} is a beautiful place.', 'embankment')\
-            .phrase('Какая {} протекает через Эдинбург?', 'река', 'What {} flows through Edinburgh.', 'river')\
+            .phrase('Какая {} протекает через Эдинбург?', 'река', 'What {} flows through Edinburgh?', 'river')\
         .end()\
         .lesson(8)\
             .word('цирк', 'цирки', 'circus', 'circuses')\
@@ -246,7 +246,7 @@ def main():
             .word('забор', 'заборы', 'fence', 'fences')\
             .word('тротуар', 'тротуары', 'sidewalk', 'sidewalks')\
             .word('ворота', 'ворота', 'gate', 'gates')\
-            .phrase('', '', '', '')\
+            # .phrase('', '', '', '')\
         .end()\
         .lesson(11)\
             .word('вход', 'входы', 'entrance', 'entrances')\
@@ -266,10 +266,10 @@ def main():
             .phrase('{} позволяют быстрее выехать из города.', 'Шоссе', '{} allow to leave the city faster.', 'Highways')\
         .end()\
         .lesson(13)\
-            .word('округ', 'округи', 'district', 'districts')\
+            .word('округ', 'округи', 'district/2', 'districts/2')\
             .word('пригород', 'пригороды', 'suburb', 'suburbs')\
             .word('пригородный поезд', 'пригородные поезда', 'local train', 'local trains')\
-            .word('сельская местность', 'сельские местности', 'countryside', 'countrysides')\
+            .word('сельская местность', 'сельская местность', 'countryside', 'countryside')\
             .word('деревня', 'деревни', 'village', 'villages')\
             .phrase('Париж поделён на двадцать {}.', 'округов', 'Paris is divided into twenty {}.', 'districts')\
         .end()\
@@ -294,15 +294,14 @@ def main():
         .end()\
         .lesson(3)\
             .word('метро', 'метро', 'metro', 'metro')\
-            .word('метро (UK)', 'метро (UK)', 'underground', 'undergrounds')\
-            .word('метро (US)', 'метро (US)', 'subway', 'subways')\
+            .word('метро (UK)', 'метро (UK)', 'underground', 'underground')\
+            .word('метро (US)', 'метро (US)', 'subway', 'subway')\
             .word('станция', 'станции', 'station', 'stations')\
             .word('остановка', 'остановки', 'stop', 'stops')\
             .phrase('{} московского метро очень красивые.', 'Станции', 'Moscow metro {} are very beautiful.', 'stations')\
             .phrase('Самое старое {} в Лондоне.', 'метро', 'London {} is the oldest one.', 'underground')\
         .end()\
         .lesson(4)\
-            .word('такси', 'такси', 'taxi', 'taxis')\
             .word('лодка', 'лодки', 'boat', 'boats')\
             .word('корабль', 'корабли', 'ship', 'ships')\
             .word('самолёт', 'самолёты', 'plane', 'planes')\
@@ -320,7 +319,7 @@ def main():
         .lesson(6)\
             .word('пассажир', 'пассажиры', 'passenger', 'passengers')\
             .word('билет', 'билеты', 'ticket', 'tickets')\
-            .word('багаж', 'багажи', 'luggage', 'luggage')\
+            .word('багаж', 'багаж', 'luggage', 'luggage')\
             .word('отбытие', 'отбытия', 'departure', 'departures')\
             .word('прибытие', 'прибытия', 'arrival', 'arrivals')\
             .phrase('Предъявите ваши {}.', 'билеты', 'Present your {}.', 'tickets')\
@@ -339,7 +338,7 @@ def main():
         .lesson(2)\
             .word('дверь', 'двери', 'door', 'doors')\
             .word('окно', 'окна', 'window', 'windows')\
-            .word('пол', 'полы', 'floor', 'floors')\
+            .word('пол', 'полы', 'floor/2', 'floors/2')\
             .word('потолок', 'потолки', 'ceiling', 'ceilings')\
             .word('балкон', 'балконы', 'balcony', 'balconies')\
             .phrase('Можно ли мне открыть {}?', 'окно', 'May I open the {}?', 'window')\
@@ -348,7 +347,7 @@ def main():
             .word('кухня', 'кухни', 'kitchen', 'kitchens')\
             .word('гостиная', 'гостиные', 'living room', 'living rooms')\
             .word('прихожая', 'прихожие', 'hall', 'halls')\
-            .word('спальня', 'спальни', 'befroom', 'bedrooms')\
+            .word('спальня', 'спальни', 'bedroom', 'bedrooms')\
             .word('ванная', 'ванные', 'bathroom', 'bathrooms')\
             .word('туалет', 'туалеты', 'toilet', 'toilets')\
             .phrase('Моё любимое место в доме - {}.', 'кухня', 'My favourite place in house is {}.', 'kitchen')\
@@ -367,7 +366,7 @@ def main():
             .word('полка', 'полки', 'shelf', 'shelves')\
             .word('ковёр', 'ковры', 'carpet', 'carpets')\
             .word('комнатное растение', 'комнатные растения', 'indoor plant', 'indoor plants')\
-            .phrase('Я хочу купит новый {}.', 'диван', 'I want to buy a new {}.', 'sofa')\
+            .phrase('Я хочу купить новый {}.', 'диван', 'I want to buy a new {}.', 'sofa')\
             .phrase('Этот {} просто ужасен!', 'ковёр', 'This {} is absolutely awful!', 'carpet')\
         .end()\
         .lesson(6)\
@@ -483,7 +482,7 @@ def main():
             .phrase('Сколько {} до конца урока?', 'минут', 'How many {} till the end of the lesson?', 'minutes')\
         .end()\
         .lesson(6)\
-            .word('полдень', 'полдни', 'noon', 'noons')\
+            .word('полдень', 'полудни', 'noon', 'noons')\
             .word('закат', 'закаты', 'sunset', 'sunsets')\
             .word('рассвет', 'рассветы', 'dawn', 'dawns')\
             .word('сумерки', 'сумерки', 'dusk', 'dusks')\
@@ -503,9 +502,9 @@ def main():
             .phrase('В вашей семье есть {}?', 'банкир', 'Is there a {} in your family?', 'banker')\
         .end()\
         .lesson(2)\
-            .word('кузнец', 'кузнецы', 'blacksmith', 'blacksmith')\
+            .word('кузнец', 'кузнецы', 'blacksmith', 'blacksmiths')\
             .word('мясник', 'мясники', 'butcher', 'butchers')\
-            .word('плотник', 'плотники', 'carpenter', 'carpenter')\
+            .word('плотник', 'плотники', 'carpenter', 'carpenters')\
             .word('кассир', 'кассиры', 'cashier', 'cashiers')\
             .word('повар', 'повара', 'cook', 'cooks')\
             .phrase('Мой брат - {} в ресторане на главной улице.', 'повар', 'My brother is a {} in the restaurant on the main street.', 'cook')\
@@ -516,15 +515,15 @@ def main():
             .word('электрик', 'электрики', 'electrician', 'electricians')\
             .word('инженер', 'инженеры', 'engineer', 'engineers')\
             .word('фермер', 'фермеры', 'farmer', 'farmers')\
-            .phrase('Эта семейная пара - {}.', 'доктора', 'This spouses are {}.', 'doctors')\
+            .phrase('Эта семейная пара - {}.', 'доктора', 'These spouses are {}.', 'doctors')\
         .end()\
         .lesson(4)\
             .word('пожарник', 'пожарники', 'firefighter', 'firefighters')\
             .word('финансист', 'финансисты', 'financier', 'financiers')\
             .word('фабричный работник', 'фабричные работники', 'factory worker', 'factory workers')\
             .word('садовник', 'садовники', 'gardener', 'gardeners')\
-            .word('ювелир', 'ювелиры', 'goldsmith', 'goldsmiths')\
-            .phrase('Мама моего друга - {}.', 'ювелир', 'The mother of my friend is a {}.', 'goldsmith')\
+            .word('ювелир', 'ювелиры', 'jeweler', 'jewelers')\
+            .phrase('Мама моего друга - {}.', 'ювелир', 'The mother of my friend is a {}.', 'jeweler')\
         .end()\
         .lesson(5)\
             .word('парикмахер', 'парикмахеры', 'hairdresser', 'hairdressers')\
@@ -535,12 +534,12 @@ def main():
             .phrase('{} - востребованная профессия.', 'Юрист', '{} is a demanded trade.', 'Lawyer')\
         .end()\
         .lesson(6)\
-            .word('музыкант', 'музыканты', 'musician', 'musician')\
+            .word('музыкант', 'музыканты', 'musician', 'musicians')\
             .word('медсестра/медбрат', 'медсёстры/медбратья', 'nurse', 'nurses')\
             .word('пилот', 'пилоты', 'pilot', 'pilots')\
             .word('полицейский', 'полицейские', 'police officer', 'police officers')\
             .word('водопроводчик', 'водопроводчики', 'plumber', 'plumbers')\
-            .phrase('{} - очень ответственная работа.', 'Пилот', '{} is a responsible work.', 'Pilot')\
+            .phrase('{} - очень ответственная работа.', 'Пилот', '{} is a highly responsible work.', 'Pilot')\
         .end()\
         .lesson(7)\
             .word('тур-агент', 'тур-агенты', 'travel agent', 'travel agents')\
@@ -548,7 +547,7 @@ def main():
             .word('учитель', 'учителя', 'teacher', 'teachers')\
             .word('официант', 'официанты', 'waiter', 'waiters')\
             .word('писатель', 'писатели', 'writer', 'writers')\
-            .phrase('Мой {} получил премию за свою работу.', 'учитель', 'My {} received a bounty for his work.', 'teacher')\
+            .phrase('Мой {} получил премию за свою работу.', 'учитель', 'My {} received a bonus for his work.', 'teacher')\
         .end()\
     .end()\
     .section('Спорт', 'sport')\
@@ -558,22 +557,22 @@ def main():
             .word('баскетбол', 'баскетбол', 'basketball', 'basketball')\
             .word('волейбол', 'волейбол', 'volleyball', 'volleyball')\
             .word('мяч', 'мячи', 'ball', 'balls')\
-            .phrase('Брось мне {}.', 'мяч', 'Through me a {}.', 'ball')\
+            .phrase('Брось мне {}.', 'мяч', 'Throw me a {}.', 'ball')\
         .end()\
         .lesson(2)\
-            .word('ворота', 'ворота', 'goal', 'goal')\
+            .word('ворота', 'ворота', 'goal', 'goals')\
             .word('кольцо', 'кольца', 'basket ring', 'basket rings')\
             .word('судья на поле', 'судьи на поле', 'referee', 'referees')\
-            .word('судья', 'судьи', 'umpire', 'umpires')\
+            .word('судья', 'судьи', 'judge', 'judges')\
             .word('сетка', 'сетки', 'net', 'nets')\
-            .phrase('Цель игры - забить мяч в {}.', 'ворота', 'The goal of the game is to score the ball into the {}.', 'goal')\
+            .phrase('Цель игры - забить мяч в {}.', 'ворота', 'The purpose of the game is to score the ball into the {}.', 'goal')\
             .phrase('{} показал мне жёлтую карточку.', 'Судья', '{} showed me a yellow card.', 'Referee')\
         .end()\
         .lesson(3)\
             .word('теннис', 'теннис', 'tennis', 'tennis')\
             .word('ракетка', 'ракетки', 'racket', 'rackets')\
             .word('гольф', 'гольф', 'golf', 'golf')\
-            .word('клюшка для гольфа', 'клюшки для гольфа', 'club', 'clubs')\
+            .word('клюшка для гольфа', 'клюшки для гольфа', 'club/2', 'clubs/2')\
             .word('лунка', 'лунки', 'hole', 'holes')\
             .phrase('{} лежат на столе.', 'Ракетки', 'The {} are on the table.', 'rackets')\
         .end()\
@@ -622,8 +621,8 @@ def main():
             .word('череп', 'черепа', 'skull', 'skulls')\
             .word('мозг', 'мозги', 'brain', 'brains')\
             .word('лицо', 'лица', 'face', 'faces')\
-            .phrase('Я не узнаю его {}.', 'лицо', 'I don\'t recognise his {}.', 'face')\
-            .phrase('У меня болит {}.', 'голова', 'My {} aces.', 'head')\
+            .phrase('Я не узнаю его {}.', 'лицо', 'I don\'t recognize his {}.', 'face')\
+            .phrase('У меня болит {}.', 'голова', 'My {} aches.', 'head')\
         .end()\
         .lesson(2)\
             .word('глаз', 'глаза', 'eye', 'eyes')\
@@ -645,10 +644,10 @@ def main():
             .phrase('У моего ребёнка выпал молочный {}.', 'зуб', 'My child\'s milk {} fell out.', 'tooth')\
         .end()\
         .lesson(4)\
-            .word('туловище', 'туловища', 'trunk', 'trunks')\
+            .word('туловище', 'туловища', 'torso', 'torsos')\
             .word('скелет', 'скелеты', 'skeleton', 'skeletons')\
             .word('кость', 'кости', 'bone', 'bones')\
-            .word('грудная клетка', 'грудные клетки', 'chest', 'chest')\
+            .word('грудная клетка', 'грудные клетки', 'chest', 'chests')\
             .word('спина', 'спины', 'back', 'backs')\
             .phrase('Собака грызёт {}.', 'кость', 'The dog gnaws a {}.', 'bone')\
         .end()\
@@ -656,9 +655,9 @@ def main():
             .word('плечо', 'плечи', 'shoulder', 'shoulders')\
             .word('ребро', 'рёбра', 'rib', 'ribs')\
             .word('талия', 'талии', 'waist', 'waists')\
-            .word('живот', 'животы', 'stomach', 'stomachs')\
+            .word('живот', 'животы', 'stomach', 'stomaches')\
             .word('конечность', 'конечности', 'limb', 'limbs')\
-            .phrase('Болит ли у тебя {}?', 'живот', 'Do you have a {}-ace?', 'stomach')\
+            .phrase('Болит ли у тебя {}?', 'живот', 'Do you have a {} pain?', 'stomach')\
         .end()\
         .lesson(6)\
             .word('рука', 'руки', 'arm', 'arms')\
@@ -677,7 +676,7 @@ def main():
             .word('колено', 'колени', 'knee', 'knees')\
             .word('пятка', 'пятки', 'heel', 'heels')\
             .word('лодыжка', 'лодыжки', 'ankle', 'ankles')\
-            .phrase('Я ударил {}.', 'колено', 'I banged my {}.', 'knee')\
+            .phrase('Я ударил {}.', 'колено', 'I hit my {}.', 'knee')\
         .end()\
         .lesson(8)\
             .word('внутренний орган', 'внутренние органы', 'internal organ', 'internal organs')\
@@ -710,8 +709,8 @@ def main():
             .word('свитер', 'свитеры', 'sweater', 'sweaters')\
             .word('джинсы', 'джинсы', 'jeans', 'jeans')\
             .word('жакет', 'жакеты', 'jacket', 'jackets')\
-            .word('кроссовка', 'кроссовки', 'sneaker', 'sneakers')\
-            .phrase('У вас есть эта {}, только маленькая?', 'футболка', 'Do you have this {} in small?', 'T-shirt')\
+            .word('кроссовок', 'кроссовки', 'sneaker', 'sneakers')\
+            .phrase('У вас есть такая {}, только маленькая?', 'футболка', 'Do you have this {} in small?', 'T-shirt')\
         .end()\
         .lesson(4)\
             .word('платье', 'платья', 'dress', 'dresses')\
@@ -742,7 +741,7 @@ def main():
             .word('кольцо', 'кольца', 'ring', 'rings')\
             .word('серьга', 'серьги', 'earring', 'earrings')\
             .word('платок', 'платки', 'handkerchief', 'handkerchieves')\
-            .word('молния', 'молнии', 'zip', 'zips')\
+            .word('молния', 'молнии', 'zipper', 'zippers')\
             .phrase('Мне нравится твоё {} с рубином.', 'кольцо', 'I like your {} with ruby.', 'ring')\
         .end()\
     .end()\
@@ -759,9 +758,9 @@ def main():
             .word('кот', 'коты', 'cat', 'cats')\
             .word('котёнок', 'котята', 'kitten', 'kittens')\
             .word('собака', 'собаки', 'dog', 'dogs')\
-            .word('щенок', 'щенята', 'puppet', 'puppets')\
+            .word('щенок', 'щенята', 'puppy', 'puppies')\
             .word('кролик', 'кролики', 'rabbit', 'rabbits')\
-            .phrase('Я боюсь, что {} меня покусает.', 'собака', 'I\'m afraid, that a {} will bite me.', 'dog')\
+            .phrase('Я боюсь, что {} меня покусает.', 'собака', 'I\'m afraid, that {} will bite me.', 'dog')\
         .end()\
         .lesson(3)\
             .word('курица', 'курицы', 'chicken', 'chicken')\
@@ -801,7 +800,7 @@ def main():
             .word('енот', 'еноты', 'raccoon', 'raccoons')\
             .word('мышь', 'мыши', 'mouse', 'mice')\
             .word('крыса', 'крысы', 'rat', 'rats')\
-            .phrase('{} всё зерно.', 'Мыши', '{} ate all the grain.', 'Mice')\
+            .phrase('{} съели всё зерно.', 'Мыши', '{} ate all the grain.', 'Mice')\
         .end()\
         .lesson(8)\
             .word('верблюд', 'верблюды', 'camel', 'camels')\
