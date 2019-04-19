@@ -93,7 +93,7 @@ def main():
             .word('автобус', 'автобусы', 'el autobus', 'los autobuses')\
             .word('трамвай', 'трамваи', 'el tranvía', 'los tranvías')\
             .word('поезд', 'поезда', 'el tren', 'los trenes')\
-            .phrase('Этот {} опаздывает.', 'поезд', 'Este {} llega tarde', 'trn')\
+            .phrase('Этот {} опаздывает.', 'поезд', 'Este {} llega tarde', 'tren')\
             .phrase('{} 12 идёт до музея?', 'Трамвай', 'Va el {} 12 al museo?', 'tranvía')\
         .end()\
         .lesson(2)\
