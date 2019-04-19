@@ -15,6 +15,7 @@
                 {% else %}
                     <div class='question'>{{ task.text.0 }}</div>
                     <select id="user-answer-{{ cur_val }}" ans-type="select" class='answer'>
+                        <option value="">-------</option>
                     {% for choice in task.choices %}
                        <option value="{{ choice }}">{{ choice }}</option>
                     {% endfor %}
@@ -23,7 +24,7 @@
             </div>
         {% endwith %}
     {% endfor %}
-    <button id='throw-button' onclick="game.check()">1 бросок</button>
+    <button id='throw-button' onclick="game.check()">1-й бросок</button>
 </div>
 <div hidden id="finish-frame">
 	Очки за фрейм:

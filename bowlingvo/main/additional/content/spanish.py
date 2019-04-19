@@ -117,4 +117,4 @@ def main():
             .word('самолёт', 'самолёты', 'el avion', 'los aviones')\
             .word('вертолёт', 'вертолёты', 'el helicoptero', 'los helicopteros')\
             .phrase('{} причалил к пристани.', 'Корабль', 'El {} amarrado al muelle.', 'barco')\
-        .end()\
+        .end()

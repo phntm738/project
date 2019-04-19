@@ -14,7 +14,7 @@ function LessonLogic() {
 		show_queue.push(i);
 	}
 	
-	var score = 0;
+	var score = 10;
 	
 	self.makeTasksList = function() {
 		console.log(my_tasks);
@@ -42,14 +42,13 @@ function LessonLogic() {
 		if (user_answer.toLowerCase() == answer.toLowerCase()) {
 			var correct = document.getElementById('correct-answer');
 			correct.hidden = false;
-			score += 10;
 		} else {
 			var wrong = document.getElementById('wrong-answer');
 			wrong.children[0].textContent = 'Ваш ответ: ' + user_answer;
 			wrong.children[1].textContent = 'Ожидаемый ответ: ' + answer;
 			wrong.hidden = false;
 			show_queue.push(show_queue[0]);
-			score -= 10;
+			score -= 1;
 			if (score < 0) {
 				score = 0;
 			}
@@ -64,7 +63,7 @@ function LessonLogic() {
 		reaction.hidden = true;
 		reaction = document.getElementById('wrong-answer');
 		reaction.hidden = true;
-		if (show_queue.length > 1) {
+		if (show_queue	.length > 1) {
 			var cur_id = show_queue.shift();
 			var next_id = show_queue[0];
 			var task_old = document.getElementById('task' + cur_id);
@@ -160,7 +159,7 @@ function GameLogic() {
 				task.hidden = params.ans[i];
 			}
 			var throw_button = document.getElementById('throw-button');
-			throw_button.textContent = '2 бросок';
+			throw_button.textContent = '2-й бросок';
 		}
 	}
 
