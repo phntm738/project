@@ -246,7 +246,7 @@ def main():
             .word('забор', 'заборы', 'fence', 'fences')\
             .word('тротуар', 'тротуары', 'sidewalk', 'sidewalks')\
             .word('ворота', 'ворота', 'gate', 'gates')\
-            # .phrase('', '', '', '')\
+            .phrase('На этих выходных я хочу покрасить {} в саду.', 'забор', 'This weekend I want to paint the {} in the garden.', 'fence')\
         .end()\
         .lesson(11)\
             .word('вход', 'входы', 'entrance', 'entrances')\
@@ -561,7 +561,7 @@ def main():
         .end()\
         .lesson(2)\
             .word('ворота', 'ворота', 'goal', 'goals')\
-            .word('кольцо', 'кольца', 'basket ring', 'basket rings')\
+            .word('баскетбольное кольцо', 'баскетбольные кольца', 'basket ring', 'basket rings')\
             .word('судья на поле', 'судьи на поле', 'referee', 'referees')\
             .word('судья', 'судьи', 'judge', 'judges')\
             .word('сетка', 'сетки', 'net', 'nets')\
@@ -810,3 +810,8 @@ def main():
             .word('порода', 'породы', 'breed', 'breeds')\
             .phrase('Какая {} у этой собаки?', 'порода', 'What is this dog\'s {}?', 'breed')\
         .end()\
+
+    .grammar()\
+    .section('Введение', 'beginning')\
+        .lesson(1)\
+            .theory(
