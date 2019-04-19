@@ -174,7 +174,7 @@ class BaseGenerator:
 
     def gen_gram(self, lesson):
         type_per = random.randint(0, 1)
-        if type_per:
+        if type_per and TheoryTask.objects.filter(lesson=lesson, type='C'):
             ch_tasks = random.sample(list(TheoryTask.objects.filter(lesson=lesson, type='C')), 4)
             tasks_pos = random.randint(0, 3)
             ch_task = ch_tasks.pop(tasks_pos)
