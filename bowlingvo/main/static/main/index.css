@@ -1792,8 +1792,37 @@ div[class='active lex-lesson-path'] {
 .lesson-content .title {
 	text-align: center;
 	font-size: 30px;
+	text-decoration: underline;
 }
 
+
+.lesson-content .theory {
+	margin: 15px;
+	
+	font-size: 17px;
+}
+
+
+.theory p {
+	margin: 7px;
+}
+
+
+.theory .exception {
+	margin: 7px;
+	margin-left: 15px;
+	
+	font-style: italic;
+	font-size: 15px;
+}
+
+
+.theory .example {
+	margin-left: 30px;
+	
+	font-size: 15px;
+	font-style: normal;
+}
 
 /*----/content/lesson_page-----*/
 
