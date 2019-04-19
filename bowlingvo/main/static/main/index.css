@@ -1185,6 +1185,19 @@ p.avatar-addition-attention {
 }
 
 
+#gram-sections {
+	cursor: default;
+}
+
+
+#gram-sections h2 {
+	text-align: center;
+	font-family: 'Roboto Condenced', sans-serif;
+	font-size: 25px;
+	font-weight: normal;
+}
+
+
 .lex-sec {
 	display: inline-block;
 	width: 121px;
@@ -1350,6 +1363,7 @@ p.avatar-addition-attention {
 	cursor: default;
 	
 	font-family: 'Caption', sans-serif;
+	font-size: 16px;
 	font-weight: bold;
 	color: orange;
 }
@@ -1824,6 +1838,30 @@ div[class='active lex-lesson-path'] {
 	font-style: normal;
 }
 
+
+.theory .table-verb {
+	margin-right: 30px;
+	width: 400px;
+	
+	font-size: 0px;
+}
+
+
+.theory .table-verb div {
+	display: inline-block;
+	width: 90px;
+	padding: 5px;
+	
+	text-align: right;
+	vertical-align: top;
+	font-size: 15px;
+}
+
+
+.theory .table-verb div:nth-child(2n) {
+	text-align: left;
+}
+
 /*----/content/lesson_page-----*/
 
 /*-----content/game-----*/
@@ -1951,7 +1989,6 @@ div[class='active lex-lesson-path'] {
 	height: 24px;
 	border: 1.5px solid green;
 	padding-left: 4px;
-	outline: none;
 	
 	vertical-align: top;
 	font-size: 17px;
