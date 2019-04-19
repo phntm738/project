@@ -6,7 +6,7 @@ import string
 LANG = ''
 
 
-class LanguageContent:
+class LexContent:
     class Lesson:
         def __init__(self, section, order):
             self.section = section
@@ -81,7 +81,7 @@ class LanguageContent:
             self.section = s
 
         def lesson(self, order):
-            return LanguageContent.Lesson(self, order)
+            return LexContent.Lesson(self, order)
 
         def end(self):
             return self.language
@@ -95,4 +95,56 @@ class LanguageContent:
         self.language = l
 
     def section(self, name, url_name):
-        return LanguageContent.Section(self, name, url_name)
+        return LexContent.Section(self, name, url_name)
+
+
+class GramContent:
+    class Lesson:
+        def __init__(self, section, order):
+            self.section = section
+            try:
+                l = models.Lesson.objects.get(section=section.section, order=order)
+            except models.Lesson.DoesNotExist:
+                l = models.Lesson(section=section.section, order=order)
+                l.save()
+            self.lesson = l
+
+        def theory(self, theory):
+            t = models.TheoryUnit(lesson=self.lesson, theory=theory)
+            t.save()
+            return self
+
+        def task(self, type, task, answer):
+            t = models.TheoryTask(lesson=self.lesson, type=type, task=task, answer=answer)
+            t.save()
+            return self
+
+        def end(self):
+            return self.section
+
+    class Section:
+        def __init__(self, language, name, url_name):
+            self.language = language
+            try:
+                s = models.Section.objects.get(language=language.language, name=name, url_name=url_name)
+            except models.Section.DoesNotExist:
+                s = models.Section(language=language.language, name=name, url_name=url_name, sec_type='G')
+                s.save()
+            self.section = s
+
+        def lesson(self, order):
+            return LexContent.Lesson(self, order)
+
+        def end(self):
+            return self.language
+
+    def __init__(self, name, url_name):
+        try:
+            l = models.Language.objects.get(name=name, url_name=url_name)
+        except models.Language.DoesNotExist:
+            l = models.Language(name=name, url_name=url_name)
+            l.save()
+        self.language = l
+
+    def section(self, name, url_name):
+        return LexContent.Section(self, name, url_name)

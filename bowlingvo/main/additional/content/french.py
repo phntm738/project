@@ -1,10 +1,10 @@
 from .. import content_filler
 
 def main():
-    LanguageContent = content_filler.LanguageContent
+    LexContent = content_filler.LexContent
     content_filler.LANG = 'french'
 
-    fre = LanguageContent('Французский', 'french')
+    fre = LexContent('Французский', 'french')
     fre.section('Еда', 'food')\
         .lesson(1)\
             .word('завтрак', 'завтраки', 'le petit déjeuner', 'les petits déjeuners')\

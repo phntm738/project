@@ -28,31 +28,35 @@
         {% endfor %}
     </div>
     <div hidden id='gram-sections'>
-        {% for section, ability in gram_sections %}
-		<div class='gram-path {{ ability }}'>
-			<div class='gram-path-left'>˅</div>
-			<div class='gram-path-right'>˅</div>
-		</div>
-		<div class='gram-sec {{ ability }}'>
-            {% if ability != 'locked' %}
-                <a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}">
-            {% endif %}
-			    <div class='padding-right'></div>
-				<div class='sec-name'>
-                    {{ section.name }}
-			    </div>
-			    <div class='sec-url'>
-            {% if ability != 'locked' %}
-                выбрать
-            {% else %}
-                недоступен
-            {% endif %}
-			    </div>
-            {% if ability != 'locked' %}
-                </a>
-            {% endif %}
-        </div>
-        {% endfor %}
+        {% if gram_sections %}
+            {% for section, ability in gram_sections %}
+            <div class='gram-path {{ ability }}'>
+                <div class='gram-path-left'>˅</div>
+                <div class='gram-path-right'>˅</div>
+            </div>
+            <div class='gram-sec {{ ability }}'>
+                {% if ability != 'locked' %}
+                    <a href="{% url 'section' language_name=language.url_name section_name=section.url_name %}">
+                {% endif %}
+                    <div class='padding-right'></div>
+                    <div class='sec-name'>
+                        {{ section.name }}
+                    </div>
+                    <div class='sec-url'>
+                {% if ability != 'locked' %}
+                    выбрать
+                {% else %}
+                    недоступен
+                {% endif %}
+                    </div>
+                {% if ability != 'locked' %}
+                    </a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        {% else %}
+            <h2>Извините, для данного языка пока нет грамматических тем</h2>
+        {% endif %}
     </div>
 </div>
 

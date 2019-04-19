@@ -3,276 +3,88 @@ from .. import content_filler
 def main():
     LexContent = content_filler.LexContent
     GramContent = content_filler.GramContent
-    content_filler.LANG = 'english'
+    content_filler.LANG = 'spanish'
 
-    eng_lex = LexContent('Английский', 'english')
-    eng_lex.section('Еда', 'food')\
+    span_lex = LexContent('Испанский', 'spanish')
+    span_lex.section('Еда', 'comida')\
         .lesson(1)\
-            .word('завтрак', 'завтраки', 'breakfast', 'breakfasts')\
-            .word('хлеб', 'хлеба', 'bread', 'bread')\
-            .word('сыр', 'сыры', 'cheese', 'cheeses')\
-            .word('сливочное масло', 'сливочное масло', 'butter', 'butter')\
-            .word('йогурт', 'йогурты', 'yoghurt', 'yoghurts')\
-            .phrase('Я ем на завтрак тост и {}.', 'сыр', 'I eat a toast and {} for breakfast.', 'cheese')\
-            .phrase('Мой брат любит персиковый {}.', 'йогурт', 'My brother likes peach {}.', 'yoghurt')\
-            .phrase('{} - важный приём пищи.', 'Завтрак', '{} is an important meal.', 'Breakfast')\
+            .word('завтрак', 'завтраки', 'el desayuno', 'los desayunos')\
+            .word('хлеб', 'хлеба', 'el pan', 'los panes')\
+            .word('сыр', 'сыры', 'el queso', 'los quesos')\
+            .word('сливочное масло', 'сливочное масло', 'la manteca', 'las mantecas')\
+            .word('йогурт', 'йогурты', 'el yogurt', 'los yogures')\
+            .phrase('Я ем на завтрак тост и {}.', 'сыр', 'Como tostadas y {} para el desayuno.', 'queso')\
+            .phrase('Мой брат любит персиковый {}.', 'йогурт', 'A mi hermano le gusta el {} de durazno.', 'yogurt')\
+            .phrase('{} - важный приём пищи.', 'Завтрак', 'El {} es una comida importante..', 'desayuno')\
         .end()\
         .lesson(2)\
-            .word('чай', 'чаи', 'tea', 'teas')\
-            .word('кофе', 'кофе', 'coffee', 'coffee')\
-            .word('молоко', 'молоко', 'milk', 'milk')\
-            .word('хлопья', 'хлопья', 'cereals', 'cereals')\
-            .word('сахар', 'сахар', 'sugar', 'sugar')\
-            .phrase('Я не пью {} с молоком.', 'чай', 'I don\'t drink {} with milk.', 'tea')\
-            .phrase('Ты ешь {} на завтрак?', 'хлопья', 'Do you have {} for breakfast?', 'cereals')\
+            .word('чай', 'чаи', 'el té', 'los tés')\
+            .word('кофе', 'кофе', 'el café', 'los cafés')\
+            .word('молоко', 'молоко', 'la leche', 'la leche')\
+            .word('хлопья', 'хлопья', 'el cereal', 'los cereales')\
+            .word('сахар', 'сахар', 'el azucar', 'los azucares')\
+            .phrase('Я не пью {} с молоком.', 'чай', 'No bebo {} con leche.', 'té')\
+            .phrase('Ты ешь {} на завтрак?', 'хлопья', 'Comes {} para el desayuno?', 'cereal')\
         .end()\
         .lesson(3)\
-            .word('десерт', 'десерты', 'dessert', 'desserts')\
-            .word('торт', 'торты', 'cake', 'cakes')\
-            .word('печенье', 'печенья', 'biscuit', 'biscuits')\
-            .word('блин', 'блины', 'pancake', 'pancakes')\
-            .word('пирог', 'пироги', 'pie', 'pies')\
-            .phrase('Я люблю есть {} на завтрак.', 'блины', 'I like eating {} for breakfast.', 'pancakes')\
+            .word('десерт', 'десерты', 'el postre', 'los postres')\
+            .word('торт', 'торты', 'el pastel', 'los pasteles')\
+            .word('печенье', 'печенья', 'la galleta', 'las galletas')\
+            .word('блин', 'блины', 'el panqueque', 'los panqueques')\
+            .phrase('Я люблю есть {} на завтрак.', 'блины', 'Me gusta comer {} para el desayuno.', 'panqueques')\
         .end()\
         .lesson(4)\
-            .word('мороженое', 'мороженое', 'ice cream', 'ice cream')\
-            .word('варенье', 'варенья', 'jam', 'jams')\
-            .word('мёд', 'мёд', 'honey', 'honey')\
-            .word('сметана', 'сметана', 'sour cream', 'sour cream')\
-            .word('конфета', 'конфеты', 'candy', 'candies')\
-            .phrase('Какой вкус {} твой любимый?', 'мороженого', 'What is your favourite {} flavour?', 'ice cream')\
+            .word('мороженое', 'мороженое', 'el helado', 'los helados')\
+            .word('варенье', 'варенья', 'la mermelada', 'las marmeladas')\
+            .word('мёд', 'мёд', 'el cariño', 'el cariño')\
+            .word('сметана', 'сметана', 'la crema agria', 'la crema agria')\
+            .word('конфета', 'конфеты', 'el dulce', 'los dulces')\
+            .phrase('Какой вкус {} твой любимый?', 'мороженого', 'Cuál es tu sabor de {} favorito?', 'helado')\
         .end()\
         .lesson(5)\
-            .word('обед', 'обеды', 'supper', 'suppers')\
-            .word('ужин','ужины', 'dinner', 'dinners')\
-            .word('салат', 'салаты', 'salad', 'salads')\
-            .word('сок', 'соки', 'juice', 'juices')\
-            .word('стейк', 'стейки', 'steak', 'steaks')\
-            .phrase('Меня пригласили на {} к Роббинсонам.', 'ужин', 'I\'ve been invited for a {} with Robbinsons', 'dinner')\
-            .phrase('Я не очень люблю {}, но мне нравятся стейки.', 'салаты', 'I\'m not fond of {}, but I like steaks.', 'salads')\
-            .phrase('Вы бы хотели немного {}?', 'сока', 'Would you like some {}?', 'juice')\
+            .word('обед', 'обеды', 'el almuerzo', 'los almuerzos')\
+            .word('ужин','ужины', 'la cena', 'las cenas')\
+            .word('салат', 'салаты', 'la ensalada', 'las ensaladas')\
+            .word('сок', 'соки', 'el jugo', 'los jogos')\
+            .word('стейк', 'стейки', 'el filete', 'los filetes')\
+            .phrase('Я не очень люблю {}, но мне нравятся стейки.', 'салаты', 'Realmente no me gustan las {}, pero me gustan los filetes.', 'ensaladas')\
+            .phrase('Вы бы хотели немного {}?', 'сока', 'Te gustaría un poco de {}?', 'jugo')\
         .end()\
         .lesson(6)\
-            .word('фрукт', 'фрукты', 'fruit', 'fruits')\
-            .word('яблоко', 'яблоки', 'apple', 'apples')\
-            .word('апельсин', 'апельсины', 'orange', 'oranges')\
-            .word('груша', 'груши', 'pear', 'pears')\
-            .word('лимон', 'лимоны', 'lemon', 'lemons')\
-            .phrase('Какой твой любимый {}?', 'фрукт', 'What is your favourite {}?', 'fruit')\
-            .phrase('Это {} очень кислое.', 'яблоко', 'This {} is very sour.', 'apple')\
-            .phrase('{} - мой любимый фрукт.', 'Груша', '{} is my favourite fruit.', 'Pear')\
-        .end()\
-        .lesson(7)\
-            .word('персик', 'персики', 'peach', 'peaches')\
-            .word('банан', 'бананы', 'banana', 'bananas')\
-            .word('слива', 'сливы', 'plum', 'plums')\
-            .word('абрикос', 'абрикосы', 'apricot', 'apricots')\
-            .word('ананас', 'ананасы', 'pineapple', 'pineapples')\
-            .phrase('{} выращивают на юге.', 'Бананы', '{} are grown in the south.', 'Bananas')\
-            .phrase('В этой пицце есть {}.', 'ананасы', 'There are {} in this pizza.', 'pineapples')\
-            .phrase('Ты будешь {} или сливу?', 'персик', 'Will you take a {} or a plum?', 'peach')\
-        .end()\
-        .lesson(8)\
-            .word('ложка', 'ложки', 'spoon', 'spoons')\
-            .word('вилка', 'вилки', 'fork', 'forks')\
-            .word('нож', 'ножи', 'knife', 'knifes')\
-            .word('тарелка', 'тарелки', 'plate', 'plates')\
-            .word('чашка', 'чашки', 'cup', 'cups')\
-            .phrase('Я буду {} чая.', 'чашку', 'I would like a {} of tea.', 'cup')\
-            .phrase('Передайте мне {}, пожалуйста.', 'нож', 'Pass me the {}, please.', 'knife')\
-            .phrase('Добавьте столовую {} муки.', 'ложку', 'Add a table {} of flour.', 'spoon')\
-            .phrase('Используй {} и нож.', 'вилку', 'Use a {} and a knife.', 'fork')\
-        .end()\
-        .lesson(9)\
-            .word('овощ', 'овощи', 'vegetable', 'vegetables')\
-            .word('помидор', 'помидоры', 'tomato', 'tomatoes')\
-            .word('картофель', 'картофель', 'potato', 'potatoes')\
-            .word('морковь', 'морковь', 'carrot', 'carrots')\
-            .word('огурец', 'огурцы', 'cucumber', 'cucumbers')\
-            .phrase('Ты любишь {}?', 'овощи', 'Do you like {}?', 'vegetables')\
-            .phrase('{} оранжевая, а огурец зелёный', 'Морковь', '{} is orange and cucumber is green', 'Carrot')\
-        .end()\
-        .lesson(10)\
-            .word('капуста', 'капуста', 'cabbage', 'cabbages')\
-            .word('сельдерей', 'сельдерей', 'celery', 'celeries')\
-            .word('тыква', 'тыквы', 'pumpkin', 'pumpkins')\
-            .word('перец', 'перцы', 'pepper', 'peppers')\
-            .word('соль', 'соль', 'salt', 'salt')\
-            .phrase('Ты добавил {} в воду?', 'соль', 'Did you put {} in water?', 'salt')\
-            .phrase('Я не люблю {}, а ты?', 'сельдерей', 'I don\'t like {}, and you?', 'celery')\
-            .phrase('Она забыла купить {}.', 'перец', 'She forgot to buy a {}.', 'pepper')\
-        .end()\
-        .lesson(11)\
-            .word('мука', 'мука', 'flour', 'flour')\
-            .word('рис', 'рис', 'rice', 'rice')\
-            .word('паста', 'паста', 'pasta', 'pasta')\
-            .word('лапша', 'лапша', 'noodles', 'noodles')\
-            .word('орех', 'орехи', 'nut', 'nuts')\
-            .phrase('Надо купить {} и соль.', 'рис', 'We need to buy {} and salt.', 'rice')\
-            .phrase('На ужин у нас {}.', 'паста', 'We have {} for dinner.', 'pasta')\
-        .end()\
-        .lesson(12)\
-            .word('пшеница', 'пшеница', 'wheat', 'wheat')\
-            .word('кукуруза', 'кукуруза', 'corn', 'corn')\
-            .word('овёс', 'овёс', 'oat', 'oat')\
-            .word('гречка', 'гречка', 'buckwheat', 'buckwheat')\
-            .word('пшено', 'пшено', 'millet', 'millet')\
-            .phrase('Где выращивают {}?', 'пшеницу', 'Where is {} grown?', 'wheat')\
-        .end()\
-        .lesson(13)\
-            .word('рыба', 'рыбы', 'fish', 'fishes')\
-            .word('тунец', 'тунцы', 'tuna', 'tuna')\
-            .word('креветка', 'креветки', 'shrimp', 'shrimps')\
-            .word('лосось', 'лосось', 'salmon', 'salmon')\
-            .word('форель', 'форель', 'trout', 'trout')\
-            .phrase('Лосось - морская {}?', 'рыба', 'Is salmon a sea {}?', 'fish')\
-        .end()\
-        .lesson(14)\
-            .word('говядина', 'говядина', 'beef', 'beef')\
-            .word('ветчина', 'ветчина', 'ham', 'ham')\
-            .word('баранина', 'баранина', 'mutton', 'mutton')\
-            .word('свинина', 'свинина', 'pork', 'pork')\
-            .word('курятина', 'курятина', 'chicken', 'chicken')\
-            .phrase('У вас есть {} и сыр?', 'ветчина', 'Do you have {} and cheese?', 'ham')\
-        .end()\
-        .lesson(15)\
-            .word('пицца', 'пиццы', 'pizza', 'pizzas')\
-            .word('сосиска', 'сосиски', 'sausage', 'sausages')\
-            .word('каша', 'каши', 'porridge', 'porridges')\
-            .word('специя', 'специи', 'spice', 'spices')\
-            .word('чеснок', 'чеснок', 'garlic', 'garlic')\
-            .phrase('{} отпугивает вампиров.', 'Чеснок', '{} scares off vampires.', 'Garlic')\
-            .phrase('Купи в магазине {}.', 'сосиски', 'Buy some {} in the shop.', 'sausages')\
-        .end()\
-        .lesson(16)\
-            .word('соус', 'соусы', 'sauce', 'sauces')\
-            .word('кетчуп', 'кетчупы', 'ketchup', 'ketchups')\
-            .word('майонез', 'майонезы', 'mayonnaise', 'mayonnaises')\
-            .word('уксус', 'уксусы', 'vinegar', 'vinegars')\
-            .word('горчица', 'горчицы', 'mustard', 'mustards')\
-            .phrase('Я буду картофель с сырным {}.', 'соусом', 'I\'d like french fries with cheese {}.', 'sauce')\
-        .end()\
-        .lesson(17)\
-            .word('вкус', 'вкусы', 'taste', 'tastes')\
-            .word('сладкий', 'сладкие', 'sweet', 'sweet')\
-            .word('солёный', 'солёные', 'salty', 'salty')\
-            .word('кислый', 'кислые', 'sour', 'sour')\
-            .word('горький', 'горькие', 'bitter', 'bitter')\
-            .word('острый', 'острые', 'spicy', 'spicy')\
-            .word('пресный', 'пресные', 'insipid', 'insipid')\
-            .phrase('Этот суп {}, ты добавил соль?', 'пресный', 'This soup is {}, did you add salt?', 'insipid')\
+            .word('фрукт', 'фрукты', 'la fruta', 'las frutas')\
+            .word('яблоко', 'яблоки', 'la manzana', 'las manzanas')\
+            .word('апельсин', 'апельсины', 'la naranja', 'las naranjas')\
+            .word('груша', 'груши', 'la pera', 'las peras')\
+            .word('лимон', 'лимоны', 'el limon', 'los limones')\
+            .phrase('Какой твой любимый {}?', 'фрукт', 'Cuál es tu {} favorita?', 'fruta')\
+            .phrase('Это {} очень кислое.', 'яблоко', 'Esta {} es muy amarga.', 'manzana')\
+            .phrase('{} - мой любимый фрукт.', 'Груша', 'La {} es mi fruta favorita.', 'pera')\
         .end()\
     .end()\
-    .section('Город', 'city')\
+    .section('Город', 'cuidad')\
         .lesson(1)\
-            .word('город', 'города', 'city', 'cities')\
-            .word('городок', 'городки', 'town', 'towns')\
-            .word('дорога', 'дороги', 'road', 'roads')\
-            .word('здание', 'здания', 'building', 'buildings')\
-            .word('столица', 'столицы', 'capital', 'capitals')\
-            .phrase('Давай заедем в мой любимый {}.', 'городок', 'Let\'s visit my favourite {}.', 'town')\
+            .word('город', 'города', 'la ciudad', 'las ciudades')\
+            .word('городок', 'городки', 'el pueblo', 'los pueblos')\
+            .word('дорога', 'дороги', 'el camino', 'los caminos')\
+            .word('здание', 'здания', 'el costruccion', 'los construcciones')\
+            .word('столица', 'столицы', 'la capital', 'las capitales')\
+            .phrase('Давай заедем в мой любимый {}.', 'городок', 'Vamos a mi {} favorito', 'pueblo')\
         .end()\
         .lesson(2)\
-            .word('улица', 'улицы', 'street', 'streets')\
-            .word('проспект', 'проспекты', 'avenue', 'avenues')\
-            .word('площадь', 'площади', 'square', 'squares')\
-            .word('квартал', 'кварталы', 'block', 'blocks')\
-            .word('район', 'районы', 'district', 'districts')\
-            .phrase('Пройдите этот {} и поверните налево.', 'квартал', 'Go through this {} and turn left.', 'block')\
-            .phrase('Этот {} проходит через весь город с севера на юг.', 'проспект', 'This {} goes through the whole city from north to south.', 'avenue')\
+            .word('улица', 'улицы', 'la calle', 'las calles')\
+            .word('проспект', 'проспекты', 'la avenida', 'las avenidas')\
+            .word('квартал', 'кварталы', 'el cuarto', 'los cuartos')\
+            .word('район', 'районы', 'el distrito', 'los distritos')\
+            .phrase('Пройдите этот {} и поверните налево.', 'квартал', 'Pasa por este {} y gira a la izquierda.', 'cuarto')\
+            .phrase('Этот {} проходит через весь город с севера на юг.', 'проспект', 'Esta {} atraviesa la ciudad de norte a sur.', 'avenida')\
         .end()\
         .lesson(3)\
-            .word('пекарня', 'пекарни', 'bakery', 'bakeries')\
-            .word('продуктовый магазин', 'продуктовые магазины', 'grocery', 'groceries')\
-            .word('мясной магазин', 'мясные магазины', 'butcher\'s shop', 'butcher\'s shops')\
-            .word('супермаркет', 'супермаркеты', 'supermarket', 'supermarkets')\
+            .word('пекарня', 'пекарни', 'la panadería', 'las panaderías')\
+            .word('продуктовый магазин', 'продуктовые магазины', 'la tienda', 'las tiendas')\
+            .word('супермаркет', 'супермаркеты', 'el supermercado', 'los supermercados')\
             .word('торговый центр', 'торговые центры', 'shopping mall', 'shopping malls')\
             .word('кафе', 'кафе', 'cafe', 'cafes')\
             .phrase('По дороге домой они зашли в {}.', 'торговый центр', 'On the way back home they visited a {}.', 'shopping mall')\
-        .end()\
-        .lesson(4)\
-            .word('школа', 'школы', 'school', 'schools')\
-            .word('больница', 'больницы', 'hospital', 'hospitals')\
-            .word('театр', 'театры', 'theatre', 'theatres')\
-            .word('кинотеатр', 'кинотеатры', 'cinema', 'cinemas')\
-            .word('галерея', 'галереи', 'art gallery', 'art galleries')\
-            .phrase('Давай сходим в {}.', 'театр', 'Let\'s go to the {}.', 'theatre')\
-        .end()\
-        .lesson(5)\
-            .word('аптека', 'аптеки', 'pharmacy', 'pharmacies')\
-            .word('почта', 'почты', 'post office', 'post offices')\
-            .word('библиотека', 'библиотеки', 'library', 'libraries')\
-            .word('церковь', 'церкви', 'church', 'churches')\
-            .word('мечеть', 'мечети', 'mosque', 'mosques')\
-            .phrase('На нашей улице недавно открылась {}.', 'библиотека', 'A {} has opened on our street recently.', 'library')\
-            .phrase('{} находится за углом.', 'Аптека', 'The {} is around the corner.', 'pharmacy')\
-        .end()\
-        .lesson(6)\
-            .word('клуб', 'клубы', 'club', 'clubs')\
-            .word('вокзал', 'вокзалы', 'railway station', 'railway stations')\
-            .word('аэропорт', 'аэропорты', 'airport', 'airports')\
-            .word('банк', 'банки', 'bank', 'banks')\
-            .word('музей', 'музеи', 'museum', 'museums')\
-            .word('ресторан', 'рестораны', 'restaurant', 'restaurants')\
-            .phrase('Где находится вегетарианский {}?', 'ресторан', 'Where is a vegetarian {}?', 'restaurant')\
-        .end()\
-        .lesson(7)\
-            .word('кладбище', 'кладбища', 'graveyard', 'graveyard')\
-            .word('отель', 'отели', 'hotel', 'hotels')\
-            .word('река', 'реки', 'river', 'rivers')\
-            .word('мост', 'мосты', 'bridge', 'bridges')\
-            .word('набережная', 'набережные', 'embankment', 'embankments')\
-            .phrase('{} Темзы - очень красивое место.', 'Набережная', 'The Thames {} is a beautiful place.', 'embankment')\
-            .phrase('Какая {} протекает через Эдинбург?', 'река', 'What {} flows through Edinburgh?', 'river')\
-        .end()\
-        .lesson(8)\
-            .word('цирк', 'цирки', 'circus', 'circuses')\
-            .word('дворец', 'дворцы', 'palace', 'palaces')\
-            .word('книжный магазин', 'книжные магазины', 'bookstore', 'bookstores')\
-            .word('кондитерская', 'кондитерская', 'confectionery', 'confectioneries')\
-            .word('парк', 'парки', 'park', 'parks')\
-            .phrase('Какой {} самый известный?', 'парк', 'What {} is the most famous?', 'park')\
-        .end()\
-        .lesson(9)\
-            .word('аллея', 'аллеи', 'alley', 'alleys')\
-            .word('пешеходный переход', 'пешеходные переходы', 'crosswalk', 'crosswalks')\
-            .word('светофор', 'светофоры', 'traffic light', 'traffic lights')\
-            .word('фонарь', 'фонари', 'lantern', 'lanterns')\
-            .word('фонтан', 'фонтаны', 'fountain', 'fountains')\
-            .phrase('Эта {} проходит через центр города.', 'аллея', 'This {} goes through the centre of the city.', 'alley')\
-        .end()\
-        .lesson(10)\
-            .word('поворот', 'повороты', 'turn', 'turns')\
-            .word('перекрёсток', 'перекрёстки', 'crossroad', 'crossroads')\
-            .word('забор', 'заборы', 'fence', 'fences')\
-            .word('тротуар', 'тротуары', 'sidewalk', 'sidewalks')\
-            .word('ворота', 'ворота', 'gate', 'gates')\
-            .phrase('На этих выходных я хочу покрасить {} в саду.', 'забор', 'This weekend I want to paint the {} in the garden.', 'fence')\
-        .end()\
-        .lesson(11)\
-            .word('вход', 'входы', 'entrance', 'entrances')\
-            .word('выход', 'выходы', 'exit', 'exits')\
-            .word('рекламный щит', 'рекламные щиты', 'billboard', 'billboards')\
-            .word('сад', 'сады', 'garden', 'gardens')\
-            .word('бульвар', 'бульвары', 'boulevard', 'boulevards')\
-            .phrase('Где находится {} в метро?', 'вход', 'Where is the subway {}?', 'entrance')\
-        .end()\
-        .lesson(12)\
-            .word('шоссе', 'шоссе', 'highway', 'highways')\
-            .word('парковка', 'парковки', 'parking', 'parkings')\
-            .word('центр города', 'центры города', 'downtown', 'downtowns')\
-            .word('жилые кварталы города', 'жилые кварталы города', 'uptown', 'uptowns')\
-            .word('жилой район', 'жилые районы', 'residental area', 'residental areas')\
-            .phrase('В центре города {} платная.', 'парковка', '{} in the downtown is paid.', 'Parking')\
-            .phrase('{} позволяют быстрее выехать из города.', 'Шоссе', '{} allow to leave the city faster.', 'Highways')\
-        .end()\
-        .lesson(13)\
-            .word('округ', 'округи', 'district/2', 'districts/2')\
-            .word('пригород', 'пригороды', 'suburb', 'suburbs')\
-            .word('пригородный поезд', 'пригородные поезда', 'local train', 'local trains')\
-            .word('сельская местность', 'сельская местность', 'countryside', 'countryside')\
-            .word('деревня', 'деревни', 'village', 'villages')\
-            .phrase('Париж поделён на двадцать {}.', 'округов', 'Paris is divided into twenty {}.', 'districts')\
         .end()\
     .end()\
     .section('Транспорт', 'transport')\

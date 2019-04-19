@@ -15,8 +15,14 @@ class GameStartView(LoginRequiredMixin, View):
     template_name = 'main/startgame.html'
 
     def get(self, request, language_name):
+        fs = FinishedSection.objects.filter(user=request.user)
+        fs = [sec for sec in fs if sec.section.language.url_name == language_name]
+        if len(fs) == 0:
+            locked = True
+        else:
+            locked = False
         language = Language.objects.get(url_name=language_name)
-        return render(request, self.template_name, {'language': language})
+        return render(request, self.template_name, {'locked': locked, 'language': language})
 
     def post(self, request, language_name):
         frames = request.POST.get('frames')
@@ -149,17 +155,17 @@ def count_score(score_table):
     return score
 
 
-
-
-
 @login_required(login_url='/main/login')
 def endgame(request, language_name):
-    game = FrameRecord.objects.get(user=request.user)
-    score_table = json.loads(game.score_table)
-    score = count_score(score_table)
-    game.delete()
-    profile = UserProfile.objects.get(user=request.user)
-    profile.score += score
-    profile.save()
-    language_title = Language.objects.get(url_name=language_name).name
-    return render(request, 'main/endgame.html', {'language_title': language_title, 'score': score, 'language_name': language_name})
+    try:
+        game = FrameRecord.objects.get(user=request.user)
+        score_table = json.loads(game.score_table)
+        score = count_score(score_table)
+        game.delete()
+        profile = UserProfile.objects.get(user=request.user)
+        profile.score += score
+        profile.save()
+        language_title = Language.objects.get(url_name=language_name).name
+        return render(request, 'main/endgame.html', {'language_title': language_title, 'score': score, 'language_name': language_name})
+    except FrameRecord.DoesNotExist:
+        return redirect('language', language_name=language_name)

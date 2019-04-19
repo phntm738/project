@@ -7,13 +7,17 @@
 
 <div class='game-lobby'>
 	<h1>Игра</h1>
-	<h2>Введите число фреймов, которое хотели бы пройти</h2>
-	<div class='error'>{{ error_message }}</div>
-	<form action="{% url 'startgame' language_name=language.url_name %}" method="post">
-		{% csrf_token %}
-		<input type="text" name="frames" class='frames-number'>
-		<input type="submit" value="Начать игру" class='start-button'>
-	</form>
+	{% if locked %}
+		<h2>Игра доступна только после прохождения как минимум 1 секции</h2>
+	{% else %}
+		<h2>Введите число фреймов, которое хотели бы пройти</h2>
+		<div class='error'>{{ error_message }}</div>
+		<form action="{% url 'startgame' language_name=language.url_name %}" method="post">
+			{% csrf_token %}
+			<input type="text" name="frames" class='frames-number'>
+			<input type="submit" value="Начать игру" class='start-button'>
+		</form>
+	{% endif %}
 	<a href="{% url 'language' language_name=language.url_name %}" class='game-return'>Вернуться назад</a>
 </div>
 
