@@ -63,12 +63,34 @@ body {
 }
 
 
-.footer .design-by {
-	color: white;
+.footer .copyright {
+	float: left;
+	margin-left: 7px;
+	
+	font-size: 13px;
 }
 
 
-.footer .design-by img {
+.footer .copyright span {
+	font-size: 11.75px;
+}
+
+
+.footer .ref-container {
+	float: right;
+	margin-top: 4px;
+	margin-right: 7px;
+}
+
+
+.footer .reference {
+	margin-bottom: 3px;
+	
+	text-align: right;
+}
+
+
+.footer .reference img {
 	width: 15px;
 	height: 12px;
 }
@@ -795,7 +817,7 @@ label[for='submenu-position']{
 	padding: 0;
 	padding-left: 3px;
 	border: 0;
-	border: 2px solid lightgray;
+	border: 2px solid gray;
 	cursor: pointer;
 	transition: all 0.3s linear;
 	
@@ -982,6 +1004,7 @@ p.avatar-addition-attention {
 .greetings {
 	margin-top: 40px;
 	margin-bottom: 10px;
+	cursor: default;
 	
 	text-align: center;
 	font-family: 'Roboto Condensed', sans-serif;
@@ -996,6 +1019,7 @@ p.avatar-addition-attention {
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
+	cursor: default;
 
     text-align: center;
     font-size: 22px;
@@ -1006,7 +1030,7 @@ p.avatar-addition-attention {
 	width: 400px;
     margin-left: auto;
     margin-right: auto;
-	margin-bottom: 25px;
+	margin-bottom: 40px;
 	margin-top: 15px;
 }
 
@@ -1148,7 +1172,7 @@ p.avatar-addition-attention {
 }
 
 
-#lex-button:hover, #gram-button:hover {
+#lex-button:hover, #gram-button:hover, .highlight {
 	background: rgba(0, 128, 0, 0.5);
 }
 
@@ -1157,6 +1181,7 @@ p.avatar-addition-attention {
 	margin: auto;
 	width: 700px;
 	margin-bottom: 15px;
+	font-size: 0px;
 }
 
 
@@ -1167,11 +1192,21 @@ p.avatar-addition-attention {
 	border-top-left-radius: 60.5px;
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
-	margin-right: 15px;
-	margin-bottom: 15px;
+	margin-bottom: 23.75px;
+	margin-right: 23.75px;
 	transition: all 0.5s linear;
 	
 	background-color: white;
+}
+
+
+#lex-sections a:nth-child(5n) .lex-sec {
+	margin-right: 0px;
+}
+
+
+#lex-sections a:nth-last-child(-n+5) .lex-sec {
+	margin-bottom: 0px;
 }
 
 
@@ -1189,7 +1224,6 @@ p.avatar-addition-attention {
 	
 	background-color: rgba(0, 0, 0, 0.2);
     text-align: center;
-    font-size: 30px;
 	color: black;
 }
 
@@ -1215,6 +1249,7 @@ p.avatar-addition-attention {
     text-align: center;
 	font-family: 'Roboto Condenced', sans-serif;
     text-decoration: none;
+	font-size: 17px;
 	color: black;
 }
 
@@ -1348,9 +1383,9 @@ p.avatar-addition-attention {
 	margin: auto;
 	margin-bottom: 40px;
 	width: 300px;
-	height: 35px;
+	height: 33px;
 	padding-left: 10px;
-	padding-top: 3px;
+	padding-top: 5px;
 	border-bottom: 5px solid green;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -1489,6 +1524,7 @@ div[class='active lex-lesson-path'] {
 	margin: auto;
 	margin-bottom: 30px;
 	width: 700px;
+	min-height: 250px;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	border-radius: 10px;
@@ -1661,6 +1697,7 @@ div[class='active lex-lesson-path'] {
 .lesson-content .answer-text {
 	margin: 0;
 	margin-left: 50px;
+	margin-bottom: 71px;
 	width: 150px;
 	height: 29px;
 	padding: 0;
