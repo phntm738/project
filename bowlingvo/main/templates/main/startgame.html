@@ -11,6 +11,8 @@
 		<h2>Игра доступна только после прохождения как минимум 1 секции</h2>
 	{% else %}
 		<h2>Введите число фреймов, которое хотели бы пройти</h2>
+		<h4 style="text-align: center">Фрейм - боулинговый термин. Этап игры, установка новых 10 кеглей</h4>
+		<h6 style="text-align: center">Cтоимость игры - 20 очков</h6>
 		<div class='error'>{{ error_message }}</div>
 		<form action="{% url 'startgame' language_name=language.url_name %}" method="post">
 			{% csrf_token %}
