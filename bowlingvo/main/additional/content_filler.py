@@ -1,5 +1,4 @@
 from .. import models
-from django.db.models import Q
 import random
 import string
 
@@ -21,25 +20,23 @@ class LexContent:
             try:
                 w = models.Word.objects.get(sing_form=sing, plur_form=plur)
                 key = w.key
-                if w.sing_form != sing: w.sing_form = sing
-                if w.plur_form != plur: w.plur_form = plur
             except models.Word.DoesNotExist:
                 key = 'w' + ''.join([random.choice(string.ascii_letters + string.digits) for n in range(9)])
                 w = models.Word(key=key, language='russian', sing_form=sing, plur_form=plur)
-            w.save()
+                w.save()
             try:
                 wf = models.Word.objects.get(sing_form=fsing, plur_form=fplur)
-                if wf.key != key: wf.key = key
-                if w.sing_form != sing: w.sing_form = sing
-                if w.plur_form != plur: w.plur_form = plur
+                if wf.key != key:
+                    wf.key = key
+                    wf.save()
             except models.Word.DoesNotExist:
                 wf = models.Word(key=key, language=LANG, sing_form=fsing, plur_form=fplur)
-            wf.save()
+                wf.save()
             try:
                 k = models.Key2Lesson.objects.get(lesson=self.lesson, key=key)
             except models.Key2Lesson.DoesNotExist:
                 k = models.Key2Lesson(lesson=self.lesson, key=key)
-            k.save()
+                k.save()
             return self
 
         def phrase(self, rus, rans, frgn, fans):

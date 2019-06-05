@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 from ...models import *
 from ...additional import content
+from django.db import transaction
 
 
 class Command(BaseCommand):
@@ -9,6 +10,7 @@ class Command(BaseCommand):
     def list_languages(self):
         return getattr(content, '__all__')
 
+    @transaction.atomic
     def handle(self, *args, **options):
         Word.objects.all().delete()
         Phrase.objects.all().delete()
