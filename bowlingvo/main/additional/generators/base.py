@@ -203,7 +203,6 @@ class BaseGenerator:
             if pins == 9:
                 lex_secs = [s for s in sections if s.sec_type == 'L']
                 sec = random.choice(lex_secs)
-                pins += 1
             else:
                 sec = random.choice(sections)
             les = random.choice(list(sec.lesson_set.all()))

@@ -4,11 +4,11 @@ from .forms import LoginForm
 
 from . import views
 
-from django.conf import urls
-urls.handler404 = 'main.views.handler404'  # page not found
-urls.handler500 = 'main.views.handler500'  # server error
-urls.handler403 = 'main.views.handler403'  # permission denied
-urls.handler400 = 'main.views.handler400'  # bad request
+# from django.conf import urls
+# urls.handler404 = 'main.views.handler404'  # page not found
+# urls.handler500 = 'main.views.handler500'  # server error
+# urls.handler403 = 'main.views.handler403'  # permission denied
+# urls.handler400 = 'main.views.handler400'  # bad request
 
 
 urlpatterns = [

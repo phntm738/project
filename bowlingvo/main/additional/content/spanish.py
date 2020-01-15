@@ -15,7 +15,7 @@ def main():
             .word('йогурт', 'йогурты', 'el yogurt', 'los yogures')\
             .phrase('Я ем на завтрак тост и {}.', 'сыр', 'Como tostadas y {} para el desayuno.', 'queso')\
             .phrase('Мой брат любит персиковый {}.', 'йогурт', 'A mi hermano le gusta el {} de durazno.', 'yogurt')\
-            .phrase('{} - важный приём пищи.', 'Завтрак', 'El {} es una comida importante..', 'desayuno')\
+            .phrase('{} - важный приём пищи.', 'Завтрак', 'El {} es una comida importante.', 'desayuno')\
         .end()\
         .lesson(2)\
             .word('чай', 'чаи', 'el té', 'los tés')\

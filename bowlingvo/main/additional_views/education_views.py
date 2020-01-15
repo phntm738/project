@@ -68,7 +68,7 @@ def section_page(request, language_name, section_name):
         elif lesson[1] == 'active':
             lesson[1] = 'finished'
     return render(request, 'main/section_page.html',
-                  {'profile': profile, 'language': language, 'section': section, 'lessons':all_lessons})
+                  {'profile': profile, 'language': language, 'section': section, 'lessons': all_lessons})
 
 
 def finished_section_check(user, section):
